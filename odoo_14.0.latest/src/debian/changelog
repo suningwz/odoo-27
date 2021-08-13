@@ -1,4 +1,4 @@
-odoo (14.0.20210810) stable; urgency=low
+odoo (14.0.20210812) stable; urgency=low
 
   * Add missing sources, remove sourceless parts, and add lintian
     overrides where needed (Closes: #973603, #973605)
