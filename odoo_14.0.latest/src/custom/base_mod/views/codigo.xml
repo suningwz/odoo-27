@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="codigo_unidades" model="ir.ui.view">
+            <field name="name">codigo.unidades</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/field[@name='mobile']" position="after">
+                    <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="transportadora" string="Transportadora" attrs="{'invisible':[('type','!=','other')]}"/>
+                </xpath>
+            </field>
+        </record>
+	<record id="codigo_unidades_contact" model="ir.ui.view">
+            <field name="name">codigo.unidades.contact</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
