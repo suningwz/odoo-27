@@ -5,7 +5,7 @@
     'version': '14.0.1',
     'author': 'Allser',
     'sequence': 0,
-    'depends': ['base', 'project', 'name_unit_projec'
+    'depends': ['base', 'project'
                 ],
     'data': [
         'views/unit.xml',

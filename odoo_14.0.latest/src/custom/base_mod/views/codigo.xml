@@ -10,7 +10,7 @@
                 <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/field[@name='mobile']" position="after">
                     <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
-                    <field name="transportadora" string="Transportadora" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tdv" string="TDV" attrs="{'invisible':[('type','!=','other')]}"/>
                 </xpath>
             </field>
         </record>
@@ -23,6 +23,7 @@
                 <xpath expr="//field[@name='country_id']" position="after">
                     <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tdv" string="TDV" attrs="{'invisible':[('type','!=','other')]}"/>
                 </xpath>
             </field>
         </record>

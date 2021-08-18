@@ -7,10 +7,8 @@ class ejemplo_nueva_clase(models.Model):
 
     codigo = fields.Char('Código')
     tipo_unidad = fields.Selection([('n/a','N/A'),('atm', 'ATM'), ('edf', 'EDF'), ('ofc', 'OFC')],'Unidad', default='n/a')
-    transportadora = fields.Selection([('n/a', 'N/A'), ('op1', 'ATLAS'), ('op2', 'BRINKS'), ('op3', 'TRANSBANK')],
-                                      'transporte',
-                                      default='n/a')
-    x = fields.Char()
+    tdv = fields.Selection([('n/a', 'N/A'), ('op1', 'ATLAS'), ('op2', 'BRINKS'), ('op3', 'TRANSBANK'), ('op4', 'VATCO'), ('op5', 'SUC')], 'transporte', default='n/a')
+    
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         if not args:

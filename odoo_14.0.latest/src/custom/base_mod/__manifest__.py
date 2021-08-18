@@ -5,7 +5,7 @@
     'version': '14.0.1',
     'author': 'Allser',
     'sequence': 0,
-    'depends': ['base', 'contacts', 'base_mod'
+    'depends': ['base', 'contacts'
                 ],
     'data': [
         'views/codigo.xml',
