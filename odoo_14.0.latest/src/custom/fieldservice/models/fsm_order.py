@@ -108,7 +108,7 @@ class FSMOrder(models.Model):
     )
 
     location_id = fields.Many2one(
-        "fsm.location", string="Location", index=True, required=True
+        "fsm.location", string="Location", index=True, required=False
     )
     location_directions = fields.Char(string="Location Directions")
     request_early = fields.Datetime(
