@@ -44,7 +44,6 @@
                     </group>
                     <field
                         name="move_ids"
-                        readonly="1"
                         attrs="{'invisible': [('move_ids', '=', False)]}"
                     >
                         <tree
