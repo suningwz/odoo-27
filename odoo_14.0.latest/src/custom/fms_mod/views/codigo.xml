@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="codigo_unidades" model="ir.ui.view">
+            <field name="name">modificacion.project</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='calendar_event_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group/group/field[@name='location_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group/group/field[@name='location_id']" position="after">
+                    <field name="cajero" string="Unidad" readonly="True" />
+                </xpath>
+                <xpath expr="//group/group/field[@name='person_id']" position="after">
+                    <field name="anotaciones" string="Observaciones" />
+                    <field name="tipo_unidad" string="Tipo de unidad" />
+                    <field name="tdv" string="Transportadora" />
+                </xpath>
+            </field>
+        </record>
+	<record id="codigo_unidades_contact" model="ir.ui.view">
+            <field name="name">codigo.unidades.contact</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
+                    <field name="tdv" string="TDV" attrs="{'invisible':[('type','!=','other')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
