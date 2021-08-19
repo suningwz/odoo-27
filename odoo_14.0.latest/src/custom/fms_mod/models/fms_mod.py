@@ -6,12 +6,12 @@ class ejemplo_nueva_clase(models.Model):
     _inherit = 'fsm.order'
 
     cajero = fields.Char(string='Nombre del cajero', forcesave=1)
-    anotaciones = fields.Text(string='restricciones', readonly = 'True', forcesave=1)
+    anotaciones = fields.Text(string='restricciones', forcesave=1)
     tipo_unidad = fields.Selection([('n/a', 'N/A'), ('atm', 'ATM'), ('edf', 'EDF'), ('ofc', 'OFC')], 'Unidad',
-                                   default='n/a', readonly = 'True', forcesave=1)
+                                   default='n/a',  forcesave=1)
     tdv = fields.Selection(
         [('n/a', 'N/A'), ('op1', 'ATLAS'), ('op2', 'BRINKS'), ('op3', 'TRANSBANK'), ('op4', 'VATCO'), ('op5', 'SUC')],
-        'transporte', default='n/a', readonly = 'True', forcesave=1)
+        'transporte', default='n/a', forcesave=1)
 
     @api.onchange('project_task_id')
     def missing_information(self):
