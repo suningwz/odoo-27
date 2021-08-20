@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="codigo_unidades" model="ir.ui.view">
+            <field name="name">unit.proje</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.quick_create_task_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="partner_id" string = "Cajero"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="tipo_unidad" string = "Tipo"/>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="codigo_cajeros" model="ir.ui.view">
+            <field name="name">unit.proje</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="tipo_unidad" string = "Tipo" class="o_kanban_small_column o_kanban_project_tasks"/>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>
