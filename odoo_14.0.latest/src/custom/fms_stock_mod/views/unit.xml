@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page" position="before">
                     <page string="Elementos del tecnico">
-
+                        <field name="inventario" widget="many2many"/>
                     </page>
                     <page string="Bolsa del tecnico">
 
