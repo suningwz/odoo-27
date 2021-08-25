@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="gastos_view" model="ir.ui.view">
+            <field name="name">expenses.view</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='execution_page']" name="bag" position="after">
+                    <page string="Bolsa del tecnico">
+                        <group string="Bolsa" name="bag_tecnico">
+                            <field name="bolsa_total_tecnico" readonly='1' force_save='1'/>
+                            <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
+                        </group>
+
+                        <field name="gastos_tecnico" widget="many2many"/>
+
+                    </page>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>
