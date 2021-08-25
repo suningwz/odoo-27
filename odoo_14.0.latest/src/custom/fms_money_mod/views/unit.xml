@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="codigo_unidades" model="ir.ui.view">
+            <field name="name">expenses.view</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="///group[@name='identification_group']" position="after">
+                    <group string="Bolsa" name="bolsa_tecnico">
+                        <field name="bolsa_dineros"/>
+                        <field name="bolsa_total"/>
+                        <button name="ingresar_dinero" type="object" string="Ingresar dinero" icon="fa-bitcoin" class="oe_link"/>
+                    </group>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

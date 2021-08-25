@@ -7,12 +7,9 @@
             <field name="inherit_id" ref="fieldservice.fsm_order_form" />
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page" position="before">
+                <xpath expr="//notebook/page[@name='instructions_page']" name="elements" position="before">
                     <page string="Elementos del tecnico">
                         <field name="inventario" widget="many2many"/>
-                    </page>
-                    <page string="Bolsa del tecnico">
-
                     </page>
                 </xpath>
             </field>
