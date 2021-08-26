@@ -24,6 +24,7 @@
                 <form>
                     <group string="Personal">
                         <div class="container">
+                            <field name="estado" invisible="1"/>
                             <div class="mb-3">
                                 <p class="h3">Tecnico</p>
                                 <field name="personal" string="tecnico" domain="[('function', '=', 'TECNICO')]"/>
@@ -32,11 +33,15 @@
                                 <p class="fs-3">Dinero a solicitar</p>
                                 <field name="bolsa_dineros"/>
                             </div>
-                            <button name="prueba" icon="fa-arrow-right" type="object" string="Solicitar" class="btn-primary"/>
+                            <div class="h3" attrs="{'invisible': [('estado', '!=', 'p3')]}">
+                                <p class="fs-3">Motivo</p>
+                                <field name="motivo"/>
+                            </div>
                         </div>
                     </group>
                     <group string="Aprovacion">
                         <div class="container">
+                            <field name="estado" invisible="1"/>
                             <div class="h3">
                                 <p class="fs-3">Total actual</p>
                                 <field name="bolsa_total" readonly="1" force_save="1"/>
@@ -45,7 +50,17 @@
                                 <p class="fs-3">Quien solicita</p>
                                 <field name="solicitado" force_save="1" readonly="1"/>
                             </div>
-                            <button name="prueba" icon="fa-arrow-right" type="object" string="Aprobar" class="btn-primary"/>
+                            <div class="h3" attrs="{'invisible': [('estado', '!=', 'p1')]}">
+                                <p class="fs-3">Motivo</p>
+                                <field name="motivo"/>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <button name="aprovacion_exporte" icon="fa-arrow-right" type="object" string="Aprobar" class="btn-primary col-md-4"/>
+                                    <p class="col-md-4"> </p>
+                                    <button name="cancelado" icon="fa-arrow-right" type="object" string="Cancelar" class="btn-primary col-md-4"/>
+                                </div>
+                            </div>
                         </div>
                     </group>
                 </form>
