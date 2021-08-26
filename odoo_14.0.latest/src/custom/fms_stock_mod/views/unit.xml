@@ -11,6 +11,9 @@
                     <page string="Elementos del tecnico">
                         <field name="inventario" widget="many2many"/>
                     </page>
+                    <page string="Solicitud de elementos" name="solicitud">
+                        <field name="transferencias" widget="many2many"/>
+                    </page>
                 </xpath>
             </field>
        </record>

@@ -7,6 +7,8 @@ class almacen_tecnico(models.Model):
 
     inventario = fields.One2many('stock.quant','opuesto', readonly=1)
 
+    transferencias = fields.One2many('stock.picking', 'opuesto')
+
     @api.onchange('person_id')
     def default_inventario(self):
         warehouse_ids = self.env["stock.warehouse"].search(
@@ -42,6 +44,10 @@ class opuesto_tecnico(models.Model):
 
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
+class opuesto_tecnico(models.Model):
+    _inherit = 'stock.picking'
+
+    opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
 
 
