@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id='bag_action' model='ir.actions.act_window'>
+            <field name="name">solicitudes_bolsa</field>
+            <field name="res_model">solicitudes.bolsa</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="event_tag_view_tree" model="ir.ui.view">
+            <field name="name">solicitudes_bolsa.tree</field>
+            <field name="model">solicitudes.bolsa</field>
+            <field name="arch" type="xml">
+                <tree string="Event Tags Categories">
+                    <field name="bolsa_total"/>
+                    <field name="personal"/>
+                    <field name="solicitado"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+        <record id="bag_form" model="ir.ui.view">
+            <field name="name">solicitudes_bolsa.form</field>
+            <field name="model">solicitudes.bolsa</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Personal">
+                        <div class="container">
+                            <div class="mb-3">
+                                <p class="h3">Tecnico</p>
+                                <field name="personal" string="tecnico" domain="[('function', '=', 'TECNICO')]"/>
+                            </div>
+                            <div class="h3">
+                                <p class="fs-3">Dinero a solicitar</p>
+                                <field name="bolsa_dineros"/>
+                            </div>
+                            <button name="prueba" icon="fa-arrow-right" type="object" string="Solicitar" class="btn-primary"/>
+                        </div>
+                    </group>
+                    <group string="Aprovacion">
+                        <div class="container">
+                            <div class="h3">
+                                <p class="fs-3">Total actual</p>
+                                <field name="bolsa_total" readonly="1" force_save="1"/>
+                            </div>
+                            <div class="h3">
+                                <p class="fs-3">Quien solicita</p>
+                                <field name="solicitado" force_save="1" readonly="1"/>
+                            </div>
+                            <button name="prueba" icon="fa-arrow-right" type="object" string="Aprobar" class="btn-primary"/>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

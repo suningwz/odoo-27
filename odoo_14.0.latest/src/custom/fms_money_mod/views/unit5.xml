@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="solicitud_view" model="ir.ui.view">
+            <field name="name">expenses.view</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='equipements_page']" name="bag2" position="after">
+                    <page string="Solicitud de dinero">
+                        <field name="solicitudes_dineros" widget="many2many"/>
+                    </page>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

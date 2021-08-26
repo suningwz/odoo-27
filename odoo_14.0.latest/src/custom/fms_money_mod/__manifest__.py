@@ -12,6 +12,8 @@
         'views/unit.xml',
         'views/unit2.xml',
         'views/unit3.xml',
+        'views/unit4.xml',
+        'views/unit5.xml',
     ],
     'installable': True,
     'application': True,
