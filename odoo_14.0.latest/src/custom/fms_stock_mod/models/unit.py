@@ -5,9 +5,10 @@ from odoo import _, api, exceptions, fields, models
 class almacen_tecnico(models.Model):
     _inherit = 'fsm.order'
 
-    inventario = fields.One2many('stock.quant','opuesto', readonly=1)
+    inventario = fields.One2many('stock.quant','opuesto')
 
     transferencias = fields.One2many('stock.picking', 'opuesto')
+
 
     @api.onchange('person_id')
     def default_inventario(self):
@@ -38,6 +39,13 @@ class almacen_tecnico(models.Model):
                         resultado = x[j]
                         resultado = int(resultado)
                         self.inventario = [(4, resultado)]
+
+
+    def default2(self):
+        print('ingreso')
+        self.inventario = [(5,)]
+        self.default_inventario()
+
 
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.quant'
