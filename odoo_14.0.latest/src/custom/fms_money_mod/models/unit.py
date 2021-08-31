@@ -77,5 +77,7 @@ class gastos(models.Model):
     _inherit = 'hr.expense'
 
     gastos_opuesto = fields.Many2one('fsm.order', string="", invisible="True")
+    seleccion_proyecto = fields.Many2one('fsm.order', string='Relacione la orden de servicio')
+    current_user = fields.Char('nombre', default=lambda self: self.env.user.name)
 
 

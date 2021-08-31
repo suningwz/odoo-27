@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="relacion_project" model="ir.ui.view">
+            <field name="name">relationship.draft</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/field[@name='employee_id']" position="after">
+                    <field name="seleccion_proyecto" domain="[('person_id', '=',(current_user))]"/>
+                    <field name="current_user" invisible="True" readonly="True" class="h3 p-2 mb-1"/>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>
