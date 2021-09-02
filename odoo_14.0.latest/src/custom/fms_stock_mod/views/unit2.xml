@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="ejecucion_moo" model="ir.ui.view">
+            <field name="name">stock.execution</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='execution_page']/group" position="before">
+                    <group>
+                        <field name="ejecucion_tecnica" widget='radio'/>
+                        <button name="time_end" type="object" string="Finalizar"
+                                class="btn btn-primary"
+                                attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
+                        <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']/field[@name='date_start']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']/field[@name='date_end']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="after">
+                    <field name="movimiento_inventario" widget="many2many" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
+                </xpath>
+
+            </field>
+       </record>
+    </data>
+</odoo>

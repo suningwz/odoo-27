@@ -1,5 +1,6 @@
 from odoo import api, fields, models, _
 from odoo import _, api, exceptions, fields, models
+from datetime import datetime
 
 
 class almacen_tecnico(models.Model):
@@ -8,7 +9,48 @@ class almacen_tecnico(models.Model):
     inventario = fields.One2many('stock.quant','opuesto')
 
     transferencias = fields.One2many('stock.picking', 'opuesto')
+    movimiento_inventario = fields.One2many('stock.inventory', 'opuesto')
 
+    ajustes_inventario = fields.Many2one
+
+    ejecucion_tecnica = fields.Selection(
+        [("r1", "Se puede ejecutar"), ("r2", "No se puede ejecutar")],
+        string="¿El servicio se puede realizar inmediatamente?"
+    )
+    Motivos_no = fields.Selection(
+        [('f1', 'Funcionario no puede atender al tecnico'),
+         ('f2', 'Funcionario no se encuentra en la sucursal'),
+         ('f3', 'Horario restringido'),
+         ('f4', 'No hubo correo de permiso de ingreso'),
+         ('f5', 'No se puede realizar inmediatamente'),
+         ('f6', 'Operador central desconoce servio a Ejecutar'),
+         ('f7', 'Operador central no contesta llamada'),
+         ('f8', 'Operador global no contesta llamada'),
+         ('f9', 'Otro proveedor no hace presencia en el sitio'),
+         ('f10', 'Panel de alarma dentro de la scucursal'),
+         ('f11', 'Proveedor no apertura otros cajeros'),
+         ('f12', 'Proveedor no lleva llaves'),
+         ('f13', 'Se requiere curso de seguridad industrial'),
+         ('f14', 'Sin permiso de ingreso para otro proveedor'),
+         ('f15', 'Sucursal con alto flujo de usuarios'),
+         ('f16', 'Tecnico no alcanza a llegar'),
+         ('f17', 'Transportadora no hace presencia en el sitio')],
+        string='Motivo por el cual no se puede realizar')
+
+    @api.onchange('ejecucion_tecnica')
+    def default_time(self):
+        if self.ejecucion_tecnica == 'r2':
+            if not self.date_start:
+                self.date_start = datetime.now()
+                self.date_end = datetime.now()
+        elif self.ejecucion_tecnica == 'r1':
+            if not self.date_start:
+                self.date_start = datetime.now()
+
+    def time_end(self):
+        if self.ejecucion_tecnica == 'r1':
+            if not self.date_end:
+                self.date_end = datetime.now()
 
     @api.onchange('person_id')
     def default_inventario(self):
@@ -54,7 +96,10 @@ class opuesto_tecnico(models.Model):
 
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.picking'
+    opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
+class opuesto_tecnico(models.Model):
+    _inherit = 'stock.inventory'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
 

@@ -1,5 +1,3 @@
-
-
 {
     'name': 'Vizualizar el inventario',
     'summary': 'Diseño para vizualizar los elementos de stock de la persona',
@@ -10,6 +8,7 @@
                 ],
     'data': [
         'views/unit.xml',
+        'views/unit2.xml',
     ],
     'installable': True,
     'application': True,
