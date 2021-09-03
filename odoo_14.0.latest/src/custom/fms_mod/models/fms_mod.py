@@ -19,3 +19,4 @@ class ejemplo_nueva_clase(models.Model):
         self.cajero = self.project_task_id.partner_id.name
         self.tipo_unidad = self.project_task_id.partner_id.tipo_unidad
         self.tdv = self.project_task_id.partner_id.tdv
+        self.description = self.project_task_id.description
