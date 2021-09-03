@@ -13,10 +13,17 @@ class ejemplo_nueva_clase(models.Model):
         [('n/a', 'N/A'), ('op1', 'ATLAS'), ('op2', 'BRINKS'), ('op3', 'TRANSBANK'), ('op4', 'VATCO'), ('op5', 'SUC')],
         'transporte', default='n/a', forcesave=1)
 
+
     @api.onchange('project_task_id')
     def missing_information(self):
         self.anotaciones=self.project_task_id.partner_id.comment
         self.cajero = self.project_task_id.partner_id.name
         self.tipo_unidad = self.project_task_id.partner_id.tipo_unidad
         self.tdv = self.project_task_id.partner_id.tdv
-        self.description = self.project_task_id.description
+        self.description = self.project_task_id.modificacion_descripcion
+
+
+class descripcion(models.Model):
+    _inherit = 'project.task'
+
+    modificacion_descripcion = fields.Text(string="descripcion mod")
