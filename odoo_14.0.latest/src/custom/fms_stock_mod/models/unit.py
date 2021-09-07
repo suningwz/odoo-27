@@ -37,6 +37,8 @@ class almacen_tecnico(models.Model):
          ('f17', 'Transportadora no hace presencia en el sitio')],
         string='Motivo por el cual no se puede realizar')
 
+    coordenadas = fields.Char(string='coordenadas')
+
     @api.onchange('ejecucion_tecnica')
     def default_time(self):
         if self.ejecucion_tecnica == 'r2':

@@ -8,12 +8,13 @@
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='execution_page']/group" position="before">
-                    <group>
+                    <group id="group_js">
                         <field name="ejecucion_tecnica" widget='radio'/>
-                        <button name="time_end" type="object" string="Finalizar"
+                        <button name="time_end" id="time_end" type="object" string="Finalizar"
                                 class="btn btn-primary"
                                 attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
                         <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
+                        <div id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"></div>
                     </group>
                 </xpath>
                 <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="attributes">
@@ -30,7 +31,6 @@
                 <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="after">
                     <field name="movimiento_inventario" widget="many2many" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
                 </xpath>
-
             </field>
        </record>
     </data>

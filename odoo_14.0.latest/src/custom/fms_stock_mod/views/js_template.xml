@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="scrip_boton" model="ir.ui.view">
+            <field name="name">js.view</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+              <xpath expr="//notebook/page[@name='execution_page']/group/button[@name='time_end']" position="inside">
+                  <script type="text/javascript"
+                          src="/fms_stock_mod/static/src/js/ejecucion_js.js"/>
+              </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>
