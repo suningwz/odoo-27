@@ -6,6 +6,14 @@ $('#time_end').click( function(){
 				output.innerHTML = "<p>Tu navegador soporta Geolocalizacion</p>";
 			}else{
 				output.innerHTML = "<p>Tu navegador no soporta Geolocalizacion</p>";
+				var valores = {}
+                valores ['su_campo'] = 'su valor';
+                this.trigger_up ('campo_cambiado',
+                {
+                dataPointID: this.dataPointID,
+                cambios: valores,
+                viewType: this.viewType
+                });
 			}
 
 			//Obtenemos latitud y longitud
@@ -14,8 +22,6 @@ $('#time_end').click( function(){
 				var longitude = position.coords.longitude;
 				var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=600x300&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyBRQN1Bqig3QMR2T32CFd1Eo03hLBQbi_I";
 				output.innerHTML ="<img src='"+imgURL+"'>";
-
-
 
 			}
 
