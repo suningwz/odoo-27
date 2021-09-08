@@ -10,12 +10,9 @@ $('#time_end').click( function(){
 
 			//Obtenemos latitud y longitud
 			function localizacion(position){
-                alert('ingresa')
 				var latitude = position.coords.latitude;
 				var longitude = position.coords.longitude;
-
 				var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=600x300&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyBRQN1Bqig3QMR2T32CFd1Eo03hLBQbi_I";
-
 				output.innerHTML ="<img src='"+imgURL+"'>";
 
 
