@@ -1,6 +1,14 @@
+import requests
 from odoo import api, fields, models, _
-from odoo import _, api, exceptions, fields, models
+from odoo import _, api, exceptions, fields, models, http
+from odoo.http import request
 from datetime import datetime
+import json
+from xlsxwriter import app
+from geopy.geocoders import Nominatim
+import time
+import math
+import urllib.request
 
 
 class almacen_tecnico(models.Model):
@@ -104,8 +112,18 @@ class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
-
-
+class odoocontroler(http.Controller):
+    @http.route(['/ajax-geolocalizacion'],type='json', auth='public',methods=['POST'])
+    def geolocalizacion(self, **kw):
+        geo = Nominatim(user_agent="odoo_localizacion")
+        cor = f"{kw['latitude']}, {kw['longitud']}"
+        loc = geo.reverse(cor)
+        print(loc)
+        p = {
+            "longitud" : "500",
+            "latitud" : "900"
+        }
+        return p
 
 
 

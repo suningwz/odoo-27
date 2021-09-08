@@ -1,34 +1,28 @@
-$('#time_end').click( function(){
-       var output = document.getElementById('coordenadas');
-
-			// Verificar si soporta geolocalizacion
-			if (navigator.geolocation) {
-				output.innerHTML = "<p>Tu navegador soporta Geolocalizacion</p>";
-			}else{
-				output.innerHTML = "<p>Tu navegador no soporta Geolocalizacion</p>";
-				var valores = {}
-                valores ['su_campo'] = 'su valor';
-                this.trigger_up ('campo_cambiado',
-                {
-                dataPointID: this.dataPointID,
-                cambios: valores,
-                viewType: this.viewType
-                });
-			}
-
-			//Obtenemos latitud y longitud
-			function localizacion(position){
+'use strict'
+odoo.define(function(require){
+    require('web.dom_ready');
+    var ajax = require('web.ajax');
+    var button = $('#time_end');
+    var _onbutton = function(e){
+        if (navigator.geolocation) {
+            function localizacion(position){
 				var latitude = position.coords.latitude;
 				var longitude = position.coords.longitude;
-				var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=600x300&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyBRQN1Bqig3QMR2T32CFd1Eo03hLBQbi_I";
-				output.innerHTML ="<img src='"+imgURL+"'>";
-
+                ajax.jsonRpc('/ajax-geolocalizacion', 'POST', {
+                    "latitude":latitude,
+                    "longitud":longitude
+                }).then(function(data){
+                    console.log(data);
+                    console.log('ingreso');
+                });
 			}
-
 			function error(){
-				output.innerHTML = "<p>No se pudo obtener tu ubicación</p>";
+				console.log('error navigator');
 			}
-
 			navigator.geolocation.getCurrentPosition(localizacion,error);
+		}else{
+			console.log('Error geo');
+		}
     }
-)
+    button.click(_onbutton);
+});
