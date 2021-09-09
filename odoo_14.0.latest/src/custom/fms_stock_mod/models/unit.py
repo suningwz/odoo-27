@@ -46,7 +46,6 @@ class almacen_tecnico(models.Model):
         string='Motivo por el cual no se puede realizar')
 
     coordenadas = fields.Char(string='coordenadas')
-
     @api.onchange('ejecucion_tecnica')
     def default_time(self):
         if self.ejecucion_tecnica == 'r2':
@@ -119,9 +118,12 @@ class odoocontroler(http.Controller):
         cor = f"{kw['latitude']}, {kw['longitud']}"
         loc = geo.reverse(cor)
         print(loc)
+        warehouse_ids = request.env["fsm.order"].search(
+            [("name", "=", kw['name'])], limit=1
+        )
+        warehouse_ids.coordenadas = loc
         p = {
-            "longitud" : "500",
-            "latitud" : "900"
+            "Estatus" : "0k"
         }
         return p
 
