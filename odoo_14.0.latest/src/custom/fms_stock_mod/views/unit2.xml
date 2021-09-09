@@ -14,9 +14,9 @@
                                 class="btn btn-primary"
                                 attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
                         <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
-                        <div id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                            <field name="coordenadas"/>
-                        </div>
+                    </group>
+                    <group id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="coordenadas" />
                     </group>
                 </xpath>
                 <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="attributes">
