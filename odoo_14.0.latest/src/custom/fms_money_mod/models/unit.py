@@ -37,9 +37,10 @@ class informes_gastos(models.Model):
 class vista_bolsa(models.Model):
     _inherit = 'fsm.order'
 
-    gastos_tecnico = fields.One2many('hr.expense', 'gastos_opuesto', readonly=1)
+    gastos_tecnico = fields.One2many('hr.expense', 'gastos_opuesto')
     bolsa_total_tecnico = fields.Integer('total')
     solicitudes_dineros = fields.One2many('solicitudes.bolsa', 'solicitud_opuesto')
+
 
     @api.onchange('person_id')
     def default_bag(self):

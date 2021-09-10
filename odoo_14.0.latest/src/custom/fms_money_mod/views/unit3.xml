@@ -7,16 +7,23 @@
             <field name="inherit_id" ref="fieldservice.fsm_order_form" />
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page[@name='execution_page']" name="bag" position="after">
-                    <page string="Bolsa del tecnico">
-                        <group string="Bolsa" name="bag_tecnico">
-                            <field name="bolsa_total_tecnico" readonly='1' force_save='1'/>
-                            <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
-                        </group>
-
-                        <field name="gastos_tecnico" widget="many2many"/>
-
-                    </page>
+                <xpath expr="//notebook/page[@name='execution_page']" name="bag" position="inside">
+                    <group string="Bolsa" name="bag_tecnico" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="bolsa_total_tecnico" readonly="1" force_save="1"/>
+                        <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
+                    </group>
+                    <group string="Dineros utilizados" name="dinners_bag" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="gastos_tecnico" widget="many2many" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="date" />
+                                <field name="name" />
+                                <field name="employee_id" />
+                                <field name="total_amount"/>
+                                <field name="state"/>
+                                <field name="company_id"/>
+                            </tree>
+                        </field>
+                    </group>
                 </xpath>
             </field>
        </record>

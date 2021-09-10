@@ -15,7 +15,7 @@ class almacen_tecnico(models.Model):
     _inherit = 'fsm.order'
 
     inventario = fields.One2many('stock.quant','opuesto')
-
+    firma = fields.Binary()
     transferencias = fields.One2many('stock.picking', 'opuesto')
     movimiento_inventario = fields.One2many('stock.inventory', 'opuesto')
 

@@ -16,7 +16,7 @@
                         <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
                     </group>
                     <group id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                        <field name="coordenadas" />
+                        <field name="coordenadas"/>
                     </group>
                 </xpath>
                 <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="attributes">
@@ -30,8 +30,53 @@
                     <attribute name="readonly">1</attribute>
                     <attribute name="force_save">1</attribute>
                 </xpath>
-                <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="after">
-                    <field name="movimiento_inventario" widget="many2many" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
+                <xpath expr="//notebook/page[@name='execution_page']" position="inside">
+                    <group string="Tareas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="order_activity_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle" />
+                                <field name="name"  string="actividad"/>
+                                <field name="required"  string="Requerida" />
+                                <field name="ref" string="observación" />
+                                <field name="completed" invisible="1" />
+                                <field name="completed_on" String="H/F completado" />
+                                <field name="completed_by" string="Quien la completo"/>
+                                <button
+                                    name="action_done"
+                                    string="Completar"
+                                    type="object"
+                                    class="oe_highlight"
+                                    attrs="{'invisible': [('state', 'not in', ['todo'])]}"
+                                />
+                                <button
+                                    name="action_cancel"
+                                    string="Cancelar"
+                                    type="object"
+                                    attrs="{'invisible': [('state', 'not in', ['todo'])]}"
+                                />
+                                <field name="state" readonly="1" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Inventario" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="movimiento_inventario" widget="many2many" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="date" />
+                                <field name="name" />
+                                <field name="state" />
+                                <field name="location_ids"/>
+                                <field name="company_id" invisible="1"/>
+                                <button name="action_start"
+                                    string="Validar inventario"
+                                    type="object"
+                                    class="oe_highlight"
+                                />
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Firma" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="firma" widget="signature" nolabel="1"/>
+                    </group>
                 </xpath>
             </field>
        </record>
