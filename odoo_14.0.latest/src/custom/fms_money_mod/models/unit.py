@@ -41,39 +41,6 @@ class vista_bolsa(models.Model):
     bolsa_total_tecnico = fields.Integer('total')
     solicitudes_dineros = fields.One2many('solicitudes.bolsa', 'solicitud_opuesto')
 
-
-    @api.onchange('person_id')
-    def default_bag(self):
-        persona = self.env["hr.employee"].search(
-            [("name", "=", self.person_id.name)], limit=1
-        )
-        self.bolsa_total_tecnico = persona.bolsa_total
-
-        elements = self.env["hr.expense"].search(
-            [("employee_id", "=", self.person_id.name)]
-        )
-        if not elements:
-            print('vacio')
-        else:
-            x = str(elements).split('(')
-            y = len(x)
-            print(y)
-            x = x[1].split(')')
-            x = x[0].split(',')
-            y = len(x)
-            print(y)
-            if int(y) < 1:
-                print(x)
-            else:
-                for j in range(y):
-                    print(x[j])
-                    if not x[j]:
-                        print('vacio')
-                    else:
-                        resultado = x[j]
-                        resultado = int(resultado)
-                        self.gastos_tecnico =  [(4, resultado)]
-
 class gastos(models.Model):
     _inherit = 'hr.expense'
 
