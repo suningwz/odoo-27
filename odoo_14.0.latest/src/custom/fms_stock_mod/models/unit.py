@@ -111,7 +111,7 @@ class opuesto_tecnico(models.Model):
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
-
+#esto es un controlador que se usar para recibir los paremtros mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
 class odoocontroler(http.Controller):
     @http.route(['/ajax-geolocalizacion'],type='json', auth='public',methods=['POST'])
     def geolocalizacion(self, **kw):
