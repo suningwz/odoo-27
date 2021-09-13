@@ -116,14 +116,15 @@ class odoocontroler(http.Controller):
     @http.route(['/ajax-geolocalizacion'],type='json', auth='public',methods=['POST'])
     def geolocalizacion(self, **kw):
         geo = Nominatim(user_agent="odoo_localizacion")
-        cor = f"{kw['latitude']}, {kw['longitud']}"
-        print(cor)
-        loc = geo.reverse(cor)
-        print(loc)
+        # cor = f"{kw['latitude']}, {kw['longitud']}"
+        url = f"https://www.google.com/maps/place/{kw['latitude']}, {kw['longitud']}"
+        # print(cor)
+        # loc = geo.reverse(cor)
+        # print(loc)
         warehouse_ids = request.env["fsm.order"].search(
             [("name", "=", kw['name'])], limit=1
         )
-        warehouse_ids.coordenadas = loc
+        warehouse_ids.coordenadas = url
         p = {
             "Estatus" : "0k"
         }
