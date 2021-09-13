@@ -8,10 +8,6 @@
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='execution_page']" name="bag" position="inside">
-                    <group string="Bolsa" name="bag_tecnico" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                        <field name="bolsa_total_tecnico" readonly="1" force_save="1"/>
-                        <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
-                    </group>
                     <group string="Dineros utilizados" name="dinners_bag" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
                         <field name="gastos_tecnico" widget="many2many" nolabel="1">
                             <tree editable="bottom">

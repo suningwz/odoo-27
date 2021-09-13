@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="fieldservice.fsm_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook/page[1]" position="after">
-                <page string="Activities">
+                <page string="Activities" invisible="1">
                     <field name="order_activity_ids" nolabel="1">
                         <tree editable="bottom">
                             <field name="sequence" widget="handle" />

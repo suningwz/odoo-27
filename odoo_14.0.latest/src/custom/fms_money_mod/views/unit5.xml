@@ -7,8 +7,12 @@
             <field name="inherit_id" ref="fieldservice.fsm_order_form" />
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page[@name='equipements_page']" name="bag2" position="after">
+                <xpath expr="//notebook/page[@name='execution_page']" name="bag2" position="before">
                     <page string="Solicitud de dinero">
+                        <group string="Bolsa" name="bag_tecnico" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                            <field name="bolsa_total_tecnico" readonly="1" force_save="1"/>
+                            <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
+                        </group>
                         <field name="solicitudes_dineros" widget="many2many"/>
                     </page>
                 </xpath>
