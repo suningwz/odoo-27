@@ -41,6 +41,13 @@ class vista_bolsa(models.Model):
     bolsa_total_tecnico = fields.Integer('total')
     solicitudes_dineros = fields.One2many('solicitudes.bolsa', 'solicitud_opuesto')
 
+    @api.onchange('person_id')
+    def default_bag(self):
+        persona = self.env["hr.employee"].search(
+            [("name", "=", self.person_id.name)], limit=1
+        )
+        self.bolsa_total_tecnico = persona.bolsa_total
+
 class gastos(models.Model):
     _inherit = 'hr.expense'
 

@@ -15,7 +15,8 @@ class almacen_tecnico(models.Model):
     _inherit = 'fsm.order'
 
     inventario = fields.One2many('stock.quant','opuesto')
-    firma = fields.Binary()
+    firma = fields.Binary(string='Por la presente manifiesta estar deacuerdo con las anotaciones e indicaciones que se presentaron durante el transcurso de las actividades prestadas por allser')
+    q_firma = fields.Char('Quien firma')
     transferencias = fields.One2many('stock.picking', 'opuesto')
     movimiento_inventario = fields.One2many('stock.inventory', 'opuesto')
 
@@ -116,6 +117,7 @@ class odoocontroler(http.Controller):
     def geolocalizacion(self, **kw):
         geo = Nominatim(user_agent="odoo_localizacion")
         cor = f"{kw['latitude']}, {kw['longitud']}"
+        print(cor)
         loc = geo.reverse(cor)
         print(loc)
         warehouse_ids = request.env["fsm.order"].search(

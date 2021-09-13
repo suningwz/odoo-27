@@ -75,7 +75,8 @@
                         </field>
                     </group>
                     <group string="Firma" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                        <field name="firma" widget="signature" nolabel="1"/>
+                        <field name="firma" widget="signature" class="w-100"/>
+                        <field name="q_firma"/>
                     </group>
                 </xpath>
             </field>
