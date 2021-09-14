@@ -85,7 +85,7 @@
                     <group string="Description" name="description_grp">
                         <field name="description" nolabel="1" />
                     </group>
-                    <group string="Resolution" name="resolution_grp">
+                    <group string="Resolution" name="resolution_grp" invisible="1">
                         <field name="resolution" nolabel="1" />
                     </group>
                     <notebook>

@@ -10,10 +10,10 @@
                 <xpath expr="//notebook/page[@name='execution_page']/group" position="before">
                     <group id="group_js">
                         <field name="ejecucion_tecnica" widget='radio'/>
-                        <button name="time_end" id="time_end" type="object" string="Finalizar"
-                                class="btn btn-primary"
-                                attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}"/>
                         <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
+                    </group>
+                    <group id="resolucion" string="Resolución" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="resolution" string="Indique la solucion realizada"/>
                     </group>
                     <group id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
                         <field name="coordenadas"/>
@@ -77,6 +77,10 @@
                     <group string="Firma" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
                         <field name="firma" widget="signature" class="w-100"/>
                         <field name="q_firma"/>
+                    </group>
+                    <group string="Finalizacion">
+                        <button name="time_end" id="time_end" type="object" string="Click para finalizar el proceso"
+                                class="btn btn-primary"/>
                     </group>
                 </xpath>
             </field>

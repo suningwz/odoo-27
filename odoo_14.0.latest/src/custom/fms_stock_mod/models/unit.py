@@ -47,7 +47,7 @@ class almacen_tecnico(models.Model):
         string='Motivo por el cual no se puede realizar')
 
     coordenadas = fields.Char(string='coordenadas')
-    @api.onchange('ejecucion_tecnica')
+    @api.onchange('Motivos_no')
     def default_time(self):
         if self.ejecucion_tecnica == 'r2':
             if not self.date_start:
