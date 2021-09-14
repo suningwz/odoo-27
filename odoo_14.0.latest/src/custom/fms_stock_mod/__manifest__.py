@@ -9,6 +9,7 @@
     'data': [
         'views/unit.xml',
         'views/unit2.xml',
+        'views/unit3.xml',
         'views/js_template.xml',
     ],
     'installable': True,

@@ -130,7 +130,9 @@ class odoocontroler(http.Controller):
         }
         return p
 
-
+class product_template(models.Model):
+    _inherit = 'product.template'
+    marca = fields.Char(string="Marca")
 
 
 

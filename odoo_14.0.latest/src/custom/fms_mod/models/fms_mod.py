@@ -16,7 +16,7 @@ class ejemplo_nueva_clase(models.Model):
 
     @api.onchange('project_task_id')
     def missing_information(self):
-        self.anotaciones=self.project_task_id.partner_id.comment
+        self.anotaciones = self.project_task_id.partner_id.comment
         self.cajero = self.project_task_id.partner_id.name
         self.tipo_unidad = self.project_task_id.partner_id.tipo_unidad
         self.tdv = self.project_task_id.partner_id.tdv

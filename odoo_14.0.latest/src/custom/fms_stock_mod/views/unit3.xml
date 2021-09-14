@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="marca" model="ir.ui.view">00
+            <field name="name">marca</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='general_information']/group" position="after">
+                    <group name="marca">
+                        <field name="marca"/>
+                    </group>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>
