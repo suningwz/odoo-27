@@ -18,8 +18,17 @@ class video_mano(models.Model):
     def _default_employee(self):
         return self.env.user.employee_id
 
+    def _dato(self):
+        dato = self.env["res.partner"].search(
+            [("name", "=", self.env.user.name)], limit=1
+        )
+        dato = dato.function
+        print(dato)
+        return dato
+
     solicitado = fields.Many2one('hr.employee', default=_default_employee)
     solicitud_opuesto = fields.Many2one('fsm.order', string="", invisible="True")
+    puesto = fields.Char(string='Nombre del cajero', compute=_dato)
 
     @api.onchange('personal')
     def persona(self):

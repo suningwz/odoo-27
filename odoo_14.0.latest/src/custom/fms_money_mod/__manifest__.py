@@ -15,6 +15,7 @@
         'views/unit4.xml',
         'views/unit5.xml',
         'views/unit6.xml',
+        'secutiry/security.xml',
     ],
     'installable': True,
     'application': True,

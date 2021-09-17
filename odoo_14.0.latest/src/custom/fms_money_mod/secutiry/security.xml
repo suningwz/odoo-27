@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="Boton_aprabado" model="res.groups">
+        <field name="name">Bolsa_aprobado</field>
+    </record>
+</odoo>

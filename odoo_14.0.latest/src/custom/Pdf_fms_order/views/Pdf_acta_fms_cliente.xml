@@ -5,8 +5,8 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <div class="page">
-                      <h2>Resumen del reporte</h2>
-                       <p>This object's name is <span t-field="o.name"/></p>
+                      <h2>Acta</h2>
+                       <p>Numero de orden<span t-field="o.name"/></p>
                     </div>
                 </t>
             </t>
