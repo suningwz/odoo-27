@@ -1,15 +1,128 @@
 <?xml version="1.0" encoding="utf-8" ?>
- <odoo>
-    <template id="Reporte_acta_en_pdf">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                      <h2>Acta</h2>
-                       <p>Numero de orden<span t-field="o.name"/></p>
-                    </div>
+    <odoo>
+        <template id="Reporte_acta_en_pdf">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+
+                                <h4 style="color: #2F8E00;">Señores:</h4> <h6><span t-field="o.customer_id"/></h6>
+                                    <br>
+                                    </br>
+                                    <p font_size="medium">Mediante el presente documento le hacemos constancia
+                                        sobre las labores realizada por <span t-field="o.person_id"/>
+                                         en la ciudad de <span t-field="o.project_task_id.partner_id.city"/>
+                                         a nombre de la empresa ALL SERVICE RHYNO,identificada con el numero de nit
+                                         900706219-1. del mismo modo se adjunta la informacion pertinente del trabajo realizado
+                                    </p>
+                                <br>
+                                </br>
+                                        <h6 style="color: #2F8E00;">DESCRIPCION</h6>
+                                <br>
+                                </br>
+                                      <p> A continuación, presentamos la relacion de actividades y equipos empleados
+                                          para la orden de trabajo <span t-field="o.template_id"/>
+                                      </p>
+                                        <br>
+                                        </br>
+                                        <h6 style="color: #2F8E00;">TIEMPO</h6>
+                                        <br>
+                                        </br>
+                                           <table class="table table-bordered">
+                                             <tbody>
+                                                 <thead>
+                                                    <tr>
+                                                      <th scope="col">DIA / HORA DE LLEGADA</th>
+                                                      <th scope="col">DIA / HORA DE FINALIZACION</th>
+                                                      <th scope="col">TIEMPO TRANSCURRIDO</th>
+                                                    </tr>
+                                                  </thead>
+                                                <tr>
+                                                  <td><span t-field="o.date_start"/></td>
+                                                  <td><span t-field="o.date_end"/></td>
+                                                  <td><span t-field="o.duration"/></td>
+                                                </tr>
+                                              </tbody>
+                                           </table>
+                                        <br>
+                                        </br>
+                                         <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS </h6>
+                                        <br>
+                                        </br>
+                                      <table class="table table-bordered">
+                                                <thead>
+                                                  <tr>
+                                                      <th scope="col">ACTIVIDAD</th>
+                                                      <th scope="col">OBSERVACION</th>
+                                                      <th scope="col">DIA/HORA DE REALIZACION</th>
+                                                      <th scope="col">REALIZADO POR</th>
+                                                  </tr>
+                                                </thead>
+                                          <tbody>
+                                                <tr t-foreach="o.order_activity_ids" t-as="x">
+                                                    <td>
+                                                      <span t-field="x.name"/>
+                                                    </td>
+                                                    <td>
+                                                      <span t-field="x.ref"/>
+                                                    </td>
+                                                    <td>
+                                                      <span t-field="x.completed_on"/>
+                                                    </td>
+                                                    <td>
+                                                      <span t-field="x.completed_by"/>
+                                                    </td>
+                                                </tr>
+                                          </tbody>
+                                      </table>
+                                        <br>
+                                        </br>
+                                       <h6 style="color: #2F8E00;">INVENTARIO</h6>
+                                        <br>
+                                        </br>
+                                    <table class="table table-border border-dark">
+                                                <thead>
+                                                  <tr>
+                                                      <th scope="col">FECHA DEL INVENTARIO</th>
+                                                      <th scope="col">REFERENCIA DEL INVENTARIO</th>
+                                                      <th scope="col">ESTADO</th>
+                                                      <th scope="col">LUGARES</th>
+                                                  </tr>
+                                                </thead>
+                                          <tbody>
+                                                <tr t-foreach="o.movimiento_inventario" t-as="s">
+
+                                                </tr>
+                                          </tbody>
+                                    </table>
+                                        <br>
+                                        </br>
+                                        <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
+                                            <br>
+                                            </br>
+                                            <span t-field="o.resolution"/>
+                                        <br>
+                                        </br>
+                                        <br>
+                                        </br>
+                                 <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
+                                        <br>
+                                        </br>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <table style=" margin-top: 25px;">
+                                                <tr>
+                                                    <td> <t t-esc="o.firma" t-options="{'widget':'image'}"/> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center"> <t t-esc="o.q_firma"/></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </t>
+                    </t>
                 </t>
-            </t>
-        </t>
-    </template>
- </odoo>
+        </template>
+    </odoo>
