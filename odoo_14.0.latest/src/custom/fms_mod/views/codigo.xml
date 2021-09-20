@@ -18,6 +18,12 @@
                     <field name="tipo_unidad" string="Tipo de unidad" forcesave="1" />
                     <field name="tdv" string="Transportadora" forcesave="1" />
                 </xpath>
+                <xpath expr="//group/group/field[@name='location_id']" position="before">
+                    <field name="centro_costos"/>
+                </xpath>
+                <xpath expr="//group/group/field[@name='location_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
             </field>
         </record>
 	<record id="codigo_unidades_contact" model="ir.ui.view">

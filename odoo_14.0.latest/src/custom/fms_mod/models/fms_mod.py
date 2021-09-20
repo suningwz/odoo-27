@@ -13,6 +13,11 @@ class ejemplo_nueva_clase(models.Model):
         [('n/a', 'N/A'), ('op1', 'ATLAS'), ('op2', 'BRINKS'), ('op3', 'TRANSBANK'), ('op4', 'VATCO'), ('op5', 'SUC')],
         'transporte', default='n/a', forcesave=1)
 
+    centro_costos = fields.Many2one("fsm.location", string="Centro de costos")
+
+    @api.onchange('centro_costos')
+    def _centro_costos(self):
+        self.location_id = self.centro_costos
 
     @api.onchange('project_task_id')
     def missing_information(self):
@@ -21,7 +26,6 @@ class ejemplo_nueva_clase(models.Model):
         self.tipo_unidad = self.project_task_id.partner_id.tipo_unidad
         self.tdv = self.project_task_id.partner_id.tdv
         self.description = self.project_task_id.modificacion_descripcion
-
 
 class descripcion(models.Model):
     _inherit = 'project.task'
