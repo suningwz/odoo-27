@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
- <record id="reportepdf" model="ir.actions.report">
-        <field name="name">PDF</field>
-        <field name="model">fsm.order</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">Pdf_fms_order.Reporte_acta_en_pdf</field>
-        <field name="report_file">Pdf_fms_order.Reporte_acta_en_pdf</field>
-        <field name="print_report_name">'Reporte - %s' % (object.name)</field>
-    </record>
+    <report
+    id="reportepdf"
+    string="DESCARGA DEL ACTA"
+    model="fsm.order"
+    report_type="qweb-pdf"
+    name="Pdf_fms_order.Reporte_acta_en_pdf"
+    file="Pdf_fms_order.Reporte_acta_en_pdf"
+    menu="True"
+    print_report_name="'Reporte acta'"
+    />
 </odoo>
