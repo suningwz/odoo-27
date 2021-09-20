@@ -14,8 +14,9 @@ import urllib.request
 class almacen_tecnico(models.Model):
     _inherit = 'fsm.order'
 
-    inventario = fields.One2many('stock.quant','opuesto')
-    firma = fields.Binary(string='Por la presente manifiesta estar deacuerdo con las anotaciones e indicaciones que se presentaron durante el transcurso de las actividades prestadas por allser')
+    inventario = fields.One2many('stock.quant', 'opuesto')
+    firma = fields.Binary(
+        string='Por la presente manifiesta estar deacuerdo con las anotaciones e indicaciones que se presentaron durante el transcurso de las actividades prestadas por allser')
     q_firma = fields.Char('Quien firma')
     transferencias = fields.One2many('stock.picking', 'opuesto')
     movimiento_inventario = fields.One2many('stock.inventory', 'opuesto')
@@ -47,6 +48,7 @@ class almacen_tecnico(models.Model):
         string='Motivo por el cual no se puede realizar')
 
     coordenadas = fields.Char(string='coordenadas')
+
     @api.onchange('Motivos_no')
     def default_time(self):
         if self.ejecucion_tecnica == 'r2':
@@ -92,7 +94,6 @@ class almacen_tecnico(models.Model):
                         resultado = int(resultado)
                         self.inventario = [(4, resultado)]
 
-
     def default2(self):
         print('ingreso')
         self.inventario = [(5,)]
@@ -104,16 +105,20 @@ class opuesto_tecnico(models.Model):
 
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
+
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.picking'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
 
+
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
-#esto es un controlador que se usar para recibir los paremtros mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
+
+
+# esto es un controlador que se usar para recibir los paremtros mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
 class odoocontroler(http.Controller):
-    @http.route(['/ajax-geolocalizacion'],type='json', auth='public',methods=['POST'])
+    @http.route(['/ajax-geolocalizacion'], type='json', auth='public', methods=['POST'])
     def geolocalizacion(self, **kw):
         geo = Nominatim(user_agent="odoo_localizacion")
         # cor = f"{kw['latitude']}, {kw['longitud']}"
@@ -126,13 +131,11 @@ class odoocontroler(http.Controller):
         )
         warehouse_ids.coordenadas = url
         p = {
-            "Estatus" : "0k"
+            "Estatus": "0k"
         }
         return p
+
 
 class product_template(models.Model):
     _inherit = 'product.template'
     marca = fields.Char(string="Marca")
-
-
-
