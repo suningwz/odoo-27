@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <odoo>
-    <record id="Boton_aprabado" model="res.groups">
-        <field name="name">Bolsa_aprobado</field>
-    </record>
+    <data>
+        <record id="view_bag_money" model="res.groups">
+            <field name="name">Aprobar dineros</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
 </odoo>
