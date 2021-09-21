@@ -5,7 +5,8 @@
         <field name="inherit_id" ref="fieldservice.fsm_order_form" />
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page name="accounting" string="Accounting">
+<!--                Se agrego un grupo para la edicion de la vista Echo por william acosta mosquera-->
+                <page name="accounting" string="Accounting" groups="fms_view_coordinator.view_coordinator_pages" >
                     <group name="bill_to">
                         <field
                             name="bill_to"
