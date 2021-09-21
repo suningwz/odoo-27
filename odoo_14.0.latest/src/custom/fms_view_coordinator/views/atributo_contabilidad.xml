@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-       <record id="Atributos" model="ir.ui.view">
+       <record id="Atributos_contabilidad" model="ir.ui.view">
             <field name="name">Attrs.execution</field>
             <field name="model">fsm.order</field>
             <field name="inherit_id" ref="fieldservice.fsm_order_form" />
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="./sheet/notebook/page[5]" position="attributes">
-                    <attribute name="groups">fms_view_coordinator.view_coordinator_pages</attribute>
-                </xpath>
-                <xpath expr="./sheet/notebook/page[6]" position="attributes">
+                <xpath expr="//notebook/page[@name='accounting']" position="attributes">
                     <attribute name="groups">fms_view_coordinator.view_coordinator_pages</attribute>
                 </xpath>
             </field>

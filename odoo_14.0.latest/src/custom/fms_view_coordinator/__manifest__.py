@@ -8,7 +8,8 @@
                 ],
     'data': [
         'security/coordinador.xml',
-        'views/atributos.xml'
+        'views/atributos.xml',
+        'views/atributo_contabilidad.xml'
     ],
     'installable': True,
     'application': True,
