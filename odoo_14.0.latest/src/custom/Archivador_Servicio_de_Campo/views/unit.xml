@@ -3,16 +3,16 @@
     <data>
        <record id="archivo" model="ir.ui.view">
             <field name="name">archivar.boton</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_out_invoice_tree" />
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_kanban_view" />
             <field name="priority" eval="32"/>
             <field name="arch" type="xml">
-                <xpath expr="./header" position="inside">
+                <xpath expr="/kanban" position="inside">
                     <button name="funcion_libre" string="Archivar" type="object">
                         <field name="active" widget="boolean_button"/>
                     </button>
                 </xpath>
             </field>
-       </record>
+       </record>6
     </data>
 </odoo>
