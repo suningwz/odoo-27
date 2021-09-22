@@ -55,4 +55,8 @@ class gastos(models.Model):
     seleccion_proyecto = fields.Many2one('fsm.order', string='Relacione la orden de servicio')
     current_user = fields.Char('nombre', default=lambda self: self.env.user.name)
 
+class bolsa_error(models.Model):
+    _inherit = 'hr.employee.public'
 
+    bolsa_dineros = fields.Integer('dinero a ingresar')
+    bolsa_total = fields.Integer('total', readonly=1, forcesave=1)
