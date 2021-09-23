@@ -3,11 +3,11 @@
     <data>
        <record id="archivo" model="ir.ui.view">
             <field name="name">archivar.boton</field>
-            <field name="model">fsm.order</field>
-            <field name="inherit_id" ref="fieldservice.fsm_order_kanban_view" />
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree"/>
             <field name="priority" eval="32"/>
             <field name="arch" type="xml">
-                <xpath expr="/kanban" position="inside">
+                <xpath expr="/tree" position="inside">
                     <button name="funcion_libre" string="Archivar" type="object">
                         <field name="active" widget="boolean_button"/>
                     </button>

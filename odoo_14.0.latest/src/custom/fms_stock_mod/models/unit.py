@@ -18,6 +18,7 @@ class almacen_tecnico(models.Model):
     firma = fields.Binary(
         string='Por la presente manifiesta estar deacuerdo con las anotaciones e indicaciones que se presentaron durante el transcurso de las actividades prestadas por allser')
     q_firma = fields.Char('Quien firma')
+    cc_q_firma = fields.Integer('Documento de la persona que firma')
     transferencias = fields.One2many('stock.picking', 'opuesto')
     movimiento_inventario = fields.One2many('stock.inventory', 'opuesto')
 
