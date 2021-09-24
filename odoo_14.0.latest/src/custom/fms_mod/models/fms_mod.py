@@ -37,6 +37,8 @@ class ejemplo_nueva_clase(models.Model):
         id_personal = self.env["res.partner"].search(
             [("name", "=", self.person_id.name)], limit=1
         ).id
+        x = id[1]
+        int(x)
         self.env['mail.message'].create({'message_type': "comment",
                                          'subtype_id': 1,
                                          'parent_id': 4172,
@@ -44,7 +46,7 @@ class ejemplo_nueva_clase(models.Model):
                                          'record_name': f'{self.name}',
                                          # partner to whom you send notification
                                          'model': self._name,
-                                         'res_id': int(id[1]),
+                                         'res_id': x,
                                          })
 
 class descripcion(models.Model):
