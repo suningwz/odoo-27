@@ -49,6 +49,11 @@ class almacen_tecnico(models.Model):
         string='Motivo por el cual no se puede realizar')
 
     coordenadas = fields.Char(string='coordenadas')
+    datos_personales = fields.Boolean(default=False)
+
+    def aceptacion_datos(self):
+        self.datos_personales = True
+
 
     @api.onchange('Motivos_no')
     def default_time(self):

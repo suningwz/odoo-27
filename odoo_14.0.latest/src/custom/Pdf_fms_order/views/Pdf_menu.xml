@@ -7,5 +7,5 @@
         <field name="report_name">Pdf_fms_order.Reporte_acta_en_pdf</field>
         <field name="report_file">Pdf_fms_order.Reporte_acta_en_pdf</field>
         <field name="print_report_name">'Reporte'</field>
-    </record>
+ </record>
 </odoo>
