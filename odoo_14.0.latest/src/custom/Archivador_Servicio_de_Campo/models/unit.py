@@ -17,3 +17,10 @@ class boton_archivador(models.Model):
     active = fields.Boolean('Active', default=True)
     def funcion_libre(self):
         self.active = False
+
+class boton_archivador(models.Model):
+    _inherit = "stock.picking"
+
+    active = fields.Boolean('Active', default=True)
+    def funcion_libre(self):
+        self.active = False

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-<!--        esta vista es para los coordinadores tener presente que es el grupo de seguridad-->
+<!-- Esta vista es para los coordinadores tener presente que es el grupo de seguridad-->
         <record id="view_coordinator_pages" model="res.groups">
             <field name="name">Vista coordinador paginas</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
