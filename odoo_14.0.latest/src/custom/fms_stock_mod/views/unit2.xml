@@ -78,6 +78,7 @@
                         <field name="firma" widget="signature" class="w-100"/>
                         <field name="q_firma"/>
                         <field name="cc_q_firma"/>
+                    <br/>
                     </group>
                     <group string="Finalizacion">
                         <button name="time_end" id="time_end" type="object" string="Click para finalizar el proceso"

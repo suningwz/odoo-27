@@ -125,6 +125,22 @@
                                     <tr>
                                         <td>
                                             <t t-esc="o.firma" t-options="{'widget':'image'}"/>
+                                            <div class="row" t-if="o.firma=='Si'">
+                                                <div class="col-md-12" align="center">
+                                                    <table style=" margin-top: 25px;">
+                                                        <tr>
+                                                            <td>
+                                                                <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
+                                                                <t t-esc="o.quienfirma"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
