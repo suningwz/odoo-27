@@ -5,7 +5,7 @@
             <field name="name">Modificacion Impresion</field>
             <field name="model">fsm.order</field>
             <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
-            <field name="priority" eval="31"/>
+            <field name="priority" eval="32"/>
             <field name="arch" type="xml">
                 <header>
                     <button name="print_report" type="object" string="Imprimir" class="oe_highlight"/>
