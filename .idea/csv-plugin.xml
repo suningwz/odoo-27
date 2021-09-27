@@ -3,147 +3,42 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/addons/base_import/static/csv/o2m_customers_contacts.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/addons/auth_ldap/security/ir.model.access.csv">
->>>>>>> origin/master
+        <entry key="/odoo_14.0.latest/src/addons/l10n_ar/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/addons/base_import/static/csv/o2m_purchase_order_lines.csv">
-=======
+        <entry key="/odoo_14.0.latest/src/addons/l10n_br/data/account.account.template.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_cl/data/l10n_latam.document.type.csv">
->>>>>>> origin/master
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/addons/l10n_pe/data/account.group.template.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/addons/l10n_cl/data/res.country.csv">
->>>>>>> origin/master
+        <entry key="/odoo_14.0.latest/src/addons/l10n_do/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/addons/l10n_syscohada/data/account.account.template.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/addons/mail/security/ir.model.access.csv">
->>>>>>> origin/master
+        <entry key="/odoo_14.0.latest/src/addons/l10n_ec/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/addons/mrp/security/ir.model.access.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice/security/ir.model.access.csv">
->>>>>>> origin/master
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice/security/ir.model.access.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account/security/ir.model.access.csv">
->>>>>>> origin/master
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account/security/ir.model.access.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account_analytic/security/ir.model.access.csv">
->>>>>>> origin/master
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account_payment/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_activity/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_crm/security/ir.model.access.csv">
-=======
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_project/security/ir.model.access.csv">
->>>>>>> origin/master
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_purchase/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_route/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_sale/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_skill/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/custom/fieldservice_substatus/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-=======
->>>>>>> origin/master
-        <entry key="/odoo_14.0.latest/src/odoo/addons/base/data/res.country.state.csv">
+        <entry key="/odoo_14.0.latest/src/addons/l10n_es/data/account.account.template-assoc.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

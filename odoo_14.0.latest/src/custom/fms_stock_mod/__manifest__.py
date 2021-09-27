@@ -11,6 +11,7 @@
         'views/unit2.xml',
         'views/unit3.xml',
         'views/js_template.xml',
+        'views/vista_kanban.xml',
     ],
     'installable': True,
     'application': True,
