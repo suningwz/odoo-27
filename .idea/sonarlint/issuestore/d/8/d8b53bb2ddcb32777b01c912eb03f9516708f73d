@@ -1,8 +1,0 @@
-
-ypython:S1192>"aDefine a constant instead of duplicating this literal "fieldservice.fsm_stage_completed" 3 times.(ëßşŒ
-gpython:S1192"NDefine a constant instead of duplicating this literal "fsm.equipment" 3 times.(—ã¯‰
-bpython:S1192"JDefine a constant instead of duplicating this literal "fsm.stage" 3 times.(…€Ïš
-Mpython:S1066ƒ"/Merge this if statement with the enclosing one.(èÊ£–ùÿÿÿÿ
-Mpython:S1066Œ"/Merge this if statement with the enclosing one.(ûÿÿÿÿ
-`python:S5799§"GMerge these implicitly concatenated strings; or did you forget a comma?(Šé­ƒ
-rpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÓÇÛŞøÿÿÿÿ
