@@ -8,7 +8,7 @@
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <header>
-                    <button name="print_report" type="object" string="Imprimir" class="btn-primary"/>
+                    <button name="print_report" type="object" string="Imprimir" class="oe_highlight"/>
                 </header>
             </field>
         </record>
