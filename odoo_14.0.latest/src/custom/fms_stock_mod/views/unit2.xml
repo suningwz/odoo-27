@@ -74,13 +74,27 @@
                             </tree>
                         </field>
                     </group>
-                    <group string="Firma" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                    <group string=" " attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="datos_personales" invisible="1"/>
+                        <button name="aceptacion_datos" id="data_personal" type="object" string="Habilitar firma"
+                                class="btn btn-primary"
+                                confirm="AUTORIZACIÓN DE DATOS PERSONALES
+                                De acuerdo con la Ley 1581 de 2012 y sus Decretos Reglamentarios autorizo
+                                de manera previa, explícita e inequívoca a ALL SERVICE RHYNO S.A.S para el
+                                tratamiento de los datos personales suministrados por mi persona dentro de
+                                las finalidades legales, contractuales y comerciales.
+                                Declaro que soy el titular de la información reportada en esta acta de servicio
+                                para autorizar el tratamiento de mis datos personales, que la he suministrado
+                                de forma voluntaria y es completa, confiable, veraz, exacta y verídica."
+                                attrs="{'invisible': [('datos_personales', '!=', False)]}"/>
+                    </group>
+                    <group string="Firma" attrs="{'invisible': [('datos_personales', '!=', True)]}">
                         <field name="firma" widget="signature" class="w-100"/>
                         <field name="q_firma"/>
                         <field name="cc_q_firma"/>
                     <br/>
                     </group>
-                    <group string="Finalizacion">
+                    <group string="Finalizacion" attrs="{'invisible': [('datos_personales', '!=', True)]}">
                         <button name="time_end" id="time_end" type="object" string="Click para finalizar el proceso"
                                 class="btn btn-primary"/>
                     </group>
