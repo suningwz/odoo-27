@@ -6,11 +6,11 @@ class Imprimir(models.Model):
     _inherit = 'fsm.order'
 
     def print_report(self):
-        if not self.firma:
+        if not self.firma or not self.q_firma or not self.cc_q_firma:
             view = self.env.ref('sh_message.sh_message_wizard')
             view_id = view and view.id or False
             context = dict(self._context or {})
-            context['message'] ="Falta ingresar la firma"
+            context['message'] ="Verificar en el campo de firmas que requerimiento falta"
             return {
                 'name': 'ADVERTENCIA',
                 'type': 'ir.actions.act_window',
@@ -24,3 +24,5 @@ class Imprimir(models.Model):
             }
         else:
             return self.env.ref('Pdf_fms_order.reportepdf').report_action(self)
+
+
