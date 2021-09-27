@@ -8,4 +8,4 @@ class Imprimir(models.Model):
 
 
     def print_report(self):
-        print('hola')
+        print('holi')
