@@ -38,7 +38,7 @@ class vista_bolsa(models.Model):
     _inherit = 'fsm.order'
 
     gastos_tecnico = fields.One2many('hr.expense', 'gastos_opuesto')
-    bolsa_total_tecnico = fields.Integer('total')
+    bolsa_total_tecnico = fields.Integer('Total')
     solicitudes_dineros = fields.One2many('solicitudes.bolsa', 'solicitud_opuesto')
 
     @api.onchange('person_id')

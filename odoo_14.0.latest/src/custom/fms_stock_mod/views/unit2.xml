@@ -35,11 +35,11 @@
                         <field name="order_activity_ids" nolabel="1">
                             <tree editable="bottom">
                                 <field name="sequence" widget="handle" />
-                                <field name="name"  string="actividad"/>
+                                <field name="name"  string="Actividad"/>
                                 <field name="required"  string="Requerida" />
-                                <field name="ref" string="observación" />
+                                <field name="ref" string="Observación" />
                                 <field name="completed" invisible="1" />
-                                <field name="completed_on" String="H/F completado" />
+                                <field name="completed_on" string="Fecha/Hora Realizado" />
                                 <field name="completed_by" string="Quien la completo"/>
                                 <button
                                     name="action_done"
@@ -54,7 +54,7 @@
                                     type="object"
                                     attrs="{'invisible': [('state', 'not in', ['todo'])]}"
                                 />
-                                <field name="state" readonly="1" />
+                                <field name="state" string="Estado" readonly="1" />
                             </tree>
                         </field>
                     </group>

@@ -27,7 +27,7 @@
                             <field name="estado" invisible="1"/>
                             <div class="mb-3">
                                 <p class="h3">Tecnico</p>
-                                <field name="personal" string="tecnico" domain="[('function', '=', 'TECNICO')]"/>
+                                <field name="personal" string="Tecnico" domain="[('function', '=', 'TECNICO')]"/>
                             </div>
                             <div class="h3">
                                 <p class="fs-3">Dinero a solicitar</p>
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </group>
-                    <group string="aprobación" id="bolsa_app" groups="fms_money_mod.view_bag_money">
+                    <group string="Aprobación" id="bolsa_app" groups="fms_money_mod.view_bag_money">
                         <div class="container">
                             <field name="estado" invisible="1"/>
                             <div class="h3">

@@ -11,7 +11,7 @@
                     <page string="Solicitud de dinero" name="solicitud_dinero">
                         <group string="Bolsa" name="bag_tecnico" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
                             <field name="bolsa_total_tecnico" readonly="1" force_save="1"/>
-                            <button name="default_bag" type="object" string="actualizar bolsa" icon="fa-check" class="oe_link"/>
+                            <button name="default_bag" type="object" string="Actualizar Bolsa" icon="fa-check" class="oe_link"/>
                         </group>
                         <field name="solicitudes_dineros" widget="many2many"/>
                     </page>

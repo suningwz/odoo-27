@@ -48,7 +48,7 @@ class almacen_tecnico(models.Model):
          ('f17', 'Transportadora no hace presencia en el sitio')],
         string='Motivo por el cual no se puede realizar')
 
-    coordenadas = fields.Char(string='coordenadas')
+    coordenadas = fields.Char(string='Coordenadas')
     datos_personales = fields.Boolean(default=False)
 
     def aceptacion_datos(self):
