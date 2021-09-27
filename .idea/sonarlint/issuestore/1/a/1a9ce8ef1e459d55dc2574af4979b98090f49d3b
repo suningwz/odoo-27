@@ -1,0 +1,99 @@
+
+bpython:S1192š/"IDefine a constant instead of duplicating this literal '<record>' 6 times.(Õºï¤
+mpython:S1192¼	"ODefine a constant instead of duplicating this literal 'ir.translation' 3 times.(Âçşûÿÿÿÿ
+lpython:S1192²"NDefine a constant instead of duplicating this literal 'ir.model.data' 6 times.(Ì‡´şÿÿÿÿ
+tpython:S1192"[Define a constant instead of duplicating this literal "(now() at time zone 'UTC')" 3 times.(àÈÿÜ
+`python:S1192š/"GDefine a constant instead of duplicating this literal '<tree>' 4 times.(Õºï¤
+{python:S1192"]Define a constant instead of duplicating this literal "Invalid field %r on model %r" 9 times.(’«”ıÿÿÿÿ
+kpython:S1192İ
+"RDefine a constant instead of duplicating this literal 'base.group_no_one' 3 times.(·ã×î
+fpython:S1192è"HDefine a constant instead of duplicating this literal 'ir.rule' 5 times.(ªé®…ıÿÿÿÿ
+hpython:S1192É"JDefine a constant instead of duplicating this literal 'res.users' 4 times.(ü³ô’úÿÿÿÿ
+ipython:S1192Ó"KDefine a constant instead of duplicating this literal 'ir.default' 3 times.(–÷é¡ÿÿÿÿÿ
+_python:S1192Ï"FDefine a constant instead of duplicating this literal "%s,%s" 5 times.(áúÑ
+Mpython:S1066î"/Merge this if statement with the enclosing one.(·ƒöşÿÿÿÿ
+Hpython:S1066"/Merge this if statement with the enclosing one.(Ó½•Ó
+Hpython:S1066Ü"/Merge this if statement with the enclosing one.(²¸Å“
+Mpython:S1066—"/Merge this if statement with the enclosing one.(¢ÜİÓùÿÿÿÿ
+Mpython:S1066ö"/Merge this if statement with the enclosing one.(Ä‚³¼ÿÿÿÿÿ
+Hpython:S1066’"/Merge this if statement with the enclosing one.(‡¼Ä
+Mpython:S1066×"/Merge this if statement with the enclosing one.(Ä‚³¼ÿÿÿÿÿ
+Mpython:S1066’!"/Merge this if statement with the enclosing one.(²û«õùÿÿÿÿ
+Hpython:S1066Ó)"/Merge this if statement with the enclosing one.(Ş‚Î»
+jpython:S2710œ"QRename "meta" to a valid class parameter name or add the missing class parameter.(×Óå
+bpython:S3358Í"IExtract this nested conditional expression into an independent statement.(¼ëì¯
+Xpython:S1144ê":Remove this unused class-private '__ensure_xml_id' method.(×À©Ÿıÿÿÿÿ
+tpython:S4487­"[Remove this unread private attribute '__export_rows' or refactor the code to use its value.(­ ×‡
+Tpython:S5720Ù#";Rename "old" to "self" or add the missing "self" parameter.(ù……Ç
+rpython:S117«"[Rename this local variable "ModelClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ·İ
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¨­ã­
+qpython:S2710á"XRename "model_class" to a valid class parameter name or add the missing class parameter.(ŸÔ¡”
+qpython:S2710ñ"XRename "model_class" to a valid class parameter name or add the missing class parameter.(ñğöì
+mpython:S3776ø"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(¶œô¨
+Vpython:S112÷">Replace this generic exception class with a more specific one.(’‹â±
+mpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 99 to the 15 allowed.(äÄ¿Ÿ
+wpython:S117ß"ZRename this local variable "ModelData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ¸¿Òşÿÿÿÿ
+Kpython:S1481ß"-Remove the unused local variable "ModelData".(ğ¸¿Òşÿÿÿÿ
+mpython:S3776¾"TRefactor this function to reduce its Cognitive Complexity from 61 to the 15 allowed.(ÜÌö
+Dpython:S5806Á	"+Rename this variable; it shadows a builtin.(Åµôˆ
+lpython:S3776Ã
+"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ÿÍg
+mpython:S117€"URename this local variable "View" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÄ²å
+mpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ØÍœÓ
+rpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(¦–‚ øÿÿÿÿ
+rpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(†ü‡ÿÿÿÿÿ
+ipython:S1226š"PIntroduce a new variable or use its initial value before reassigning 'interval'.(µğ™
+rpython:S3776â"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ó‰İüÿÿÿÿ
+mpython:S3776ß"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(—šş˜
+rpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 60 to the 15 allowed.(é³Êºşÿÿÿÿ
+rpython:S3776î"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(„Â–ùÿÿÿÿ
+mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(…©´—
+rpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(şï”ùÿÿÿÿ
+lpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(ö”ÚD
+tpython:S117ù"\Rename this local variable "IrModelData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àüï€
+lpython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ô 1
+Wpython:S3516Ç"9Refactor this method to not always return the same value.(½¶ÂÀÿÿÿÿÿ
+xpython:S117ã"[Rename this local variable "Attachment" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆñÊşÿÿÿÿ
+mpython:S117à"URename this local variable "Data" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğñŒ¹
+qpython:S117á"YRename this local variable "Defaults" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉÒ¹÷
+qpython:S117â"YRename this local variable "Property" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ùóà
+Wpython:S3516£"9Refactor this method to not always return the same value.(²’û¢úÿÿÿÿ
+rpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(²’û¢úÿÿÿÿ
+Rpython:S3516ÿ"9Refactor this method to not always return the same value.(’·Ë¹
+mpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(’·Ë¹
+mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 56 to the 15 allowed.(õıü²
+zpython:S117Ê"]Rename this local variable "Translations" to match the regular expression ^[_a-z][a-z0-9_]*$.(é‰äÜÿÿÿÿÿ
+rpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 52 to the 15 allowed.(”‰Šàøÿÿÿÿ
+rpython:S3776ª "TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(ö‰Îİøÿÿÿÿ
+rpython:S117­!"URename this local variable "Rule" to match the regular expression ^[_a-z][a-z0-9_]*$.(°–˜ıÿÿÿÿ
+=python:S3626”""Remove this redundant continue.(ÂªŒ¤ûÿÿÿÿ
+rpython:S3776ñ!"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(‹ˆÈ”üÿÿÿÿ
+rpython:S3776ª""TRefactor this function to reduce its Cognitive Complexity from 63 to the 15 allowed.(Ä·ÇĞùÿÿÿÿ
+mpython:S3776œ#"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ê©Ç
+tpython:S117ó#"\Rename this local variable "Translation" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹‹˜ÿ
+mpython:S3776Ù#"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(ù……Ç
+@python:S1481ø&"'Remove the unused local variable "_id".(ØÚóí
+mpython:S3776‰("TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Üãƒ
+·python:S1515„)"˜Add a parameter to the parent lambda function and use variable "null" as its default value; The value of "null" might change at the next loop iteration.(¢¢¸ûÿÿÿÿ
+¹python:S1515„)"šAdd a parameter to the parent lambda function and use variable "field" as its default value; The value of "field" might change at the next loop iteration.(¢¢¸ûÿÿÿÿ
+·python:S1515„)"˜Add a parameter to the parent lambda function and use variable "name" as its default value; The value of "name" might change at the next loop iteration.(¢¢¸ûÿÿÿÿ
+spython:S3776Ÿ)"URefactor this function to reduce its Cognitive Complexity from 106 to the 15 allowed.(‘Ë†Ùûÿÿÿÿ
+·python:S1515Ù)"˜Add a parameter to the parent lambda function and use variable "data" as its default value; The value of "data" might change at the next loop iteration.(ó¸àùıÿÿÿÿ
+¹python:S1515Û)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(ÍÛ“áúÿÿÿÿ
+´python:S1515İ)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(ÛÙ¦£
+¹python:S1515ß)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(£ñóûÿÿÿÿ
+¹python:S1515á)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(‹ë¨øÿÿÿÿ
+²python:S1515å)"˜Add a parameter to the parent lambda function and use variable "data" as its default value; The value of "data" might change at the next loop iteration.(‹ò²
+¹python:S1515è)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(Œšûüÿÿÿÿ
+¹python:S1515î)"šAdd a parameter to the parent lambda function and use variable "value" as its default value; The value of "value" might change at the next loop iteration.(«ÂÿĞúÿÿÿÿ
+rpython:S3776 *"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(Ì›‘ùÿÿÿÿ
+rpython:S3776ß,"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ºÓıÿÿÿÿ
+lpython:S3776«-"TRefactor this function to reduce its Cognitive Complexity from 69 to the 15 allowed.(²óÛg
+rpython:S3776å-"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(—³œÓÿÿÿÿÿ
+mpython:S3776©."TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ãË°Ê
+6python:S3626à."Remove this redundant return.(ÙãŞŸ
+rpython:S3776â."TRefactor this function to reduce its Cognitive Complexity from 93 to the 15 allowed.(¸”Í„øÿÿÿÿ
+npython:S1542€/"PRename function "PrefixTree" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ½Š¼şÿÿÿÿ
+7python:S125‡/"Remove this commented out code.(îšÕé
+Dpython:S5806÷0"+Rename this variable; it shadows a builtin.(ü°áû
+Apython:S1481…2"(Remove the unused local variable "name".(õÉÂ
