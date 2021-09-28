@@ -18,14 +18,14 @@
                             <field name="completed_by" />
                             <button
                                 name="action_done"
-                                string="Complete"
+                                string="Completo"
                                 type="object"
                                 class="oe_highlight"
                                 attrs="{'invisible': [('state', 'not in', ['todo'])]}"
                             />
                             <button
                                 name="action_cancel"
-                                string="Cancel"
+                                string="Cancelar"
                                 type="object"
                                 attrs="{'invisible': [('state', 'not in', ['todo'])]}"
                             />

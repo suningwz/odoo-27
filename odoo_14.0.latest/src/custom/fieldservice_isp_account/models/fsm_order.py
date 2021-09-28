@@ -3,13 +3,13 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-
+ #Se realiza traduccion al español realizado por Brandon Martin
 ACCOUNT_STAGES = [
-    ("draft", "Draft"),
-    ("review", "Needs Review"),
-    ("confirmed", "Confirmed"),
-    ("invoiced", "Fully Invoiced"),
-    ("no", "Nothing Invoiced"),
+    ("draft", "Borrador"),
+    ("review", "Revisión de Necesidades"),
+    ("confirmed", "Confirmado"),
+    ("invoiced", "Facturado"),
+    ("nothing Invoiced", "Nada Facturado"),
 ]
 
 
@@ -17,17 +17,17 @@ class FSMOrder(models.Model):
     _inherit = "fsm.order"
 
     contractor_cost_ids = fields.One2many(
-        "fsm.order.cost", "fsm_order_id", string="Contractor Costs"
+        "fsm.order.cost", "fsm_order_id", string="Productos a Facturar"
     )
     employee_timesheet_ids = fields.One2many(
-        "account.analytic.line", "fsm_order_id", string="Employee Timesheets"
+        "account.analytic.line", "fsm_order_id", string="Horas Trabajadas por el Empleado"
     )
     employee = fields.Boolean(compute="_compute_employee")
     contractor_total = fields.Float(
-        compute="_compute_contractor_cost", string="Contractor Cost Estimate"
+        compute="_compute_contractor_cost", string="Costo Total"
     )
     employee_time_total = fields.Float(
-        compute="_compute_employee_hours", string="Total Employee Hours"
+        compute="_compute_employee_hours", string="Hora Total del Empleado"
     )
     account_stage = fields.Selection(
         ACCOUNT_STAGES, string="Accounting Stage", default="draft"
@@ -72,13 +72,13 @@ class FSMOrder(models.Model):
             order.account_stage = "review"
         if self.person_id.supplier_rank and not self.contractor_cost_ids:
             raise ValidationError(
-                _("Cannot move to Complete " + "until 'Contractor Costs' is filled in")
+                _("No se puede mover a Completar" + "hasta que se complete 'Productos a Facturar")
             )
         if not self.person_id.supplier_rank and not self.employee_timesheet_ids:
             raise ValidationError(
                 _(
-                    "Cannot move to Complete until "
-                    + "'Employee Timesheets' is filled in"
+                    "Verificar por favor en el modulo de Contabilidad/Horas trabajadas por el empleado que los "
+                    "campos esten completos"
                 )
             )
         return super(FSMOrder, self).action_complete()
@@ -137,7 +137,7 @@ class FSMOrder(models.Model):
                     order.account_stage = "confirmed"
                 else:
                     raise ValidationError(
-                        _("The worker assigned to this order" " is not a supplier")
+                        _("El trabajador asignado a este pedido no es un proveedor")
                     )
             if order.employee_timesheet_ids:
                 order.account_stage = "confirmed"

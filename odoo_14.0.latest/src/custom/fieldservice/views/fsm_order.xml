@@ -9,7 +9,7 @@
                     <button
                         id="action_complete"
                         name="action_complete"
-                        string="Complete"
+                        string="Completo"
                         class="oe_highlight"
                         type="object"
                         groups="fieldservice.group_fsm_user"
@@ -19,7 +19,7 @@
                     <button
                         id="action_cancel"
                         name="action_cancel"
-                        string="Cancel Order"
+                        string="Cancelar orden"
                         type="object"
                         groups="fieldservice.group_fsm_dispatcher"
                         attrs="{'invisible': [('stage_id', 'in', (%(fieldservice.fsm_stage_completed)d, %(fieldservice.fsm_stage_cancelled)d))]}"
@@ -82,16 +82,16 @@
                             />
                         </group>
                     </group>
-                    <group string="Description" name="description_grp">
+                    <group string="Descripción" name="description_grp">
                         <field name="description" nolabel="1" />
                     </group>
-                    <group string="Resolution" name="resolution_grp" invisible="1">
+                    <group string="Observaciones" name="resolution_grp" invisible="1">
                         <field name="resolution" nolabel="1" />
                     </group>
                     <notebook>
-                        <page string="Planning" name="planning_page">
+                        <page string="Planificación" name="planning_page">
                             <group>
-                                <group string="Requirements" name="requirements_grp">
+                                <group string="Requisitos" name="requirements_grp">
                                     <field
                                         name="category_ids"
                                         widget="many2many_tags"
@@ -100,13 +100,13 @@
                                     <field name="request_early" />
                                     <field name="request_late" />
                                 </group>
-                                <group id="schedule" string="Schedule Details">
+                                <group id="schedule" string="Detalles del Horario">
                                     <field name="scheduled_date_start" />
                                     <field name="scheduled_duration" />
                                     <field name="scheduled_date_end" readonly="1" />
                                 </group>
                             </group>
-                            <group string="Request Workers" name="request_workers">
+                            <group string="Solicitar trabajadores" name="request_workers">
                                 <field
                                     name="person_ids"
                                     widget="many2many"
@@ -126,7 +126,7 @@
                                 </field>
                             </group>
                         </page>
-                        <page string="Instructions" name="instructions_page">
+                        <page string="Instrucciones" name="instructions_page">
                             <group string="Instructions" name="instructions_grp">
                                 <field name="todo" nolabel="1" widget="html" />
                             </group>
@@ -141,7 +141,7 @@
                                 />
                             </group>
                         </page>
-                        <page string="Execution" name="execution_page">
+                        <page string="Ejecución" name="execution_page">
                             <group>
                                 <group id="execution-left">
                                     <field name="date_start" />
@@ -152,7 +152,7 @@
                             </group>
                         </page>
                         <page
-                            string="Equipments"
+                            string="Equipos"
                             groups="fieldservice.group_fsm_equipment"
                             name="equipements_page"
                             attrs="{'invisible': [('internal_type', 'in', ['repair', 'maintenance'])]}"
@@ -315,7 +315,7 @@
         <field name="arch" type="xml">
             <search string="Orders">
                 <filter
-                    string="My Orders"
+                    string="Mis Ordenes"
                     domain="[('person_id.partner_id.user_ids', '=', uid)]"
                     name="my_orders"
                 />
@@ -333,28 +333,28 @@
                 <field name="person_ids" />
                 <separator />
                 <filter
-                    string="To Do"
+                    string="Por Hacer"
                     domain="[('stage_id.is_closed', '=', False)]"
                     name="todo"
                 />
                 <filter
-                    string="Unassigned"
+                    string="Sin asignar"
                     domain="[('person_id', '=', False)]"
                     name="unassigned"
                 />
                 <filter
-                    string="Unscheduled"
+                    string="No programado"
                     domain="[('scheduled_date_start', '=', False)]"
                     name="unscheduled"
                 />
                 <filter
-                    string="Done"
+                    string="Hecho"
                     domain="[('stage_id.is_closed', '=', True)]"
                     name="done"
                 />
                 <separator />
                 <filter
-                    string="Today Orders"
+                    string="Ordenes de Hoy"
                     domain="[
                     ('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
                     ('scheduled_date_start', '&lt;', (datetime.datetime.combine(datetime.date.today(), datetime.time(23,59,59))))
@@ -362,12 +362,12 @@
                     name="order_today"
                 />
                 <filter
-                    string="Future Orders"
+                    string="Ordenes Futuras"
                     domain="[('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0))))]"
                     name="order_upcoming_all"
                 />
                 <filter
-                    string="Due Within 7 Days"
+                    string="Vencido Dentro de 7 Días"
                     domain="[
                     ('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
                     ('scheduled_date_start', '&lt;=', (datetime.datetime.combine((datetime.date.today()+relativedelta(days=6)), datetime.time(23,59,59))))
@@ -375,7 +375,7 @@
                     name="order_upcoming_week"
                 />
                 <filter
-                    string="Due Within 30 Days"
+                    string="Vencido Dentro de 30 Días"
                     domain="[
                     ('scheduled_date_start', '&gt;=',(datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
                     ('scheduled_date_start', '&lt;=', (datetime.datetime.combine((datetime.date.today()+relativedelta(days=29)), datetime.time(23,59,59))))
@@ -386,19 +386,19 @@
                 <group expand="0" string="Group By">
                     <filter
                         name="territory_id"
-                        string="Territory"
+                        string="Territorio"
                         domain=""
                         context="{'group_by':'territory_id'}"
                     />
                     <filter
                         name="branch_id"
-                        string="Branch"
+                        string="Rama"
                         domain=""
                         context="{'group_by':'branch_id'}"
                     />
                     <filter
                         name="district_id"
-                        string="District"
+                        string="Distrito"
                         domain=""
                         context="{'group_by':'district_id'}"
                     />

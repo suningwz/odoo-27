@@ -101,6 +101,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_pe/data/account.account.template.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_ro/data/account.account.template.csv">
           <value>
             <Attribute>
@@ -115,6 +122,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_vn/data/account.account.template.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/point_of_sale/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/custom/fieldservice/security/ir.model.access.csv">
           <value>
             <Attribute>
@@ -123,6 +144,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/custom/sh_message/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/odoo/addons/base/data/res.country.state.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

@@ -6,7 +6,8 @@
         <field name="arch" type="xml">
             <notebook position="inside">
 <!--                Se agrego un grupo para la edicion de la vista Echo por william acosta mosquera-->
-                <page name="accounting" string="Accounting" groups="fms_view_coordinator.view_coordinator_pages" >
+       <!--  Se modifico el String ACCOUNTING al español Brandon Martin   -->
+                <page name="accounting" string="Pre-Factura" groups="fms_view_coordinator.view_coordinator_pages" >
                     <group name="bill_to">
                         <field
                             name="bill_to"

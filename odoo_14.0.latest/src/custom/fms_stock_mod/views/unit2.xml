@@ -12,7 +12,7 @@
                         <field name="ejecucion_tecnica" widget='radio'/>
                         <field name="Motivos_no" widget="radio" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r2')]}"/>
                     </group>
-                    <group id="resolucion" string="Resolución" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                    <group id="resolucion" string="Observaciones" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
                         <field name="resolution" string="Indique la solucion realizada"/>
                     </group>
                     <group id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">

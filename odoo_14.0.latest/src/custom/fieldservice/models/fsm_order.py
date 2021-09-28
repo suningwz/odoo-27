@@ -299,7 +299,7 @@ class FSMOrder(models.Model):
         if all(order.can_unlink() for order in self):
             return super(FSMOrder, self).unlink()
         else:
-            raise ValidationError(_("You cannot delete this order."))
+            raise ValidationError(_("No puede eliminar esta orden."))
 
     def _calc_scheduled_dates(self, vals):
         """Calculate scheduled dates and duration"""
