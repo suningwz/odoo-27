@@ -1,8 +1,8 @@
 
 
 {
-    'name': 'Fms modificado',
-    "summary": "Este modulo modifica servicio de campo, agregando campos y ocultando otros",
+    'name': 'Fms Mails ',
+    "summary": "Este modulo se utiliza para que se envie el correo electronico a la persona que firma el acta",
     'version': '14.0.1',
     'author': 'Allser',
     'sequence': 0,

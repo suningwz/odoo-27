@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_card_email" model="mail.template">
+            <field name="name">Fsm order: acta digital</field>
+            <field name="subject">Reception of </field>
+            <field name="use_default_to" eval="False"/>
+            <field name="body_html" type="html">
+                <div>
+                    Cordial saludo
+                    <br/>
+                    <br/>
+                    El siguiente correo es para confirmarle que el servicio:
+                    <br/>
+                    ya se encuentra finalizado para su validación.
+                    <br/>
+                    <br/>
+                    Muchas gracias,
+                    <br/>
+                </div>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/crm_sms/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/hr_skills/data/hr.resume.line.csv">
           <value>
             <Attribute>
@@ -108,6 +115,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_pe/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_ro/data/account.account.template.csv">
           <value>
             <Attribute>
@@ -129,6 +143,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/mass_mailing_sms/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/point_of_sale/security/ir.model.access.csv">
           <value>
             <Attribute>
@@ -136,7 +157,77 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/custom/base_territory/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/custom/fieldservice/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account_analytic/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_account_payment/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_activity/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_equipment_stock/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_isp_account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_project/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_sale/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/fieldservice_substatus/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
