@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="Imprimir" model="ir.ui.view">
+            <field name="name">Modificacion Impresion</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+            <field name="priority" eval="32"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="sed_mails" id="Sed_mails" type="object" string="Enviar por correo"
+                                class="btn btn-primary"/>
+                </header>
+            </field>
+        </record>
+    </data>
+</odoo>
+

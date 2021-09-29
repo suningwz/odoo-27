@@ -50,10 +50,15 @@ class almacen_tecnico(models.Model):
 
     coordenadas = fields.Char(string='Coordenadas')
     datos_personales = fields.Boolean(default=False)
+    correo_representante = fields.Char()
 
     def aceptacion_datos(self):
         self.datos_personales = True
 
+    @api.onchange('ejecucion_tecnica')
+    def time_initial(self):
+        if self.ejecucion_tecnica == 'r1':
+            self.date_start = datetime.now()
 
     @api.onchange('Motivos_no')
     def default_time(self):

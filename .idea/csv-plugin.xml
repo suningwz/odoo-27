@@ -3,20 +3,6 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/odoo_14.0.latest/src/addons/base_address_city/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/base_sparse_field/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/odoo_14.0.latest/src/addons/crm_iap_lead/data/crm.iap.lead.industry.csv">
           <value>
             <Attribute>
@@ -108,35 +94,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_hu/data/account.tax.group.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_ie/data/account.account.template.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_it/data/account.tax.group.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_lt/data/account.account.template.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_nz/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -150,21 +108,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_pe/data/account.group.template.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_ro/data/account.account.template.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_syscohada/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -186,34 +130,6 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/addons/point_of_sale/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/project/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/purchase/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/rating/security/ir.model.access.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/odoo_14.0.latest/src/addons/website_livechat/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
