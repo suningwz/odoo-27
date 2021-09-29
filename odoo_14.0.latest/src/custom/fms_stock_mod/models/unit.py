@@ -50,6 +50,7 @@ class almacen_tecnico(models.Model):
 
     coordenadas = fields.Char(string='Coordenadas')
     datos_personales = fields.Boolean(default=False)
+    correo_representante = fields.Char()
 
     def aceptacion_datos(self):
         self.datos_personales = True

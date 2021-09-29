@@ -13,7 +13,7 @@ class ejemplo_nueva_clase(models.Model):
     datos_personales = fields.Boolean(default=False)
 
     def sed_mails(self):
-        if not self.firma or not self.q_firma or not self.cc_q_firma:
+        if not self.firma or not self.q_firma or not self.cc_q_firma or not self.correo_representante:
             view = self.env.ref('sh_message.sh_message_wizard')
             view_id = view and view.id or False
             context = dict(self._context or {})

@@ -10,7 +10,7 @@
                 ],
     'data': [
         'views/codigo.xml',
-        'views/mail_template.xml',
+        'views/codigo2.xml',
     ],
     'application': True,
 }

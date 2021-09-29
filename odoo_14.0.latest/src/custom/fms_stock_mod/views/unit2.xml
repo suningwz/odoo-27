@@ -92,6 +92,7 @@
                         <field name="firma" widget="signature" class="w-100"/>
                         <field name="q_firma"/>
                         <field name="cc_q_firma"/>
+                        <field name="correo_representante"/>
                     <br/>
                     </group>
                     <group string="Finalizacion" attrs="{'invisible': [('datos_personales', '!=', True)]}">

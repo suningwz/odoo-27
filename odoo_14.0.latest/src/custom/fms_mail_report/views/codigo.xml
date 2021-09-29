@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="integracion_mail" model="ir.ui.view">
-            <field name="name">mail.integration</field>
+        <record id="Imprimir" model="ir.ui.view">
+            <field name="name">Modificacion Impresion</field>
             <field name="model">fsm.order</field>
             <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
-            <field name="priority" eval="31"/>
+            <field name="priority" eval="32"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page[@name='execution_page']" position="inside">
-                    <field name="datos_personales" invisible="1"/>
-                    <group string="Correo elctronico" id="correo_representante" attrs="{'invisible': [('datos_personales', '!=', True)]}" >
-                        <field name="correo_representante"/>
-                        <button name="sed_mails" id="Sed_mails" type="object" string="Click para enviar por correo"
+                <header>
+                    <button name="sed_mails" id="Sed_mails" type="object" string="Enviar por correo"
                                 class="btn btn-primary"/>
-                    </group>
-                </xpath>
+                </header>
             </field>
         </record>
     </data>
 </odoo>
+
