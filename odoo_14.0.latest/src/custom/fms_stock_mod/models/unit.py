@@ -75,7 +75,7 @@ class almacen_tecnico(models.Model):
             if not self.date_end:
                 self.date_end = datetime.now()
                 variable = self.env["fsm.order.cost"].search(
-                    [("name", "=", 'SUMINISTRO E INSTALACION DE KIT TRAMPA DE CAJEROS NCR S23')], limit=1).id
+                    [("name", "=", 'SUMINISTRO E INSTALACION DE KIT TRAMPA DE CAJEROS S23')], limit=1).id
                 self.contractor_cost_ids = [(4, variable)]
 
     @api.onchange('person_id')
