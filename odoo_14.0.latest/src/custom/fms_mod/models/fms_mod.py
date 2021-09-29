@@ -33,7 +33,7 @@ class ejemplo_nueva_clase(models.Model):
             [("name", "=", self.person_id.name)], limit=1
         )
         if not self.person_id:
-            print('esta vacia la asignacion')
+            print('Esta vacia la asignacion')
         else:
             id = str(self.id).split('_')
             personal.user_id.notify_success(f'Asignacion del proyecto {self.name}')
@@ -53,3 +53,4 @@ class descripcion(models.Model):
     _inherit = 'project.task'
 
     modificacion_descripcion = fields.Text(string="descripcion mod")
+

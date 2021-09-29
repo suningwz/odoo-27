@@ -77,7 +77,7 @@ class FSMOrder(models.Model):
         if not self.person_id.supplier_rank and not self.employee_timesheet_ids:
             raise ValidationError(
                 _(
-                    "Verificar por favor en el modulo de Contabilidad/Horas trabajadas por el empleado que los "
+                    "Verificar por favor en el modulo de Pre-Factura/Horas trabajadas por el empleado que los "
                     "campos esten completos"
                 )
             )
