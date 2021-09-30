@@ -7,15 +7,17 @@
             <field name="use_default_to" eval="False"/>
             <field name="body_html" type="html">
                 <div>
-                    Cordial saludo
+                    Cordial saludo.
                     <br/>
                     <br/>
-
+                    Me permito informar que las actividades programadas fueron ejecutadas a conformidad.
                     <br/>
-                    ya se encuentra finalizado para su validación.
+                    Se adjunta documento soporte, como constancia.
+                    <br/>
+                    Tener presente que pasadas 24 horas recibirá la relación de cobro correspondiente al servicio
                     <br/>
                     <br/>
-                    Muchas gracias,
+                    Muchas gracias.
                     <br/>
                 </div>
             </field>

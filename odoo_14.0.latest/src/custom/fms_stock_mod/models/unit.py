@@ -74,10 +74,9 @@ class almacen_tecnico(models.Model):
         if self.ejecucion_tecnica == 'r1':
             if not self.date_end:
                 self.date_end = datetime.now()
-                print('ingresa')
-                variable = self.env["product.template"].search(
-                    [("name", "=", 'SUMINISTRO E INSTALACION DE KIT TRAMPA DE CAJEROS NCR s23')], limit=1).id
-                self.contractor_cost_ids.product_id = [(4, variable)]
+                variable = self.env["fsm.order.cost"].search(
+                    [("name", "=", 'SUMINISTRO E INSTALACION DE KIT TRAMPA DE CAJEROS S23')], limit=1).id
+                self.contractor_cost_ids = [(4, variable)]
 
     @api.onchange('person_id')
     def default_inventario(self):
