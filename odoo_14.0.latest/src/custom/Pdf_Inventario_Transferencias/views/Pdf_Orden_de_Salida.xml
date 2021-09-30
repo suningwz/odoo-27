@@ -18,9 +18,7 @@
                             <tbody>
                                 <thead>
                                     <tr>
-                                        <th scope="col" text-align="center" style="color: #2F8E00;"
-                                            background="#000000;">Contacto
-                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;">Contacto</th>
                                         <th scope="col" text-align="center" style="color: #2F8E00;"
                                             background="#000000;">Orden de Salida
                                         </th>
