@@ -46,6 +46,12 @@ class almacen_tecnico(models.Model):
     datos_personales = fields.Boolean(default=False)
     correo_representante = fields.Char()
 
+    @api.onchange('project_task_id')
+    def state_asignacion(self):
+        id_state = int(self.project_task_id.stage_id)
+        if id_state == 2:
+            self.project_task_id.stage_id = 3
+
     def aceptacion_datos(self):
         self.datos_personales = True
 
@@ -73,7 +79,11 @@ class almacen_tecnico(models.Model):
                 if not variable:
                     print("error no se encontro nada")
                 else:
-                    self.contractor_cost_ids = [(0, 0, {'product_id': variable.id, 'quantity': 1, 'price_unit': variable.standard_price })]
+                    self.contractor_cost_ids = [
+                        (0, 0, {'product_id': variable.id, 'quantity': 1, 'price_unit': variable.standard_price})]
+        id_state = int(self.project_task_id.stage_id)
+        if id_state == 4:
+            self.project_task_id.stage_id = 5
 
     @api.onchange('person_id')
     def default_inventario(self):
@@ -83,6 +93,10 @@ class almacen_tecnico(models.Model):
         elements = self.env["stock.quant"].search(
             [("location_id", "=", f"{warehouse_ids.code}/Existencias")]
         )
+        id_state = int(self.project_task_id.stage_id)
+        print(id_state)
+        if id_state == 3:
+            self.project_task_id.stage_id = 4
         if not elements:
             print('vacio')
         else:
