@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="Reporte_orden_en_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h4 style="color: #2F8E00;">Fecha / Hora</h4>
+                        <h4>
+                            <span t-field="o.scheduled_date"/>
+                        </h4>
+                        <br/>
+                        <h4 style="color: #2F8E00;">Orden de Salida</h4>
+                        <br>
+                        </br>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Contacto
+                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Orden de Salida
+                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Ubicación Origen
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>
+                                        <span t-field="o.partner_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.origin"/>
+                                    </td>
+                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Documento Origen
+                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Ubicación Destino
+                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;"
+                                            background="#000000;">Tipo de Operacion
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>
+                                        <span t-field="o.location_dest_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.location_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.picking_type_id"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 style="color: #2F8E00;">Operaciones</h4>
+                        <br>
+                        </br>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="color: #2F8E00;">Producto</th>
+                                    <th scope="col" style="color: #2F8E00;">Descripcion</th>
+                                    <th scope="col" style="color: #2F8E00;">Demanda</th>
+                                    <th scope="col" style="color: #2F8E00;">Terminado</th>
+                                    <th scope="col" style="color: #2F8E00;">Unidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.move_ids_without_package" t-as="x">
+                                    <td>
+                                        <span t-field="x.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="x.description_picking"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="x.product_uom_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="x.quantity_done"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="x.product_uom"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 style="color: #2F8E00;">Observaciones</h4>
+                        <br>
+                        </br>
+                        <span t-field="o.note"/>
+                        <br>
+                        </br>
+                        <br>
+                        </br>
+                        <div class="container px-4">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Solicita</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Elabora</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Recibe</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Nombre</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Documento</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Fecha/Hora</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        </br>
+                         <div class="container px-4">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Sello/Alista</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 border bg-light">Recibido P.P</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        </br>
+                        <h4>Favor retornar este documento firmado con nombre legible, fecha y
+                            hora de recepción.lo anterior obedece a la política
+                            del programa de gestion documental de la organización.</h4>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

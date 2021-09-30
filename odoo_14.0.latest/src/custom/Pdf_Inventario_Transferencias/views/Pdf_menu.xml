@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+ <record id="stock.vpicktree" model="ir.actions.report">
+        <field name="name">Orden de Salida</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">Pdf_Inventario_Transferencias.Reporte_orden_en_pdf</field>
+        <field name="report_file">Pdf_Inventario_Transferencias.Reporte_orden_en_pdf</field>
+        <field name="print_report_name">'Reporte'</field>
+    </record>
+</odoo>

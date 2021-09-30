@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/hr_skills/data/hr.employee.skill.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/hr_skills/data/hr.resume.line.csv">
           <value>
             <Attribute>
@@ -108,7 +115,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_pe/data/l10n_pe.res.city.district.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_ro/data/account.account.template.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_ro/data/res.bank.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -130,6 +151,34 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/addons/point_of_sale/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/purchase_stock/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/stock/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/stock_account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/stock_picking_batch/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
