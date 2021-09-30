@@ -93,10 +93,13 @@ class almacen_tecnico(models.Model):
         elements = self.env["stock.quant"].search(
             [("location_id", "=", f"{warehouse_ids.code}/Existencias")]
         )
-        id_state = int(self.project_task_id.stage_id)
-        print(id_state)
-        if id_state == 3:
-            self.project_task_id.stage_id = 4
+        if not self.person_id:
+            print(' ')
+        else:
+            id_state = int(self.project_task_id.stage_id)
+            print(id_state)
+            if id_state == 3:
+                self.project_task_id.stage_id = 4
         if not elements:
             print('vacio')
         else:
