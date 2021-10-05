@@ -4,7 +4,7 @@
     'version': '14.0.1',
     'author': 'Allservice Rhino',
     'sequence': 0,
-    'depends': ['base', 'fieldservice', 'stock', 'hr_expense', 'hr',
+    'depends': ['base', 'stock',
                 ],
     'data': [
         'views/Pdf_Orden_de_Salida.xml',
