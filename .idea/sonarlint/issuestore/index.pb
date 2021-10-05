@@ -119,11 +119,11 @@ i
 9odoo_14.0.latest/src/addons/stock/models/stock_picking.py,8/3/83cbea8cba682847c2fc4499728d99ce0872e17b
 f
 6odoo_14.0.latest/src/addons/stock/data/stock_demo2.xml,0/3/03360d7b7615661ffa1687721bd82cf2403253d0
-U
-%odoo_14.0.latest/src/debian/odoo.conf,b/f/bfb5040308c448bfa49adbb131a1343363ea9e58
 |
 Lodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/views/Pdf_menu.xml,1/2/129d22f1f631bfd7f9377b2010b61a9fa9ab8248
 h
 8odoo_14.0.latest/src/custom/fms_stock_mod/models/unit.py,1/d/1dc460a95ef9e830704733b46e457dce2f78560d
 x
 Hodoo_14.0.latest/src/custom/Pdf_fms_order/views/Pdf_acta_fms_cliente.xml,0/2/02068b62495a1dfb027f3c101dc2ad460bf2375c
+y
+Iodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/__manifest__.py,c/3/c374a0805ea5fbf1e0770725e76645eb5009c80e

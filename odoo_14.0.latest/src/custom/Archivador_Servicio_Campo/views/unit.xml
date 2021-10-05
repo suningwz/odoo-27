@@ -5,7 +5,7 @@
             <field name="name">archivar.boton</field>
             <field name="model">fsm.order</field>
             <field name="inherit_id" ref="fieldservice.fsm_order_kanban_view" />
-            <field name="priority" eval="32"/>
+            <field name="priority" eval="33"/>
             <field name="arch" type="xml">
                 <xpath expr="/kanban" position="inside">
                     <button name="funcion_libre" string="Archivar" type="object">
