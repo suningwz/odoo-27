@@ -19,12 +19,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" text-align="center" style="color: #2F8E00;">Contacto</th>
-                                        <th scope="col" text-align="center" style="color: #2F8E00;"
-                                            background="#000000;">Orden de Salida
-                                        </th>
-                                        <th scope="col" text-align="center" style="color: #2F8E00;"
-                                            background="#000000;">Ubicación Origen
-                                        </th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;">Orden de Salida</th>
+                                        <th scope="col" text-align="center" style="color: #2F8E00;">Ubicación Origen</th>
                                     </tr>
                                 </thead>
                                 <tr>
