@@ -29,23 +29,17 @@ class almacen_tecnico(models.Model):
         string="¿El servicio se puede realizar inmediatamente?"
     )
     Motivos_no = fields.Selection(
-        [('f1', 'Funcionario no puede atender al tecnico'),
-         ('f2', 'Funcionario no se encuentra en la sucursal'),
+        [('f1', 'No hay permiso de labores'),
+         ('f2', 'No hay permiso de ingreso'),
          ('f3', 'Horario restringido'),
-         ('f4', 'No hubo correo de permiso de ingreso'),
-         ('f5', 'No se puede realizar inmediatamente'),
-         ('f6', 'Operador central desconoce servio a Ejecutar'),
-         ('f7', 'Operador central no contesta llamada'),
-         ('f8', 'Operador global no contesta llamada'),
-         ('f9', 'Otro proveedor no hace presencia en el sitio'),
-         ('f10', 'Panel de alarma dentro de la scucursal'),
-         ('f11', 'Proveedor no apertura otros cajeros'),
-         ('f12', 'Proveedor no lleva llaves'),
-         ('f13', 'Se requiere curso de seguridad industrial'),
-         ('f14', 'Sin permiso de ingreso para otro proveedor'),
-         ('f15', 'Sucursal con alto flujo de usuarios'),
-         ('f16', 'Tecnico no alcanza a llegar'),
-         ('f17', 'Transportadora no hace presencia en el sitio')],
+         ('f4', 'Proveedor de la maquina no hace presencia'),
+         ('f5', 'Proveedor de la maquina llego tarde'),
+         ('f6', 'Tdv llega tarde'),
+         ('f7', 'Tecnico no alcanza a llegar'),
+         ('f8', 'No hay acceso a punto de corriente'),
+         ('f9', 'Cajero ya intervenido'),
+         ('f10', 'Labores son en horario nocturno'),
+         ('f11', 'Transportadora no hace presencia en el sitio')],
         string='Motivo por el cual no se puede realizar')
 
     coordenadas = fields.Char(string='Coordenadas')
