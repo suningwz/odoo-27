@@ -72,7 +72,7 @@ class FSMOrder(models.Model):
             order.account_stage = "review"
         if self.person_id.supplier_rank and not self.contractor_cost_ids:
             raise ValidationError(
-                _("No se puede mover a Completar" + "hasta que se complete 'Productos a Facturar")
+                _("No se puede Completar hasta que termine el modulo de 'Pre-factura/Productos a Facturar")
             )
         if not self.person_id.supplier_rank and not self.employee_timesheet_ids:
             raise ValidationError(
