@@ -5,28 +5,17 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <div class="page">
+                        <h4 style="color: #2F8E00;">ACTA: <span t-field="o.name"/></h4>
+                        <br/>
                         <h4 style="color: #2F8E00;">Señores:</h4>
                         <h6>
                             <span t-field="o.customer_id"/>
                         </h6>
                         <br>
                         </br>
-                        <p font_size="medium">Mediante el presente documento le hacemos constancia
-                            sobre las labores realizada por
-                            <span t-field="o.person_id"/>
-                            en la ciudad de
-                            <span t-field="o.project_task_id.partner_id.city"/>
-                            a nombre de la empresa ALL SERVICE RHYNO,identificada con el numero de nit
-                            900706219-1. del mismo modo se adjunta la informacion pertinente del trabajo realizado
-                        </p>
-                        <br>
-                        </br>
-                        <h6 style="color: #2F8E00;">DESCRIPCION</h6>
-                        <br>
-                        </br>
-                        <p>A continuación, presentamos la relacion de actividades y equipos empleados
-                            para la orden de trabajo
-                            <span t-field="o.template_id"/>
+                        <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades e equipos empleados
+                            en el <span t-field="o.template_id"/> en <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
+                            <span t-field="o.project_task_id"/> de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
                         </p>
                         <br>
                         </br>

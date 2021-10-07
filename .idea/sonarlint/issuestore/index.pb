@@ -18,11 +18,7 @@ i
 i
 9odoo_14.0.latest/src/custom/Pdf_fms_order/__manifest__.py,b/a/ba09e711cb0631bfa01a9a6082378969d082b6ad
 l
-<odoo_14.0.latest/src/custom/Pdf_fms_order/views/Imprimir.xml,7/b/7b699a89d3b3ae47026b9e0d59a1e1d2feeada89
-l
 <odoo_14.0.latest/src/custom/Pdf_fms_order/models/__init__.py,d/c/dc2262f5a47fa7f35f7b169350ef18dca072fd7c
-r
-Bodoo_14.0.latest/src/custom/Pdf_fms_order/models/Boton_Imprimir.py,4/3/435a8786b2fe83f9a144e11f507f013a9359fce5
 n
 >odoo_14.0.latest/src/addons/stock/report/stock_traceability.py,5/5/55c061f07476812ea3c7fe38955a5188996358a5
 l
@@ -117,7 +113,5 @@ f
 6odoo_14.0.latest/src/addons/stock/data/stock_demo2.xml,0/3/03360d7b7615661ffa1687721bd82cf2403253d0
 |
 Lodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/views/Pdf_menu.xml,1/2/129d22f1f631bfd7f9377b2010b61a9fa9ab8248
-x
-Hodoo_14.0.latest/src/custom/Pdf_fms_order/views/Pdf_acta_fms_cliente.xml,0/2/02068b62495a1dfb027f3c101dc2ad460bf2375c
 y
 Iodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/__manifest__.py,c/3/c374a0805ea5fbf1e0770725e76645eb5009c80e
