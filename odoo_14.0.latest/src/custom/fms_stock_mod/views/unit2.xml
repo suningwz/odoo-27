@@ -74,7 +74,7 @@
                             </tree>
                         </field>
                     </group>
-                    <group string=" " attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                    <group string=" " >
                         <field name="datos_personales" invisible="1"/>
                         <button name="aceptacion_datos" id="data_personal" type="object" string="Habilitar firma"
                                 class="btn btn-primary"

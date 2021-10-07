@@ -3,118 +3,240 @@
     <template id="Reporte_acta_en_pdf">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                        <h4 style="color: #2F8E00;">ACTA: <span t-field="o.name"/></h4>
-                        <h4 style="color: #2F8E00;">Señores:</h4>
-                        <h6>
-                            <span t-field="o.customer_id"/>
-                        </h6>
-                        <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y equipos empleados
-                            en el <span t-field="o.template_id"/> en <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
-                            <span t-field="o.project_task_id"/> de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
-                        </p>
-                        <h6 style="color: #2F8E00;">TIEMPO</h6>
-                        <table class="table table-bordered">
-                            <tbody>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">DIA / HORA DE LLEGADA</th>
-                                        <th scope="col">DIA / HORA DE FINALIZACION</th>
-                                        <th scope="col">TIEMPO TRANSCURRIDO</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td>
-                                        <span t-field="o.date_start"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="o.date_end"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="o.duration"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ACTIVIDAD</th>
-                                    <th scope="col">OBSERVACION</th>
-                                    <th scope="col">DIA/HORA DE REALIZACION</th>
-                                    <th scope="col">REALIZADO POR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="o.order_activity_ids" t-as="x">
-                                    <td>
-                                        <span t-field="x.name"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="x.ref"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="x.completed_on"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="x.completed_by"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h6 style="color: #2F8E00;">INVENTARIO</h6>
-                        <table class="table table-border border-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">FECHA DEL INVENTARIO</th>
-                                    <th scope="col">REFERENCIA DEL INVENTARIO</th>
-                                    <th scope="col">ESTADO</th>
-                                    <th scope="col">LUGARES</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="o.movimiento_inventario" t-as="s">
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
-                        <span t-field="o.resolution"/>
-                        <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
-                        <div class="row">
-                            <div class="col-md-12" align="center">
-                                <table style=" margin-top: 26px;">
+                <t t-if="o.ejecucion_tecnica =='r1'">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h4 style="color: #2F8E00;">ACTA:
+                                <span t-field="o.name"/>
+                            </h4>
+                            <h4 style="color: #2F8E00;">Señores:</h4>
+                            <h6>
+                                <span t-field="o.customer_id"/>
+                            </h6>
+                            <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y
+                                equipos empleados en el<span t-field="o.template_id"/>en
+                                <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
+                                <span t-field="o.project_task_id"/>de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
+                            </p>
+                            <h6 style="color: #2F8E00;">TIEMPO</h6>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">DIA / HORA DE LLEGADA</th>
+                                            <th scope="col">DIA / HORA DE FINALIZACION</th>
+                                            <th scope="col">TIEMPO TRANSCURRIDO</th>
+                                        </tr>
+                                    </thead>
                                     <tr>
                                         <td>
-                                            <t t-esc="o.firma" t-options="{'widget':'image'}"/>
-                                            <div class="row" t-if="o.firma=='Si'">
-                                                <div class="col-md-12" align="center">
-                                                    <table style=" margin-top: 25px;">
-                                                        <tr>
-                                                            <td>
-                                                                <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center">
-                                                                <t t-esc="o.quienfirma"/>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                            <span t-field="o.date_start"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.date_end"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.duration"/>
                                         </td>
                                     </tr>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS</h6>
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td align="center">
-                                            <t t-esc="o.q_firma"/>
+                                        <th scope="col">ACTIVIDAD</th>
+                                        <th scope="col">OBSERVACION</th>
+                                        <th scope="col">DIA/HORA DE REALIZACION</th>
+                                        <th scope="col">REALIZADO POR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.order_activity_ids" t-as="x">
+                                        <td>
+                                            <span t-field="x.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.ref"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.completed_on"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.completed_by"/>
                                         </td>
                                     </tr>
-                                </table>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">INVENTARIO</h6>
+                            <table class="table table-border border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">FECHA DEL INVENTARIO</th>
+                                        <th scope="col">REFERENCIA DEL INVENTARIO</th>
+                                        <th scope="col">ESTADO</th>
+                                        <th scope="col">LUGARES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.movimiento_inventario" t-as="s">
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
+                            <span t-field="o.resolution"/>
+                            <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
+                            <div class="row">
+                                <div class="col-md-12" align="center">
+                                    <table style=" margin-top: 26px;">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="o.firma" t-options="{'widget':'image'}"/>
+                                                <div class="row" t-if="o.firma=='Si'">
+                                                    <div class="col-md-12" align="center">
+                                                        <table style=" margin-top: 25px;">
+                                                            <tr>
+                                                                <td>
+                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center">
+                                                                    <t t-esc="o.quienfirma"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <t t-esc="o.q_firma"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </t>
+                </t>
+                <t t-else="o.motivos_no == 'r2'">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h4 style="color: #2F8E00;">ACTA:
+                                <span t-field="o.name"/>
+                            </h4>
+                            <h4 style="color: #2F8E00;">Señores:</h4>
+                            <h6>
+                                <span t-field="o.customer_id"/>
+                            </h6>
+                            <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y
+                                equipos empleados en el <span t-field="o.template_id"/>en
+                                <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
+                                <span t-field="o.project_task_id"/>de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
+                            </p>
+                             <table class="table table-bordered">
+                                <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ACTIVIDAD</th>
+                                            <th scope="col">DIA / HORA DE FINALIZACION</th>
+                                            <th scope="col">ASIGNADO A </th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>
+                                           Cita fallida por <span t-field="o.motivos_no"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.date_end"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.person_id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS</h6>
+                             <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ACTIVIDAD</th>
+                                        <th scope="col">OBSERVACION</th>
+                                        <th scope="col">DIA/HORA DE REALIZACION</th>
+                                        <th scope="col">REALIZADO POR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.order_activity_ids" t-as="x">
+                                        <td>
+                                            <span t-field="x.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.ref"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.completed_on"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="x.completed_by"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">INVENTARIO</h6>
+                            <table class="table table-border border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">FECHA DEL INVENTARIO</th>
+                                        <th scope="col">REFERENCIA DEL INVENTARIO</th>
+                                        <th scope="col">ESTADO</th>
+                                        <th scope="col">LUGARES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.movimiento_inventario" t-as="s">
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
+                            <span t-field="o.resolution"/>
+                            <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
+                            <div class="row">
+                                <div class="col-md-12" align="center">
+                                    <table style=" margin-top: 26px;">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="o.firma" t-options="{'widget':'image'}"/>
+                                                <div class="row" t-if="o.firma=='Si'">
+                                                    <div class="col-md-12" align="center">
+                                                        <table style=" margin-top: 25px;">
+                                                            <tr>
+                                                                <td>
+                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center">
+                                                                    <t t-esc="o.quienfirma"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <t t-esc="o.q_firma"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
                 </t>
             </t>
         </t>
