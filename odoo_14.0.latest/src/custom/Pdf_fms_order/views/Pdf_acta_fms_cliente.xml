@@ -6,22 +6,15 @@
                 <t t-call="web.external_layout">
                     <div class="page">
                         <h4 style="color: #2F8E00;">ACTA: <span t-field="o.name"/></h4>
-                        <br/>
                         <h4 style="color: #2F8E00;">Señores:</h4>
                         <h6>
                             <span t-field="o.customer_id"/>
                         </h6>
-                        <br>
-                        </br>
                         <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y equipos empleados
                             en el <span t-field="o.template_id"/> en <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
                             <span t-field="o.project_task_id"/> de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
                         </p>
-                        <br>
-                        </br>
                         <h6 style="color: #2F8E00;">TIEMPO</h6>
-                        <br>
-                        </br>
                         <table class="table table-bordered">
                             <tbody>
                                 <thead>
@@ -44,11 +37,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br>
-                        </br>
                         <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS</h6>
-                        <br>
-                        </br>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -75,11 +64,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br>
-                        </br>
                         <h6 style="color: #2F8E00;">INVENTARIO</h6>
-                        <br>
-                        </br>
                         <table class="table table-border border-dark">
                             <thead>
                                 <tr>
@@ -94,19 +79,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br>
-                        </br>
                         <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
-                        <br>
-                        </br>
                         <span t-field="o.resolution"/>
-                        <br>
-                        </br>
-                        <br>
-                        </br>
                         <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
-                        <br>
-                        </br>
                         <div class="row">
                             <div class="col-md-12" align="center">
                                 <table style=" margin-top: 26px;">
