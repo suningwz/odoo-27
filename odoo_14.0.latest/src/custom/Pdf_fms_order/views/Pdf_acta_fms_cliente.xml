@@ -13,7 +13,7 @@
                         </h6>
                         <br>
                         </br>
-                        <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades e equipos empleados
+                        <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y equipos empleados
                             en el <span t-field="o.template_id"/> en <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
                             <span t-field="o.project_task_id"/> de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
                         </p>
