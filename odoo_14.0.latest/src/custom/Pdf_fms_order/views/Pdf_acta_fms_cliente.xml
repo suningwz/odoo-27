@@ -147,7 +147,7 @@
                                     </thead>
                                     <tr>
                                         <td>
-                                           Cita fallida por <span t-field="o.motivos_no"/>
+                                           Cita fallida por <span t-field="o.Motivos_no"/>
                                         </td>
                                         <td>
                                             <span t-field="o.date_end"/>
@@ -155,48 +155,6 @@
                                         <td>
                                             <span t-field="o.person_id"/>
                                         </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <h6 style="color: #2F8E00;">ACTIVIDADES EJECUTADAS</h6>
-                             <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">ACTIVIDAD</th>
-                                        <th scope="col">OBSERVACION</th>
-                                        <th scope="col">DIA/HORA DE REALIZACION</th>
-                                        <th scope="col">REALIZADO POR</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr t-foreach="o.order_activity_ids" t-as="x">
-                                        <td>
-                                            <span t-field="x.name"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="x.ref"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="x.completed_on"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="x.completed_by"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <h6 style="color: #2F8E00;">INVENTARIO</h6>
-                            <table class="table table-border border-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">FECHA DEL INVENTARIO</th>
-                                        <th scope="col">REFERENCIA DEL INVENTARIO</th>
-                                        <th scope="col">ESTADO</th>
-                                        <th scope="col">LUGARES</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr t-foreach="o.movimiento_inventario" t-as="s">
                                     </tr>
                                 </tbody>
                             </table>
