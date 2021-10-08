@@ -138,7 +138,10 @@ class opuesto_tecnico(models.Model):
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.picking'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
+    nuevo_almacen = fields.Many2one('stock.location', string="Nuevo despacho")
 
+    def despacho_nuevo(self):
+        self.location_id = self.nuevo_almacen
 
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="campos_almacen" model="ir.ui.view">
+            <field name="name">campos.almacen</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='origin']" position="after">
+                    <field name="nuevo_almacen"/>
+                    <button class="oe_stat_button" name="despacho_nuevo" type="object" icon="fa-upload"/>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

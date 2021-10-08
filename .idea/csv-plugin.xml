@@ -3,7 +3,28 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="/odoo_14.0.latest/src/addons/account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/crm_iap_lead/data/crm.iap.lead.industry.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/crm_iap_lead/data/crm.iap.lead.role.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/crm_iap_lead_website/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -164,6 +185,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/sale_stock/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/stock/security/ir.model.access.csv">
           <value>
             <Attribute>
@@ -179,6 +207,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/addons/stock_picking_batch/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/website_sale_comparison/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
