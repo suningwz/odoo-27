@@ -163,13 +163,13 @@
                             <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
                             <div class="row">
                                 <div class="col-md-12" align="center">
-                                    <table style=" margin-top: 26px;">
+                                    <table style=" margin-top: 10px;">
                                         <tr>
                                             <td>
                                                 <t t-esc="o.firma" t-options="{'widget':'image'}"/>
                                                 <div class="row" t-if="o.firma=='Si'">
                                                     <div class="col-md-12" align="center">
-                                                        <table style=" margin-top: 25px;">
+                                                        <table style=" margin-top: 10px;">
                                                             <tr>
                                                                 <td>
                                                                     <t t-esc="o.Firma" t-options="{'widget':'image'}"/>

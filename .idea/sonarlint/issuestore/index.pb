@@ -5,8 +5,6 @@ S
 0odoo_14.0.latest/src/odoo/service/wsgi_server.py,a/7/a7be64a67cc0dd0d5f5d001abcd7a15aeaa174e7
 f
 6odoo_14.0.latest/src/custom/fms_mod/models/__init__.py,3/3/337fe99224ef686d42c846102472b0a8c19413f5
-_
-/odoo_14.0.latest/src/custom/fms_mod/__init__.py,a/c/ac025de8570aa6e929c0f9a4edcc1a452c192701
 e
 5odoo_14.0.latest/src/custom/fms_mod/models/fms_mod.py,2/d/2da33bb6d33f2d9edac5fdc141fbd473f3986bde
 l
@@ -103,7 +101,5 @@ i
 9odoo_14.0.latest/src/addons/stock/models/stock_picking.py,8/3/83cbea8cba682847c2fc4499728d99ce0872e17b
 f
 6odoo_14.0.latest/src/addons/stock/data/stock_demo2.xml,0/3/03360d7b7615661ffa1687721bd82cf2403253d0
-|
-Lodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/views/Pdf_menu.xml,1/2/129d22f1f631bfd7f9377b2010b61a9fa9ab8248
 y
 Iodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/__manifest__.py,c/3/c374a0805ea5fbf1e0770725e76645eb5009c80e
