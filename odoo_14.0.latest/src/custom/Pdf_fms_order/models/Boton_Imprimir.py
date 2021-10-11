@@ -10,7 +10,7 @@ class Imprimir(models.Model):
             view = self.env.ref('sh_message.sh_message_wizard')
             view_id = view and view.id or False
             context = dict(self._context or {})
-            context['message'] ="Verificar por favor en el campo de Ejecucion/Firma que requerimiento falta para completar"
+            context['message'] ="Verificar por favor en el campo de Ejecucion/Firma que requerimiento falta por completar"
             return {
                 'name': 'ADVERTENCIA',
                 'type': 'ir.actions.act_window',

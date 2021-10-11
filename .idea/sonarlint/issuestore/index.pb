@@ -97,8 +97,6 @@ n
 >odoo_14.0.latest/src/addons/stock/report/report_stock_rule.xml,e/d/edead7f9732f0147500b6d0f1aec99080b570bc6
 {
 Kodoo_14.0.latest/src/addons/stock/report/report_stockpicking_operations.xml,6/3/630b61d6cc8a6eeb785f0ec83dba18415660e753
-i
-9odoo_14.0.latest/src/addons/stock/models/stock_picking.py,8/3/83cbea8cba682847c2fc4499728d99ce0872e17b
 f
 6odoo_14.0.latest/src/addons/stock/data/stock_demo2.xml,0/3/03360d7b7615661ffa1687721bd82cf2403253d0
 y
