@@ -58,22 +58,17 @@
                             </tree>
                         </field>
                     </group>
-                    <group string="Inventario" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                        <field name="movimiento_inventario" widget="many2many" nolabel="1">
+                    <group string="Inventario" id="inventario_clientes" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <field name="conteo_inventario" widget="many2many" nolabel="1">
                             <tree editable="bottom">
-                                <field name="date" />
-                                <field name="name" />
-                                <field name="state" />
-                                <field name="location_ids"/>
-                                <field name="company_id" invisible="1"/>
-                                <button name="action_start"
-                                    string="Validar inventario"
-                                    type="object"
-                                    class="oe_highlight"
-                                />
+                                <field name="product_id" />
+                                <field name="location_id" />
+                                <field name="quantity" force_save="1" invisible="1"/>
+                                <field name="elementos_usados"  />
                             </tree>
                         </field>
                     </group>
+
                     <group string=" " >
                         <field name="datos_personales" invisible="1"/>
                         <button name="aceptacion_datos" id="data_personal" type="object" string="Habilitar firma"

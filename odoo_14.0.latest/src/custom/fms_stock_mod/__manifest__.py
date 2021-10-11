@@ -12,6 +12,7 @@
         'views/unit3.xml',
         'views/js_template.xml',
         'views/vista_kanban.xml',
+        'views/almacen_tercero.xml',
     ],
     'installable': True,
     'application': True,
