@@ -13,6 +13,7 @@
         'views/js_template.xml',
         'views/vista_kanban.xml',
         'views/almacen_tercero.xml',
+        'views/view_mod_tree.xml',
     ],
     'installable': True,
     'application': True,

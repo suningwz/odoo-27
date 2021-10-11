@@ -86,8 +86,6 @@ class almacen_tecnico(models.Model):
         if id_state == 4:
             self.project_task_id.stage_id = 5
 
-
-
     @api.onchange('person_id')
     def default_inventario(self):
         warehouse_ids = self.env["stock.warehouse"].search(
@@ -130,26 +128,35 @@ class almacen_tecnico(models.Model):
         self.inventario = [(5,)]
         self.default_inventario()
 
+
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.picking'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
     nuevo_almacen = fields.Many2one('stock.location', string="Nuevo despacho")
 
+    estado_kanban = fields.Many2one(
+        'estado.transferencias', string='Stados del almacen', index=True, tracking=True, readonly=False, store=True,
+        copy=False, ondelete='restrict')
+
     def despacho_nuevo(self):
         self.location_id = self.nuevo_almacen
+
 
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
+
 
 class opuesto_conteo(models.Model):
     _inherit = 'stock.quant'
     opuesto = fields.Many2one('fsm.order', string="", readonly="True")
     opuestofms = fields.Many2one('fsm.order', string="", readonly="True")
     elementos_usados = fields.Float(string='Elmentos usados')
+
     @api.onchange('elementos_usados')
     def resta(self):
         self.quantity = self.quantity - self.elementos_usados
+
 
 # esto es un controlador que se usar para recibir los paremtros mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
 class odoocontroler(http.Controller):
@@ -174,3 +181,9 @@ class odoocontroler(http.Controller):
 class product_template(models.Model):
     _inherit = 'product.template'
     marca = fields.Char(string="Marca")
+
+
+class suministro_metalmecanicos(models.Model):
+    _name = 'estado.transferencias'
+    _rec_name = 'nombre'
+    nombre = fields.Char('Nombre del estado', required=True)
