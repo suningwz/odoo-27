@@ -7,9 +7,9 @@ class quienelabora(models.Model):
 
     def button_validate(self):
         if not self.quien_elabora:
-            self.env.user = self.quien_elabora
+            self.quien_elabora = str(self.env.user.name)
 
-    quien_elabora = fields.Many2one('res.partner', string='Elabora')
+    quien_elabora = fields.Char(string='Elabora')
 
 
 class envio(models.Model):
