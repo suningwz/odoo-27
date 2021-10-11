@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_mod_tree" model="ir.ui.view">
+            <field name="name">visa de arbol nueva</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="project.view_task_tree2" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="estado_kanban"/>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

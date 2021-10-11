@@ -8,19 +8,16 @@
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <xpath expr="//kanban" position="replace">
-                    <kanban default_group_by="state" class="o_kanban_small_column o_opportunity_kanban"
-                             archivable="true" sample="1">
-                        <field name="state"
-                               options="{&quot;group_by_tooltip&quot;: {&quot;requirements&quot;: &quot;Description&quot;}}"/>
+                    <kanban default_group_by="estado_kanban" class="o_kanban_small_column o_opportunity_kanban"
+                            archivable="1" sample="0" group_create="1" group_delete="1" group_edit="1">
+                        <field name="estado_kanban"/>
                         <field name="name"/>
                         <field name="partner_id"/>
                         <field name="location_dest_id"/>
                         <field name="scheduled_date"/>
                         <field name="activity_state"/>
-                        <progressbar field="activity_state"
-                                     colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"
-                                     sum_field="expected_revenue"
-                                     help="This bar allows to filter the opportunities based on scheduled activities."/>
+                        <progressbar field="estado_kanban"
+                                     colors='{"1": "success", "2": "danger"}' />
                         <templates>
                             <t t-name="kanban-box">
                                 <div t-attf-class="oe_kanban_card oe_kanban_global_click">
