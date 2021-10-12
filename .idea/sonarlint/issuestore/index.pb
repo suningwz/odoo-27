@@ -9,8 +9,6 @@ e
 5odoo_14.0.latest/src/custom/fms_mod/models/fms_mod.py,2/d/2da33bb6d33f2d9edac5fdc141fbd473f3986bde
 l
 <odoo_14.0.latest/src/custom/fms_stock_mod/models/__init__.py,4/3/43a826f951912fc00000c382a6a9c767240f719f
-i
-9odoo_14.0.latest/src/custom/Pdf_fms_order/__manifest__.py,b/a/ba09e711cb0631bfa01a9a6082378969d082b6ad
 n
 >odoo_14.0.latest/src/addons/stock/report/stock_traceability.py,5/5/55c061f07476812ea3c7fe38955a5188996358a5
 l
@@ -33,8 +31,6 @@ j
 :odoo_14.0.latest/src/addons/stock/views/stock_template.xml,8/d/8dcb09d28e9c89bb16ddfed563e2a152b12df099
 q
 Aodoo_14.0.latest/src/addons/stock/views/stock_warehouse_views.xml,f/e/fef925084acaac9e49926137b592e87160834c06
-i
-9odoo_14.0.latest/src/addons/stock/views/product_views.xml,f/b/fb7a3556714f30aee6498dc66e1e92a19fcbed4c
 u
 Eodoo_14.0.latest/src/addons/stock/views/report_stock_traceability.xml,2/9/2982c3ff57e2e1f76ec3d439ace9a22d77a13110
 u

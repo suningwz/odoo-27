@@ -249,7 +249,7 @@
                             full_name="partner_id" groups="stock.group_stock_sign_delivery"/>
                     <button name="do_print_picking" string="Print" groups="stock.group_stock_user" type="object" attrs="{'invisible': [('state', 'not in', ('assigned', 'partially_available'))]}"/>
                     <button name="%(action_report_delivery)d" string="Print" attrs="{'invisible': [('state', '!=', 'done')]}" invisible="1" type="action" groups="base.group_user"/>
-                     <!-- SE REALIZA CAMBIO EN EL BOTON DE PRINT PARA QUE SE VUELVA INVISIBLE HECHO POR BRANDON MARTIN NARANJO-->
+                     <!-- SE REALIZA CAMBIO EN EL BOTON DE PRINT PARA QUE SE VUELVA INVISIBLE HECHO POR BRANDON MARTIN-->
                     <button name="%(act_stock_return_picking)d" string="Return" attrs="{'invisible': [('state', '!=', 'done')]}" type="action" groups="base.group_user"/>
                     <button name="do_unreserve" string="Unreserve" groups="base.group_user" type="object" attrs="{'invisible': ['|', '|', '|', ('picking_type_code', '=', 'incoming'), ('immediate_transfer', '=', True), '&amp;', ('state', 'not in', ('assigned', 'partially_available')), ('move_type', '!=', 'one'), '&amp;', ('state', 'not in', ('assigned', 'partially_available', 'confirmed')), ('move_type', '=', 'one')]}"/>
                     <button name="button_scrap" type="object" string="Scrap" attrs="{'invisible': ['|', '&amp;', ('picking_type_code', '=', 'incoming'), ('state', '!=', 'done'), '&amp;', ('picking_type_code', '=', 'outgoing'), ('state', '=', 'done')]}"/>
