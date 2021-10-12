@@ -149,6 +149,7 @@ class opuesto_tecnico(models.Model):
         personal = self.env["hr.employee"].search(
             [("name", "=", warehouse_ids)], limit=1
         )
+
         personal.user_id.notify_success(f'Nueva solicitud de elementos')
 
 
