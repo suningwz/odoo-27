@@ -141,6 +141,16 @@ class opuesto_tecnico(models.Model):
     def despacho_nuevo(self):
         self.location_id = self.nuevo_almacen
 
+    def Notificacion_almacen(self):
+        name_location = f"{self.location_id.location_id.name}/{self.location_id.name}"
+        warehouse_ids = self.env["stock.warehouse"].search(
+            [("lot_stock_id", "=", name_location)], limit=1
+        ).partner_id.name
+        personal = self.env["hr.employee"].search(
+            [("name", "=", warehouse_ids)], limit=1
+        )
+        personal.user_id.notify_success(f'Nueva solicitud de elementos')
+
 
 class opuesto_tecnico(models.Model):
     _inherit = 'stock.inventory'

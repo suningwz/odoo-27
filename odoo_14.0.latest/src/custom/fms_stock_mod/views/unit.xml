@@ -20,7 +20,22 @@
                         </field>
                     </page>
                     <page string="Solicitud de elementos" name="solicitud">
-                        <field name="transferencias" widget="many2many"/>
+                        <field name="transferencias" widget="many2many" nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="name" />
+                                <field name="company_id" invisible="1"/>
+                                <field name="partner_id" />
+                                <field name="state"/>
+                                <field name="scheduled_date"/>
+                                <field name="date_done" />
+                                <button
+                                    name="Notificacion_almacen"
+                                    string="Notificar al almacen"
+                                    type="object"
+                                    class="oe_highlight"
+                                />
+                            </tree>
+                        </field>
                     </page>
                 </xpath>
             </field>
