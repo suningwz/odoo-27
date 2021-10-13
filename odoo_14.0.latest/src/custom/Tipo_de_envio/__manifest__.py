@@ -9,7 +9,6 @@
     'data': [
         'views/Quien_Elabora.xml',
         'views/Envio.xml',
-        'views/Boton_Validar.xml',
     ],
     'installable': True,
     'application': True,
