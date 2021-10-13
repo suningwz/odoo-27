@@ -72,14 +72,22 @@
                             <table class="table table-border border-dark">
                                 <thead>
                                     <tr>
-                                        <th scope="col">FECHA DEL INVENTARIO</th>
-                                        <th scope="col">REFERENCIA DEL INVENTARIO</th>
-                                        <th scope="col">ESTADO</th>
-                                        <th scope="col">LUGARES</th>
+                                        <th scope="col">PRODUCTO</th>
+                                        <th scope="col">UBICACION</th>
+                                        <th scope="col">ELEMENTOS USADOS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr t-foreach="o.movimiento_inventario" t-as="s">
+                                    <tr t-foreach="o.conteo_inventario" t-as="s">
+                                        <td>
+                                            <span t-field="s.product_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="s.location_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="s.elementos_usados"/>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
