@@ -14,7 +14,7 @@
                         <field name="urlGoPack365" attrs="{'invisible':['|', ('ejecucion', '!=', 'r1'), ('Transporte', '!=', 'f2')]}" widget="url" readonly="1" force_save="1"/>
                         <field name="local_en_sitio" attrs="{'invisible': [('ejecucion', '!=', 'r2')]}" widget="radio"/>
                         <field name="local_motorizado" attrs="{'invisible': [('ejecucion', '!=', 'r3')]}" widget="url" readonly="1" force_save="1"/>
-                        <field name="local_vehiculo" attrs="{'invisible': [('ejecucion', '!=', 'r4')]}" widget="url"/>
+                        <field name="local_vehiculo" attrs="{'invisible': [('ejecucion', '!=', 'r4')]}" widget="url" readonly="1" force_save="1"/>
                     </group>
                 </page>
             </notebook>
