@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='instructions_page']" name="elements" position="after">
                     <page string="Elementos del tecnico">
+                        <field name="ejecucion_tecnica" invisible="1"/>
                         <button name="default2" type="object" string="Actualizar Inventario" icon="fa-check" class="oe_link"/>
                         <field name="inventario" widget="many2many" readonly='1' force_save='1'>
                             <tree>

@@ -1,11 +1,13 @@
 import requests
 from odoo import api, fields, models, _
 from odoo import _, api, exceptions, fields, models, http
+from odoo import SUPERUSER_ID
 from odoo.http import request
 from datetime import datetime
 import json
 from xlsxwriter import app
 from geopy.geocoders import Nominatim
+from odoo.exceptions import ValidationError
 import time
 import math
 import urllib.request
@@ -135,8 +137,27 @@ class opuesto_tecnico(models.Model):
     nuevo_almacen = fields.Many2one('stock.location', string="Nuevo despacho")
 
     estado_kanban = fields.Many2one(
-        'estado.transferencias', string='Stados del almacen', index=True, tracking=True, readonly=False, store=True,
-        copy=False, ondelete='restrict')
+        'estado.kanban',
+        string='Estado del almacen', index=True, tracking=True,
+        compute='_compute_stage_id', readonly=False, store=True,
+        copy=False, group_expand='_read_group_stage_ids', ondelete='restrict',
+        default=1,)
+
+    @api.model
+    def _read_group_stage_ids(self, stages, domain, order):
+        # retrieve team_id from the context and write the domain
+        # - ('id', 'in', stages.ids): add columns that should be present
+        # - OR ('fold', '=', False): add default columns that are not folded
+        # - OR ('team_ids', '=', team_id), ('fold', '=', False) if team_id: add team columns that are not folded
+        team_id = self._context.get('default_team_id')
+        if team_id:
+            search_domain = ['|', ('id', 'in', stages.ids), '|', ('team_id', '=', False), ('team_id', '=', team_id)]
+        else:
+            search_domain = ['|', ('id', 'in', stages.ids), ('team_id', '=', False)]
+
+        # perform search
+        stage_ids = stages._search(search_domain, order=order, access_rights_uid=SUPERUSER_ID)
+        return stages.browse(stage_ids)
 
     def despacho_nuevo(self):
         self.location_id = self.nuevo_almacen
@@ -193,7 +214,35 @@ class product_template(models.Model):
     marca = fields.Char(string="Marca")
 
 
-class suministro_metalmecanicos(models.Model):
-    _name = 'estado.transferencias'
-    _rec_name = 'nombre'
-    nombre = fields.Char('Nombre del estado', required=True)
+class estado_kanban_inventario(models.Model):
+    _name = 'estado.kanban'
+    _description = "Estado para solicitud de inventario"
+    _rec_name = 'name'
+    _order = "sequence, name, id"
+
+    @api.model
+    def default_get(self, fields):
+        """ Hack :  when going from the pipeline, creating a stage with a sales team in
+            context should not create a stage for the current Sales Team only
+        """
+        ctx = dict(self.env.context)
+        if ctx.get('default_team_id') and not ctx.get('crm_team_mono'):
+            ctx.pop('default_team_id')
+        return super(estado_kanban_inventario, self.with_context(ctx)).default_get(fields)
+
+    name = fields.Char('Stage Name', required=True, translate=True)
+    sequence = fields.Integer('Sequence', default=1, help="Used to order stages. Lower is better.")
+    is_won = fields.Boolean('Is Won Stage?')
+    requirements = fields.Text('Requirements',
+                               help="Enter here the internal requirements for this stage (ex: Offer sent to customer). It will appear as a tooltip over the stage's name.")
+    team_id = fields.Many2one('crm.team', string='Sales Team', ondelete='set null',
+                              help='Specific team that uses this stage. Other teams will not be able to see or use this stage.')
+    fold = fields.Boolean('Folded in Pipeline',
+                          help='This stage is folded in the kanban view when there are no records in that stage to display.')
+
+    # This field for interface only
+    team_count = fields.Integer('team_count', compute='_compute_team_count')
+
+    def _compute_team_count(self):
+        for stage in self:
+            stage.team_count = self.env['crm.team'].search_count([])
