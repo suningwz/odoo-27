@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="Validacion" model="ir.ui.view">
+        <field name="name">Quien_Valida</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[3]" position="replace">
+                <button name="button_validate1" string="validar"  attrs="{'invisible': ['|', ('state', 'not in', ('waiting','confirmed')), ('show_validate', '=', False)]}" type="object"/>
+            </xpath>
+            <xpath expr="//button[4]" position="replace">
+                <button name="button_validate1" string="validar"  attrs="{'invisible': ['|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False)]}" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

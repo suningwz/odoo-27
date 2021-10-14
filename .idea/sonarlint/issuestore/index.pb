@@ -151,8 +151,6 @@ i
 9odoo_14.0.latest/src/custom/fms_stock_mod/views/unit3.xml,c/4/c4f50c8d6201f732f395878a6ad6b2f3a8be20e9
 p
 @odoo_14.0.latest/src/custom/fms_stock_mod/views/vista_kanban.xml,c/2/c2cd73d0276e959baf21be32c5ef806f791c2d1d
-e
-5odoo_14.0.latest/src/custom/Tipo_de_envio/__init__.py,9/c/9c691840d0819d131d1fdf0cb5237056efa72ce7
 ‡
 Wodoo_14.0.latest/src/custom/Pdf_Inventario_Transferencias/views/Pdf_Orden_de_Salida.xml,5/f/5f4bf1085a2f6c4c21d327d5d3276e5a727a4d7a
 i
