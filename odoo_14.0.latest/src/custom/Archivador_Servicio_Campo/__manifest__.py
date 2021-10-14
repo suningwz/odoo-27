@@ -7,7 +7,7 @@
     'depends': ['base', 'fieldservice', 'stock', 'hr_expense',
                 ],
     'data': [
-        'views/unit.xml',
+        'views/unit.py',
         'views/unit2.xml',
         'views/Archivador_Gastos.xml',
     ],

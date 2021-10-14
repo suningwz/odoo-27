@@ -66,5 +66,12 @@
                 </form>
             </field>
         </record>
+
+        <menuitem
+                action="bag_action"
+                id="action_menu1"
+                parent="hr_expense.menu_hr_expense_root"
+                name="Bolsas"
+                sequence="1"/>
     </data>
 </odoo>

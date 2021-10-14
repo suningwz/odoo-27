@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <menuitem
+                action="bag_action"
+                id="action_menu"
+                parent="event_tag_view_tree"
+                name="Bolsa"
+                sequence="1"/>
+    </data>
+</odoo>

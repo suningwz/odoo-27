@@ -7,7 +7,7 @@
     'depends': ['base', 'account',
                 ],
     'data': [
-        'views/unit.xml',
+        'views/unit.py',
     ],
     'installable': True,
     'application': True,
