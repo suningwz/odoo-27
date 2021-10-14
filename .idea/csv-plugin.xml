@@ -143,13 +143,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/odoo_14.0.latest/src/addons/l10n_fi/data/account.account.template.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_es/data/account.account.template-common.csv">
           <value>
             <Attribute>
@@ -165,6 +158,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_es/data/account.account.template-pymes.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_fi/data/account.account.template.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -319,6 +319,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/custom/fieldservice_isp_account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/odoo_whatsapp_integration/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

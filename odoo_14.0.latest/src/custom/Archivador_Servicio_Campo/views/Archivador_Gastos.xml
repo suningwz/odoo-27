@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="archivo" model="ir.ui.view">
+            <field name="name">archivar.gastos</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_my_expenses_tree" />
+            <field name="priority" eval="33"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree" position="inside">
+                    <button name="funcion_libre" string="Archivar" type="object">
+                        <field name="active" widget="boolean_button"/>
+                    </button>
+                </xpath>
+            </field>
+       </record>
+    </data>
+</odoo>

@@ -15,12 +15,24 @@ class boton_archivador(models.Model):
     _inherit = "fsm.order"
 
     active = fields.Boolean('Active', default=True)
+
     def funcion_libre(self):
         self.active = False
+
 
 class boton_archivador(models.Model):
     _inherit = "stock.picking"
 
     active = fields.Boolean('Active', default=True)
+
+    def funcion_libre(self):
+        self.active = False
+
+
+class boton_Gastos(models.Model):
+    _inherit = "hr.expense"
+
+    active = fields.Boolean('Active', default=True)
+
     def funcion_libre(self):
         self.active = False

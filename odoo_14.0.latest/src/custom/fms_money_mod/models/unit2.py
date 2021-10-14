@@ -50,7 +50,7 @@ class video_mano(models.Model):
             persona.bolsa_total = self.bolsa_total
         elif valor < 150000:
             self.bolsa_dineros = 0
-            raise ValidationError(f'el valor de: {valor} es menor al maximo')
+            raise ValidationError(f'El valor de: {valor} es menor al maximo')
         elif valor > 150000:
             if valor <= 300000:
                 self.bolsa_dineros = 0
@@ -58,7 +58,7 @@ class video_mano(models.Model):
                 persona.bolsa_total = self.bolsa_total
             elif valor > 300000:
                 self.bolsa_dineros = 0
-                raise ValidationError(f'el valor de: {valor} excede el tope')
+                raise ValidationError(f'El valor de: {valor} excede el tope')
 
         self.estado = 'p2'
 

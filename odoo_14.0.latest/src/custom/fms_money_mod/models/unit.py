@@ -7,7 +7,7 @@ class bolsa_tecnicos(models.Model):
     _inherit = 'hr.employee'
 
     bolsa_dineros = fields.Integer('dinero a ingresar')
-    bolsa_total = fields.Integer('total', readonly=1,forcesave=1)
+    bolsa_total = fields.Integer('total', readonly=1, forcesave=1)
 
     def ingresar_dinero(self):
        valor = self.bolsa_dineros
@@ -18,14 +18,14 @@ class bolsa_tecnicos(models.Model):
            self.bolsa_total = valor
        elif valor < 150000:
            self.bolsa_dineros = 0
-           raise ValidationError(f'el valor de: {valor} es menor al maximo')
+           raise ValidationError(f'El valor de: {valor} es menor al maximo')
        elif valor > 150000:
            if valor <= 300000:
                self.bolsa_dineros = 0
                self.bolsa_total = valor
            elif valor > 300000:
                self.bolsa_dineros = 0
-               raise ValidationError(f'el valor de: {valor} excede el tope')
+               raise ValidationError(f'El valor de: {valor} excede el tope')
 
 class informes_gastos(models.Model):
     _inherit = 'hr.expense.sheet'
