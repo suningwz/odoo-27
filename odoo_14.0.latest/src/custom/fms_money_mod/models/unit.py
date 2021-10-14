@@ -7,7 +7,7 @@ class bolsa_tecnicos(models.Model):
     _inherit = 'hr.employee'
 
     bolsa_dineros = fields.Integer('dinero a ingresar')
-    bolsa_total = fields.Integer('total', readonly=1, forcesave=1)
+    bolsa_total = fields.Integer(string='Total', readonly=1, forcesave=1)
 
     def ingresar_dinero(self):
        valor = self.bolsa_dineros

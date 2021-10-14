@@ -10,7 +10,7 @@
             <field name="model">solicitudes.bolsa</field>
             <field name="arch" type="xml">
                 <tree string="Event Tags Categories">
-                    <field name="bolsa_total"/>
+                    <field name="bolsa_total" string="Total"/>
                     <field name="personal"/>
                     <field name="solicitado"/>
                     <field name="estado"/>

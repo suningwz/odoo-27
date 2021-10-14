@@ -7,7 +7,7 @@
     'depends': ['base', 'fieldservice', 'stock',
                 ],
     'data': [
-        'views/unit.py',
+        'views/unit.xml',
         'views/unit2.xml',
         'views/unit3.xml',
         'views/js_template.xml',
