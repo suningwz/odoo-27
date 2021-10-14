@@ -9,7 +9,7 @@
                 <button name="button_validate1" string="Validar"  attrs="{'invisible': ['|', ('state', 'not in', ('waiting','confirmed')), ('show_validate', '=', False)]}" class="oe_highlight" type="object"/>
             </xpath>
             <xpath expr="//button[4]" position="replace">
-                <button name="button_validate1" string="Validar"  attrs="{'invisible': ['|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False)]}" class="oe_highlight" type="object"/>
+                <button name="button_validate1" string="Validar"  attrs="{'invisible': ['|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False)]}" type="object"/>
             </xpath>
         </field>
     </record>
