@@ -137,7 +137,7 @@ class opuesto_tecnico(models.Model):
     nuevo_almacen = fields.Many2one('stock.location', string="Nuevo despacho")
 
     estado_kanban = fields.Many2one(
-        'estado.kanban',
+        'estado.transferencias',
         string='Estado del almacen', index=True, tracking=True,
         compute='_compute_stage_id', readonly=False, store=True,
         copy=False, group_expand='_read_group_stage_ids', ondelete='restrict',
@@ -215,7 +215,7 @@ class product_template(models.Model):
 
 
 class estado_kanban_inventario(models.Model):
-    _name = 'estado.kanban'
+    _name = 'estado.transferencias'
     _description = "Estado para solicitud de inventario"
     _rec_name = 'name'
     _order = "sequence, name, id"
