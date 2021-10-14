@@ -56,9 +56,11 @@
                             </div>
                             <div class="container">
                                 <div class="row">
-                                    <button name="aprovacion_exporte" icon="fa-arrow-right" type="object" string="Aprobar" class="btn-primary col-md-4"/>
+                                    <button name="aprovacion_exporte" icon="fa-arrow-right" type="object"
+                                            string="Aprobar" class="btn-primary col-md-4"/>
                                     <p class="col-md-4"></p>
-                                    <button name="cancelado" icon="fa-arrow-right" type="object" string="Cancelar" class="btn-primary col-md-4"/>
+                                    <button name="cancelado" icon="fa-arrow-right" type="object" string="Cancelar"
+                                            class="btn-primary col-md-4"/>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +68,7 @@
                 </form>
             </field>
         </record>
-
+        <!--Menu Gastos/Bolsa-->
         <menuitem
                 action="bag_action"
                 id="action_menu1"
