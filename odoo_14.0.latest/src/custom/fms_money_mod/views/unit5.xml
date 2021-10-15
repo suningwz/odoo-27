@@ -9,11 +9,24 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='execution_page']" name="bag2" position="before">
                     <page string="Solicitud de dinero" name="solicitud_dinero">
-                        <group string="Bolsa" name="bag_tecnico" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                        <group string="Bolsa" name="bag_tecnico">
                             <field name="bolsa_total_tecnico" readonly="1" force_save="1"/>
                             <button name="default_bag" type="object" string="Actualizar Bolsa" icon="fa-check" class="oe_link"/>
                         </group>
-                        <field name="solicitudes_dineros" widget="many2many"/>
+                        <field name="solicitudes_dineros" widget="many2many">
+                            <tree editable="bottom">
+                                <field name="personal" />
+                                <field name="solicitado" />
+                                <field name="estado" />
+                                <field name="bolsa_total"/>
+                                <button
+                                    name="Notificacion_gastos"
+                                    string="Notificar a gastos"
+                                    type="object"
+                                    class="oe_highlight"
+                                />
+                            </tree>
+                        </field>
                     </page>
                 </xpath>
             </field>

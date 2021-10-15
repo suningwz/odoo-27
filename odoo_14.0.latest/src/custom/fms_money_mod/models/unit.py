@@ -18,14 +18,16 @@ class bolsa_tecnicos(models.Model):
            self.bolsa_total = valor
        elif valor < 150000:
            self.bolsa_dineros = 0
-           raise ValidationError(f'El valor de: {valor} es menor al maximo')
+           raise ValidationError(f'El valor minimo para ingresar es de  150000'
+                                 f'Actualmente se esta ingresando {valor}')
        elif valor > 150000:
            if valor <= 300000:
                self.bolsa_dineros = 0
                self.bolsa_total = valor
            elif valor > 300000:
                self.bolsa_dineros = 0
-               raise ValidationError(f'El valor de: {valor} excede el tope')
+               raise ValidationError(f'El valor maximo que se puede es de 300000 '
+                                     f'Actualmente se esta ingresando {valor}')
 
 class informes_gastos(models.Model):
     _inherit = 'hr.expense.sheet'
