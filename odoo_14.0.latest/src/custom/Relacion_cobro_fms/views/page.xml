@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="Relacion_cobro" model="ir.ui.view">
+            <field name="name">relationship.view</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='execution_page']" name="Collection_relationship" position="after">
+                    <page string="Relacion de cobro / Cotizacion" name="collection_relationship">
+                        <field name="ventas_fsm" widget="many2many" nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="name" />
+                                <field name="amount_total" />
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
