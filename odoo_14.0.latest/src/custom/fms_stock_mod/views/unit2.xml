@@ -16,7 +16,7 @@
                         <field name="resolution" string="Indique la solucion realizada"/>
                     </group>
                     <group id="coordenadas" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
-                        <field name="coordenadas" widget="url"/>
+                        <field name="coordenadas" widget="url" readonly="1" force_save="1"/>
                     </group>
                 </xpath>
                 <xpath expr="//notebook/page[@name='execution_page']/group/group[@id='execution-left']" position="attributes">
