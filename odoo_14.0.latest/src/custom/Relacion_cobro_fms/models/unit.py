@@ -39,3 +39,5 @@ class campo_relacion_cobreo(models.Model):
 class _sale_order_line(models.Model):
     _inherit = 'sale.order'
     fsm_id = fields.Many2one('fsm.order')
+
+
