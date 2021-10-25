@@ -10,7 +10,7 @@
         'views/Pdf_acta_fms_cliente.xml',
         'views/Imprimir.xml',
         'views/Pdf_menu.xml',
-
+        'views/fechas.xml',
     ],
     'installable': True,
     'application': True,

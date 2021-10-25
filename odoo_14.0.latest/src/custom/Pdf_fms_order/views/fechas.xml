@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="Relacion_cobro" model="ir.ui.view">
+            <field name="name">relationship.view</field>
+            <field name="model">fsm.order</field>
+            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="priority" eval="31" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='execution_page']/group/group/field[@name='duration']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='execution_page']/group/group/field[@name='duration']" position="after">
+                    <field name="duration_cliente" readonly="1" force_save="1"/>
+                    <field name="duracion_entrega" readonly="1" force_save="1"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='planning_page']/group/group[@id='schedule']/field[@name='scheduled_date_end']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

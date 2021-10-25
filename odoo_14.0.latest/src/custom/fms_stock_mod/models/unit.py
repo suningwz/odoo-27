@@ -77,6 +77,8 @@ class almacen_tecnico(models.Model):
     def time_end(self):
         if self.ejecucion_tecnica == 'r1':
             self.date_end = datetime.now()
+            self.duration_cliente = str( self.date_start - self.scheduled_date_start)
+            self.duracion_entrega = str(self.date_end - self.scheduled_date_end)
         id_state = int(self.project_task_id.stage_id)
         if id_state == 4:
             self.project_task_id.stage_id = 5

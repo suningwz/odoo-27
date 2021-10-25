@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="Reporte_acta_en_pdf">
         <t t-call="web.html_container">
@@ -6,37 +6,65 @@
                 <t t-if="o.ejecucion_tecnica =='r1'">
                     <t t-call="web.external_layout">
                         <div class="page">
-                            <h4 style="color: #2F8E00;">ACTA:
-                                <span t-field="o.name"/>
+                            <h4 style="color: #2F8E00;">
+                                ACTA:
+                                <span t-field="o.name" />
                             </h4>
                             <h4 style="color: #2F8E00;">Señores:</h4>
                             <h6>
-                                <span t-field="o.customer_id"/>
+                                <span t-field="o.centro_costos.owner_id" />
                             </h6>
-                            <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y
-                                equipos empleados en el<span t-field="o.template_id"/>en
-                                <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
-                                <span t-field="o.project_task_id"/>de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
+                            <p font_size="medium">
+                                A continuación, presentamos la relacion de tiempos, actividades y
+                                equipos empleados en  
+                                <span t-field="o.template_id" />
+                                en el cajero (
+                                <span t-field="o.project_task_id.partner_id.tipo_unidad" />)
+                                #
+                                <span t-field="o.project_task_id" /> 
+                                 
+                                <span t-field="o.cajero"/>
+                                de la ciudad de
+                                <span t-field="o.project_task_id.partner_id.city" />
+                                .
                             </p>
                             <h6 style="color: #2F8E00;">TIEMPO</h6>
                             <table class="table table-bordered">
                                 <tbody>
                                     <thead>
                                         <tr>
-                                            <th scope="col">DIA / HORA DE LLEGADA</th>
-                                            <th scope="col">DIA / HORA DE FINALIZACION</th>
-                                            <th scope="col">TIEMPO TRANSCURRIDO</th>
+                                            <th scope="col">DIA / HORA DE LLEGADA PROGRAMADA POR CLIENTE</th>
+                                            <th scope="col">DIA / HORA DE LLEGADA REAL</th>
+                                            <th scope="col">DIFERENCIA</th>
                                         </tr>
                                     </thead>
                                     <tr>
                                         <td>
-                                            <span t-field="o.date_start"/>
+                                            <span t-field="o.scheduled_date_start" />
                                         </td>
                                         <td>
-                                            <span t-field="o.date_end"/>
+                                            <span t-field="o.date_start" />
                                         </td>
                                         <td>
-                                            <span t-field="o.duration"/>
+                                            <span t-field="o.duration_cliente" />
+                                        </td>
+                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">DIA / HORA DE FINALIZACION PROGRAMADA POR CLIENTE</th>
+                                            <th scope="col">DIA / HORA DE FINALIZACION REAL</th>
+                                            <th scope="col">DIFERENCIA</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>
+                                            <span t-field="o.scheduled_date_end" />
+                                        </td>
+                                        <td>
+                                            <span t-field="o.date_end" />
+                                        </td>
+                                        <td>
+                                            <span t-field="o.duracion_entrega" />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -54,63 +82,53 @@
                                 <tbody>
                                     <tr t-foreach="o.order_activity_ids" t-as="x">
                                         <td>
-                                            <span t-field="x.name"/>
+                                            <span t-field="x.name" />
                                         </td>
                                         <td>
-                                            <span t-field="x.ref"/>
+                                            <span t-field="x.ref" />
                                         </td>
                                         <td>
-                                            <span t-field="x.completed_on"/>
+                                            <span t-field="x.completed_on" />
                                         </td>
                                         <td>
-                                            <span t-field="x.completed_by"/>
+                                            <span t-field="x.completed_by" />
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <h6 style="color: #2F8E00;">INVENTARIO</h6>
+                            <h6 style="color: #2F8E00;">EQUIPOS SUMINISTRADOS</h6>
                             <table class="table table-border border-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">PRODUCTO</th>
-                                        <th scope="col">UBICACION</th>
                                         <th scope="col">ELEMENTOS USADOS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr t-foreach="o.conteo_inventario" t-as="s">
-                                        <td>
-                                            <span t-field="s.product_id"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="s.location_id"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="s.elementos_usados"/>
-                                        </td>
-                                    </tr>
+                                    <td>KIT TRAMPAS DE RETRABE NCR-S23</td>
+                                    <td>1</td>
                                 </tbody>
                             </table>
                             <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
-                            <span t-field="o.resolution"/>
+                            <span t-field="o.resolution" />
                             <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
                             <div class="row">
                                 <div class="col-md-12" align="center">
                                     <table style=" margin-top: 26px;">
                                         <tr>
                                             <td>
-                                                <t t-esc="o.firma" t-options="{'widget':'image'}"/>
+                                                <t t-esc="o.firma" t-options="{'widget':'image'}" />
                                                 <div class="row" t-if="o.firma=='Si'">
                                                     <div class="col-md-12" align="center">
                                                         <table style=" margin-top: 25px;">
                                                             <tr>
                                                                 <td>
-                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
+                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td align="center">
-                                                                    <t t-esc="o.quienfirma"/>
+                                                                    <t t-esc="o.quienfirma" />
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -120,7 +138,7 @@
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <t t-esc="o.q_firma"/>
+                                                <t t-esc="o.q_firma" />
                                             </td>
                                         </tr>
                                     </table>
@@ -132,19 +150,26 @@
                 <t t-else="o.motivos_no == 'r2'">
                     <t t-call="web.external_layout">
                         <div class="page">
-                            <h4 style="color: #2F8E00;">ACTA:
-                                <span t-field="o.name"/>
+                            <h4 style="color: #2F8E00;">
+                                ACTA:
+                                <span t-field="o.name" />
                             </h4>
                             <h4 style="color: #2F8E00;">Señores:</h4>
                             <h6>
-                                <span t-field="o.customer_id"/>
+                                <span t-field="o.centro_costos.owner_id" />
                             </h6>
-                            <p font_size="medium">A continuación, presentamos la relacion de tiempos, actividades y
-                                equipos empleados en el <span t-field="o.template_id"/>en
-                                <span t-field="o.project_task_id.partner_id.tipo_unidad"/>
-                                <span t-field="o.project_task_id"/>de la ciudad de <span t-field="o.project_task_id.partner_id.city"/>.
+                            <p font_size="medium">
+                                A continuación, presentamos la relacion de tiempos, actividades y
+                                equipos empleados en el
+                                <span t-field="o.template_id" />
+                                en
+                                <span t-field="o.project_task_id.partner_id.tipo_unidad" />
+                                <span t-field="o.project_task_id" />
+                                de la ciudad de
+                                <span t-field="o.project_task_id.partner_id.city" />
+                                .
                             </p>
-                             <table class="table table-bordered">
+                            <table class="table table-bordered">
                                 <tbody>
                                     <thead>
                                         <tr>
@@ -155,37 +180,38 @@
                                     </thead>
                                     <tr>
                                         <td>
-                                           Cita fallida por <span t-field="o.Motivos_no"/>
+                                            Cita fallida por
+                                            <span t-field="o.Motivos_no" />
                                         </td>
                                         <td>
-                                            <span t-field="o.date_end"/>
+                                            <span t-field="o.date_end" />
                                         </td>
                                         <td>
-                                            <span t-field="o.person_id"/>
+                                            <span t-field="o.person_id" />
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <h6 style="color: #2F8E00;">OBSERVACIONES DEL TECNICO</h6>
-                            <span t-field="o.resolution"/>
+                            <span t-field="o.resolution" />
                             <h6 style="color: #2F8E00;">FIRMA DEL FUNCIONARIO</h6>
                             <div class="row">
                                 <div class="col-md-12" align="center">
                                     <table style=" margin-top: 10px;">
                                         <tr>
                                             <td>
-                                                <t t-esc="o.firma" t-options="{'widget':'image'}"/>
+                                                <t t-esc="o.firma" t-options="{'widget':'image'}" />
                                                 <div class="row" t-if="o.firma=='Si'">
                                                     <div class="col-md-12" align="center">
                                                         <table style=" margin-top: 10px;">
                                                             <tr>
                                                                 <td>
-                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}"/>
+                                                                    <t t-esc="o.Firma" t-options="{'widget':'image'}" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td align="center">
-                                                                    <t t-esc="o.quienfirma"/>
+                                                                    <t t-esc="o.quienfirma" />
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -195,7 +221,7 @@
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <t t-esc="o.q_firma"/>
+                                                <t t-esc="o.q_firma" />
                                             </td>
                                         </tr>
                                     </table>
@@ -208,4 +234,3 @@
         </t>
     </template>
 </odoo>
-

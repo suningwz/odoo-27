@@ -5,6 +5,9 @@ from odoo import _, api, exceptions, fields, models
 class Imprimir(models.Model):
     _inherit = 'fsm.order'
 
+    duration_cliente =  fields.Char('Diferencia de tiempo de inicio')
+    duracion_entrega = fields.Char('Diferencia de finalizacion de labores')
+
     def print_report(self):
         if not self.firma or not self.q_firma or not self.cc_q_firma:
             view = self.env.ref('sh_message.sh_message_wizard')
