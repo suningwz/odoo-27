@@ -8,7 +8,7 @@
             <field name="priority" eval="31" />
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='execution_page']" name="Collection_relationship" position="after">
-                    <page string="Relacion de cobro / Cotizacion" name="collection_relationship">
+                    <page string="Relacion de cobro / Cotizacion" name="collection_relationship" groups="fms_view_coordinator.view_coordinator_pages">
                         <button name="crear_cotizacion" string="Crear cotizacion" type="object" class="oe_highlight" />
                         <field name="ventas_fsm" widget="many2many" nolabel="1">
                             <tree editable="bottom">
