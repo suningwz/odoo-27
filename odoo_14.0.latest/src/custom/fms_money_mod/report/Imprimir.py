@@ -11,7 +11,7 @@ class Clientes(models.Model):
 
 
 class Excel(models.AbstractModel):
-    _name = "report.fms_money_mod.solicitudes_bolsa_xlsx"
+    _name = "report.fms_money_mod.clientes_xlsx"
     _inherit = "report.report_xlsx.abstract"
     _description = "Reporte"
 
