@@ -16,7 +16,7 @@
         'views/unit5.xml',
         'views/unit6.xml',
         'secutiry/security.xml',
-	'report/report.xml',
+	    'report/report.xml',
     ],
     'installable': True,
     'application': True,
