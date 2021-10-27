@@ -8,7 +8,7 @@
     'depends': ['base', 'project'
                 ],
     'data': [
-        'views/unit.py',
+        'views/unit.xml',
         'views/unit2.xml',
     ],
     'installable': True,
