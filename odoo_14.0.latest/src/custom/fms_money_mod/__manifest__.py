@@ -6,7 +6,7 @@
     'version': '14.0.1',
     'author': 'Allser',
     'sequence': 0,
-    'depends': ['base', 'fieldservice', 'hr_expense', 'hr',
+    'depends': ['base', 'fieldservice', 'hr_expense', 'hr', 'report_xlsx',
                 ],
     'data': [
         'views/unit.xml',
@@ -16,6 +16,7 @@
         'views/unit5.xml',
         'views/unit6.xml',
         'secutiry/security.xml',
+	    'report/report.xml',
     ],
     'installable': True,
     'application': True,
