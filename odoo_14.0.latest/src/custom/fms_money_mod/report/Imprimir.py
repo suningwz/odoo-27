@@ -32,7 +32,7 @@ class Excel(models.AbstractModel):
         sheet.write(0, 1, 'TIPO DE PAGO', bold)
         sheet.write(1, 1, '220', bold)
         sheet.write(2, 1, 'Nit Beneficiario', bold)
-        sheet.set_column_pixels(0, 2, 215)
+        sheet.set_column_pixels(0, 2, 300)
         sheet.write(0, 2, 'APLICACIÓN', bold)
         sheet.write(1, 2, 'I', bold)
         sheet.write(2, 2, 'Nombre Beneficiario', bold)
