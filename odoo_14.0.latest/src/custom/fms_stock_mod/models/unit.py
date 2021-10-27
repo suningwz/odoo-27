@@ -62,7 +62,8 @@ class almacen_tecnico(models.Model):
     @api.onchange('ejecucion_tecnica')
     def time_initial(self):
         if self.ejecucion_tecnica == 'r1':
-            self.date_start = datetime.now()
+            if not self.date_start:
+                self.date_start = datetime.now()
 
     @api.onchange('Motivos_no')
     def default_time(self):
@@ -76,9 +77,16 @@ class almacen_tecnico(models.Model):
 
     def time_end(self):
         if self.ejecucion_tecnica == 'r1':
-            self.date_end = datetime.now()
-            self.duration_cliente = str( self.date_start - self.scheduled_date_start)
-            self.duracion_entrega = str(self.date_end - self.scheduled_date_end)
+            if not self.date_end:
+                self.date_end = datetime.now()
+                cliente = str( self.date_start - self.scheduled_date_start)
+                entrega = str(self.date_end - self.scheduled_date_end)
+                cliente = cliente.split('.')
+                cliente = cliente[0]
+                entrega = entrega.split('.')
+                entrega = entrega[0]
+                self.duration_cliente = cliente 
+                self.duracion_entrega = entrega
         id_state = int(self.project_task_id.stage_id)
         if id_state == 4:
             self.project_task_id.stage_id = 5
