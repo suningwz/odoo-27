@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="Excel_xlsx" model="ir.actions.report">
+        <field name="name">Imprimir Excel</field>
+        <field name="model">solicitudes.bolsa</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">fms_money_mod.solicitudes_bolsa_xlsx</field>
+        <field name="report_file">Solicitud de Dineros</field>
+    </record>
+</odoo>
