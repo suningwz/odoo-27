@@ -9,9 +9,8 @@ class OdooAndroidSync(http.Controller):
     @http.route('/api/attendance/hours/<user_id>/<day_week>', auth='user', methods=['GET'])
     def get_attendance_hours(self, user_id, day_week, **kw):
         try:
-            calendar_id = http.request.env['hr.employee'].sudo().search(
-                [('user_id', '=', int(user_id))]).resource_calendar_id.id
-            hours = http.request.env['resource.calendar.attendance'].sudo().search_read([('calendar_id', '=', int(calendar_id)), 
+            calendar_id = http.request.env['hr.employee'].sudo().search([('user_id', '=', int(user_id))]).resource_calendar_id.id
+            hours = http.request.env['resource.calendar.attendance'].sudo().search_read([('calendar_id', '=', int(calendar_id)),  
                 ('dayofweek', '=', day_week)],['hour_from', 'hour_to'])
 
             return self.build_response(hours)
