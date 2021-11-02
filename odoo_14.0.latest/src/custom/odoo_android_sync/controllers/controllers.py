@@ -1,21 +1,34 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import Response
+import json
 
 
-# class OdooAndroidSync(http.Controller):
-#     @http.route('/odoo_android_sync/odoo_android_sync/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class OdooAndroidSync(http.Controller):
 
-#     @http.route('/odoo_android_sync/odoo_android_sync/objects/', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('odoo_android_sync.listing', {
-#             'root': '/odoo_android_sync/odoo_android_sync',
-#             'objects': http.request.env['odoo_android_sync.odoo_android_sync'].search([]),
-#         })
+    @http.route('/api/attendance/hours/<user_id>/<day_week>', auth='user', methods=['GET'])
+    def get_attendance_hours(self, user_id, day_week, **kw):
+        try:
+            calendar_id = http.request.env['hr.employee'].sudo().search(
+                [('user_id', '=', int(user_id))]).resource_calendar_id.id
+            hours = http.request.env['resource.calendar.attendance'].sudo().search_read([('calendar_id', '=', int(calendar_id)), 
+                ('dayofweek', '=', day_week)],['hour_from', 'hour_to'])
 
-#     @http.route('/odoo_android_sync/odoo_android_sync/objects/<model("odoo_android_sync.odoo_android_sync"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('odoo_android_sync.object', {
-#             'object': obj
-#         })
+            return self.build_response(hours)
+        except Exception as e:
+            return self.build_response({'err': str(e)})
+
+    @http.route('/api/attendance', auth='user', methods=['POST'], csrf=False)
+    def insert_attendance(self, **kw):
+
+        try:
+            attendance = json.loads(str(http.request.httprequest.data, 'utf-8'))
+            http.request.env['hr.attendance'].create(attendance)
+            return self.build_response({'message': 'inserted'})
+
+        except Exception as e:
+            return self.build_response({'err': str(e)})
+
+    def build_response(self, entity):
+        response = json.dumps(entity, ensure_ascii=False).encode('utf8')
+        return Response(response, content_type='application/json;charset=utf-8', status=200)   
