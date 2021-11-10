@@ -19,7 +19,6 @@ class OdooAndroidSync(http.Controller):
 
     @http.route('/api/attendance', auth='user', methods=['POST'], csrf=False)
     def insert_attendance(self, **kw):
-
         try:
             attendance = json.loads(str(http.request.httprequest.data, 'utf-8'))
             http.request.env['hr.attendance'].create(attendance)
