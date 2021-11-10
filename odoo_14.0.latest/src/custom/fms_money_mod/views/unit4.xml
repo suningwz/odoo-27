@@ -30,6 +30,10 @@
                                 <field name="personal" string="Tecnico" domain="[('function', '=', 'TECNICO')]"/>
                             </div>
                             <div class="h3">
+                                <p class="fs-3">Total actual</p>
+                                <field name="bolsa_total" readonly="1" force_save="1"/>
+                            </div>
+                            <div class="h3">
                                 <p class="fs-3">Dinero a solicitar</p>
                                 <field name="bolsa_dineros"/>
                             </div>
@@ -42,10 +46,6 @@
                     <group string="Aprobación" id="bolsa_app" groups="fms_money_mod.view_bag_money">
                         <div class="container">
                             <field name="estado" invisible="1"/>
-                            <div class="h3">
-                                <p class="fs-3">Total actual</p>
-                                <field name="bolsa_total" readonly="1" force_save="1"/>
-                            </div>
                             <div class="h3">
                                 <p class="fs-3">Quien solicita</p>
                                 <field name="solicitado" force_save="1" readonly="1"/>
