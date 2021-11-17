@@ -4,14 +4,15 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "Python: Odoo14",
+            "name": "Odoo",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "python": "C:\\Odoo14\\python\\python.exe",
+            "python": "C:\\Users\\admin.lc\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
             "console": "integratedTerminal",
-            "program": "C:\\Users\\admin.lc\\Documents\\Odoo14\\odoo\\odoo_14.0.latest\\src\\odoo-bin",
+            "program": "C:\\Odoo14\\odoo\\odoo_14.0.latest\\src\\odoo-bin",
             "args": [
                 "--config=${workspaceRoot}\\odoo_14.0.latest\\src\\odoo.conf",
             ],
