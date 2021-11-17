@@ -1,6 +1,5 @@
 from odoo import models
 from datetime import datetime, date
-import xlsxwriter
 
 
 class Clientes(models.Model):
@@ -22,13 +21,14 @@ class Excel(models.AbstractModel):
     def generate_xlsx_report(self, workbook, data, partners):
         worksheet = workbook.add_worksheet("Solicitudes Dineros")
         bold = workbook.add_format({'align': 'center'})
+
+        # worksheet.set_column ancho de la columna ultimo numero
         worksheet.set_column("A:B", 30)
         worksheet.set_column("C:C", 35)
         worksheet.set_column("D:L", 30)
 
         # Columnas sheet.set_write Nombre y subnombres de las columnas/Ancho de las columnas
-        # sheet.set_column_pixels ultimo numero
-       
+
         worksheet.write(0, 0, 'NIT PAGADOR', bold)
         worksheet.write(1, 0, '900706219', bold)
         worksheet.write(2, 0, 'Tipo Documento Beneficiario', bold)
@@ -63,13 +63,18 @@ class Excel(models.AbstractModel):
 
         for obj in partners:
             i += 1
+            
+            # Seccion de Busqueda
+            cedula = self.env["hr.employee"].search(
+                [("name", "=", obj.personal.name)], limit=1
+            )
+            #fin de la Seccion
+            
             worksheet.write(i, 2, obj.personal.name, bold)
             worksheet.write(i, 6, obj.personal.email, bold)
             worksheet.write(i, 10, obj.bolsa_total, bold)
             worksheet.write(i, 4, '1007', bold)
+            worksheet.write(i, 1, cedula.identification_id, bold)
             worksheet.write(i, 3, '37', bold)
             worksheet.write(i, 0, '1', bold)
             worksheet.write(i, 11, fecha, bold)
-
-
-
