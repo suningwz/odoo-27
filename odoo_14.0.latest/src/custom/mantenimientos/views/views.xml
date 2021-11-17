@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record id="campos_mantenimeitno" model="ir.ui.view">
+      <field name="name">campos.mantenimiento</field>
+      <field name="model">maintenance.request</field>
+      <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form" />
+      <field name="priority" eval="31"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_title']/label[@for='name']" position="before">
+          <label for="name" class="oe_edit_only" string="Numero de solicitud"/>
+        </xpath>
+        <xpath expr="//div[@class='oe_title']/label[@for='name']" position="replace">
+          <label for="name" class="oe_edit_only" string="Numero de solicitud"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
