@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class gastos_mod(models.Model):
-#     _name = 'gastos_mod.gastos_mod'
-#     _description = 'gastos_mod.gastos_mod'
+class gastos_mod(models.Model):
+    _inherit = 'hr.expense'
+    valor_factura = fields.Float('Valor de la factura')
+    diferecia_valores = fields.Float('Diferencia entre las facturas')
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    @api.onchange('valor_factura')
+    def diferecia_de_valores(self):
+        valor1 = self.unit_amount - self.valor_factura
+        self.diferecia_valores = valor1
+        self.payment_mode = 'company_account'
