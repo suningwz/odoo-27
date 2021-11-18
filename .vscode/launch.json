@@ -1,0 +1,27 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Odoo",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "C:\\Users\\admin.lc\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+            "console": "integratedTerminal",
+            "program": "C:\\Odoo14\\odoo\\odoo_14.0.latest\\src\\odoo-bin",
+            "args": [
+                "--config=${workspaceRoot}\\odoo_14.0.latest\\src\\odoo.conf",
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "envFile": "${workspaceRoot}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        }
+    ]
+}
