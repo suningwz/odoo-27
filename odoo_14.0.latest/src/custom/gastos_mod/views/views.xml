@@ -33,7 +33,6 @@
                 <xpath expr="//group/group/field[@name='total_amount']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-
             </field>
         </record>
         <record id="campos_gasto2s" model="ir.ui.view">
