@@ -8,10 +8,10 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@class='oe_title']/label[@for='name']" position="before">
                     <div>
-                        <label for="id" class="oe_edit_only" string="Numero de identificador"/>
+                        <label for="num_identificado" class="oe_edit_only" string="Numero identificador"/>
                     </div>
                     <div>
-                        <field name="id"/>
+                        <field name="num_identificado" readonly="1" force_save="1"/>
                     </div>
                 </xpath>
             </field>
@@ -25,6 +25,63 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@class='oe_title']/label[@for='name']" position="replace">
                     <label for="name" class="oe_edit_only" string="Numero de solicitud"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--        esta seccion es para ocultar campos que no se requieren-->
+        <record id="invisible_mantenimientos" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='equipment_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos1" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos1</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='maintenance_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos2" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos2</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/label" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos3" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos3</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/div" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos4" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos4</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='email_cc']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>
