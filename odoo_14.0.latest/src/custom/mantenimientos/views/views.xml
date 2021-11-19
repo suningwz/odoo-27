@@ -85,5 +85,88 @@
                 </xpath>
             </field>
         </record>
+        <record id="invisible_mantenimientos5" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos5</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='schedule_date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos6" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos6</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='employee_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="invisible_mantenimientos7" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos7</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='priority']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!--        Fin de los campios ocultos-->
+        <!--        Modificaciones de los campos que quedaron-->
+        <record id="campo_creadopor" model="ir.ui.view">
+            <field name="name">campo.creadopor</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='request_date']" position="attributes">
+                    <attribute name="string">Fecha fin</attribute>
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="campo_creadopor1" model="ir.ui.view">
+            <field name="name">campo.creadopor1</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='request_date']" position="before">
+                    <field name="solicito"/>
+                    <field name="fecha_liberacion" string="Fecha liberacion"/>
+                    <field name="fecha_inicio" string="Fecha inicio"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="campo_creadopor2" model="ir.ui.view">
+            <field name="name">campo.creadopor2</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='user_id']" position="after">
+                    <field name="cliente"/>
+                    <field name="tipo_unidad"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="campo_creadopor3" model="ir.ui.view">
+            <field name="name">campo.creadopor2</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='request_date']" position="after">
+                    <field name="priority"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>

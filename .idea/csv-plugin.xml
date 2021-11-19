@@ -276,6 +276,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/sale/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/sale_management/security/ir.model.access.csv">
           <value>
             <Attribute>
@@ -312,6 +319,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/addons/stock_picking_batch/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/addons/test_xlsx_export/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

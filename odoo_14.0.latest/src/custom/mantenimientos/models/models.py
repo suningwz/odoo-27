@@ -6,6 +6,13 @@ import datetime
 class mantenimientos(models.Model):
     _inherit = 'maintenance.request'
 
+    fecha_inicio = fields.Datetime('Fecha de Inicio')
+    fecha_liberacion = fields.Date('Fecha de liberacion')
+    solicito = fields.Many2one('res.partner', domain="[('category_id', '=', 'Solicitante')]")
+    cliente = fields.Many2one('res.partner', domain="[('category_id', '=', 'Cliente')]")
+    tipo_unidad = fields.Selection([('n/a','N/A'),('atm', 'ATM'), ('edf', 'EDF'), ('ofc', 'OFC')],'Unidad')
+    codigo = fields.Char('codigo cajero')
+
     def formato_identificador(self):
         if not self.id:
             dato = "Nuevo"
@@ -26,4 +33,6 @@ class mantenimientos(models.Model):
 
     num_identificado = fields.Char('Identificacion interna', default= formato_identificador)
 
-    
+    @api.onchange('fecha_inicio')
+    def asignarfechas(self):
+        self.schedule_date = self.fecha_inicio
