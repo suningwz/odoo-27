@@ -118,6 +118,17 @@
                 </xpath>
             </field>
         </record>
+        <record id="invisible_mantenimientos8" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos8</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
         <!--        Fin de los campios ocultos-->
         <!--        Modificaciones de los campos que quedaron-->
         <record id="campo_creadopor" model="ir.ui.view">
@@ -154,6 +165,15 @@
                 <xpath expr="//group/group/field[@name='user_id']" position="after">
                     <field name="cliente"/>
                     <field name="tipo_unidad"/>
+                    <label for="codigo"/>
+                    <div>
+                        <field name="codigo" class="oe_inline"/>
+                        <span>
+                            <button class="oe_stat_button" name="buscar_cajeros" type="object" icon="fa-search"/>
+                        </span>
+                    </div>
+                    <field name="nombre_cejero" force_save="1" readonly="1"/>
+                    <field name="ciudad_cajero" force_save="1" readonly="1"/>
                 </xpath>
             </field>
         </record>
@@ -165,6 +185,17 @@
             <field name="arch" type="xml">
                 <xpath expr="//group/group/field[@name='request_date']" position="after">
                     <field name="priority"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="campo_creadopor4" model="ir.ui.view">
+            <field name="name">campo.creadopor4</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='solicito']" position="before">
+                    <field name="user_id" string="Coordinador"/>
                 </xpath>
             </field>
         </record>

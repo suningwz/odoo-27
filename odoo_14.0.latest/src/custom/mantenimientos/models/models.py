@@ -11,7 +11,10 @@ class mantenimientos(models.Model):
     solicito = fields.Many2one('res.partner', domain="[('category_id', '=', 'Solicitante')]")
     cliente = fields.Many2one('res.partner', domain="[('category_id', '=', 'Cliente')]")
     tipo_unidad = fields.Selection([('n/a','N/A'),('atm', 'ATM'), ('edf', 'EDF'), ('ofc', 'OFC')],'Unidad')
-    codigo = fields.Char('codigo cajero')
+    codigo = fields.Char('Codigo cajero')
+    nombre_cejero = fields.Char('Nombre')
+    ciudad_cajero = fields.Char('Ciudad')
+
 
     def formato_identificador(self):
         if not self.id:
@@ -36,3 +39,7 @@ class mantenimientos(models.Model):
     @api.onchange('fecha_inicio')
     def asignarfechas(self):
         self.schedule_date = self.fecha_inicio
+
+    def buscar_cajeros(self):
+        self.nombre_cejero = 'Prueba'
+        self.ciudad_cajero = 'Prueba'
