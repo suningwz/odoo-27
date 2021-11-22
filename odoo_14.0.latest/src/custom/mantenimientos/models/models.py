@@ -61,6 +61,5 @@ class mantenimientos(models.Model):
                 'context': context,
             }
         else:
-            print(cajero)
             self.nombre_cejero = cajero.name
             self.ciudad_cajero = cajero.city
