@@ -339,6 +339,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/web_tour/security/ir.rule.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/website/security/ir.model.access.csv">
           <value>
             <Attribute>
@@ -417,6 +424,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/odoo/addons/base/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/odoo/addons/test_new_api/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
