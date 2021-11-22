@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-       <record id="codigo_unidades" model="ir.ui.view">
+        <record id="codigo_unidades" model="ir.ui.view">
             <field name="name">codigo.unidades</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/field[@name='mobile']" position="after">
+                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/field[@name='mobile']"
+                       position="after">
                     <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tdv" string="TDV" attrs="{'invisible':[('type','!=','other')]}"/>
                 </xpath>
             </field>
         </record>
-	<record id="codigo_unidades_contact" model="ir.ui.view">
+        <record id="codigo_unidades_contact" model="ir.ui.view">
             <field name="name">codigo.unidades.contact</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="after">
                     <field name="codigo" string="Código" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tipo_unidad" string="Tipo de unidad" attrs="{'invisible':[('type','!=','other')]}"/>
                     <field name="tdv" string="TDV" attrs="{'invisible':[('type','!=','other')]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="codigo_vista_general" model="ir.ui.view">
+            <field name="name">codigo.vista.general</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='category_id']" position="after">
+                    <field name="codigo" string="Código" />
+                    <field name="tipo_unidad" string="Tipo de unidad" />
+                    <field name="tdv" string="TDV" />
+                    <field name="city" string="Ciudad" />
                 </xpath>
             </field>
         </record>
