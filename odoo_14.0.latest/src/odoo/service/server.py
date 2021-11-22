@@ -434,6 +434,7 @@ class ThreadedServer(CommonServer):
             t.setDaemon(True)
             t.type = 'cron'
             t.start()
+
             _logger.debug("cron%d started!" % i)
 
     def http_thread(self):
