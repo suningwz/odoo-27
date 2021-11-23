@@ -17,7 +17,6 @@
         'views/unit6.xml',
         'secutiry/security.xml',
         'report/report.xml',
-        'report/CuentaBancaria.xml',
     ],
     'installable': True,
     'application': True,
