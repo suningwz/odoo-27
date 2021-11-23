@@ -7,14 +7,17 @@ import datetime
 class mantenimientos(models.Model):
     _inherit = 'maintenance.request'
 
-    fecha_inicio = fields.Datetime('Fecha de Inicio')
+    fecha_inicio = fields.Date('Fecha de Inicio')
     fecha_liberacion = fields.Date('Fecha de liberacion')
     solicito = fields.Many2one('res.partner', domain="[('category_id', '=', 'Solicitante')]")
     cliente = fields.Many2one('res.partner', domain="[('category_id', '=', 'Cliente')]")
     tipo_unidad = fields.Selection([('n/a', 'N/A'), ('atm', 'ATM'), ('edf', 'EDF'), ('ofc', 'OFC')], 'Unidad')
-    codigo = fields.Char('Codigo cajero')
+    codigo = fields.Char('Codigo')
     nombre_cejero = fields.Char('Nombre')
     ciudad_cajero = fields.Char('Ciudad')
+    codificador = fields.Selection([('p1', 'p1'), ('p2', 'p1')], 'codificador', default='p1')
+    ordenes_fsm = fields.One2many('fsm.order', 'mantenimientos')
+
 
     def formato_identificador(self):
         if not self.id:
@@ -26,13 +29,31 @@ class mantenimientos(models.Model):
     @api.constrains('num_identificado')
     def asignacion_formato(self):
         if self.num_identificado == 'Nuevo':
-            print("ingresa")
             fecha = datetime.datetime.now()
             dato = f"MTTO-{fecha.year}{self.id}"
             print(dato)
             self.num_identificado = dato
+            if self.name == 'Nuevo':
+                self.name = dato
+            else:
+                numero = self.name
+                if numero:
+                    contact = self.env["maintenance.request"].search(
+                        [("name", "=", self.name)]
+                    )
+                    if contact:
+                        for c in contact:
+                            if c.id != self.id:
+                                raise Warning('El numero de solicitud ya existe, favor validar')
+            self.user_id = self.maintenance_team_id.lider
 
     num_identificado = fields.Char('Identificacion interna', default=formato_identificador)
+
+
+    @api.onchange('name')
+    def asignar_name(self):
+        if not self.name:
+            self.name = self.num_identificado
 
     @api.onchange('fecha_inicio')
     def asignarfechas(self):
@@ -63,3 +84,23 @@ class mantenimientos(models.Model):
         else:
             self.nombre_cejero = cajero.name
             self.ciudad_cajero = cajero.city
+
+        self.codificador = 'p2'
+
+    def crear_fsm(self):
+        action = self.env.ref("fieldservice.action_fsm_operation_order")
+        result = action.read()[0]
+        # parametros que se le pasan por contexto
+        result["context"] = {
+            "default_project_id": self.id,
+            "default_mantenimientos": self.id,
+            "cajero": self.nombre_cejero,
+        }
+        res = self.env.ref("fieldservice.fsm_order_form", False)
+        result["views"] = [(res and res.id or False, "form")]
+        return result
+
+class conection_fsm(models.Model):
+    _inherit = 'fsm.order'
+
+    mantenimientos = fields.Many2one('maintenance.request')
