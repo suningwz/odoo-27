@@ -140,6 +140,17 @@
                 </xpath>
             </field>
         </record>
+        <record id="invisible_mantenimientos10" model="ir.ui.view">
+            <field name="name">invisible.mantenimientos10</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
         <!--        Fin de los campios ocultos-->
         <!--        Modificaciones de los campos que quedaron-->
         <record id="campo_creadopor" model="ir.ui.view">
@@ -158,8 +169,8 @@
                             <button class="oe_stat_button" name="buscar_cajeros" type="object" icon="fa-search"/>
                         </span>
                     </div>
-                    <field name="nombre_cejero" force_save="1" readonly="1" />
-                    <field name="ciudad_cajero" force_save="1" readonly="1" />
+                    <field name="nombre_cejero" force_save="1" readonly="1"/>
+                    <field name="ciudad_cajero" force_save="1" readonly="1"/>
                 </xpath>
             </field>
         </record>
@@ -176,6 +187,34 @@
                     <field name="request_date" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="fecha_liberacion" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="priority" widget="priority" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="Relacion_fsm_mantenimiento" model="ir.ui.view">
+            <field name="name">Relacion.fsm.mantenimiento</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="after">
+                    <notebook>
+                        <page string="Descripcion de la solicitud">
+                            <label for="description"/>
+                            <field name="description"/>
+                        </page>
+                        <page string="Ordenes de servicio">
+                            <button name="crear_fsm" string="Crear orden de servicio" type="object"
+                                    class="oe_highlight"/>
+                            <field name="ordenes_fsm" widget="many2many" nolabel="1">
+                                <tree create="false">
+                                    <field name="name" style="pointer-events:none;"/>
+                                    <field name="stage_id" style="pointer-events:none;"/>
+                                    <field name="location_id" style="pointer-events:none;"/>
+                                    <field name="person_id" style="pointer-events:none;"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </xpath>
             </field>
         </record>
