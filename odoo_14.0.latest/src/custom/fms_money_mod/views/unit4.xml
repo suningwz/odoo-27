@@ -27,7 +27,8 @@
                             <field name="estado" invisible="1"/>
                             <div class="mb-3">
                                 <p class="h3">Tecnico</p>
-                                <field name="personal" string="Tecnico" attrs="{'readonly': [('estado', '!=', 'p1')]}"  force_save="1"/>
+                                <field name="personal" string="Tecnico" attrs="{'readonly': [('estado', '!=', 'p1')]}"
+                                       force_save="1"/>
                             </div>
                             <div class="h3">
                                 <p class="fs-3">Total actual</p>
@@ -36,7 +37,7 @@
                             <div class="h3">
                                 <p class="fs-3">Dinero a solicitar</p>
                                 <field name="bolsa_dineros"
-                                       attrs="{'readonly': [('estado', '!=', 'p1')]}"  force_save="1"/>
+                                       attrs="{'readonly': [('estado', '!=', 'p1')]}" force_save="1"/>
                             </div>
                             <div class="h3" attrs="{'invisible': [('estado', '!=', 'p3')]}">
                                 <p class="fs-3">Motivo</p>
