@@ -91,6 +91,7 @@ class mantenimientos(models.Model):
         action = self.env.ref("fieldservice.action_fsm_operation_order")
         result = action.read()[0]
         # parametros que se le pasan por contexto
+
         result["context"] = {
             "default_project_id": self.id,
             "default_mantenimientos": self.id,
