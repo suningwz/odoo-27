@@ -74,7 +74,7 @@ class Excel(models.AbstractModel):
 
             worksheet.write(i, 2, obj.personal.name, bold)
             worksheet.write(i, 6, obj.personal.email, bold)
-            worksheet.write(i, 10, obj.bolsa_total, bold)
+            worksheet.write(i, 10, obj.bolsa_dineros, bold)
             worksheet.write(i, 4, '1007', bold)
             worksheet.write(i, 1, cedula.identification_id, bold)
             worksheet.write(i, 5, cedula.bank_account_id.acc_number, bold)

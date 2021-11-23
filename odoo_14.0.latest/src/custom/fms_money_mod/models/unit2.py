@@ -45,7 +45,7 @@ class video_mano(models.Model):
             view_id = view and view.id or False
             context = dict(self._context or {})
             context[
-                'message'] = "ya se encuentra aprobado"
+                'message'] = "La solicitud ha sido aprobada, si desea aprobar otra solicitud, haga click en el botón 'Crear'"
             return {
                 'name': 'ADVERTENCIA',
                 'type': 'ir.actions.act_window',
