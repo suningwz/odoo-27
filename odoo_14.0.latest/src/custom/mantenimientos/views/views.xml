@@ -184,8 +184,8 @@
                     <field name="codificador" invisible="1"/>
                     <field name="solicito" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="fecha_inicio" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
-                    <field name="request_date" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
-                    <field name="fecha_liberacion" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
+                    <field name="fecha_fin" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
+                    <field name="fecha_h_liberacion" string="fecha de liberacion" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="priority" widget="priority" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                 </xpath>
             </field>
