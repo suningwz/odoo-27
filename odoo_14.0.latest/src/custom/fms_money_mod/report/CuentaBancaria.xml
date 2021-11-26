@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Codigo para reemplazar un campo  -->
+<odoo>
+    <data>
+        <record id="reemplazo_cuenta_bancaria" model="ir.ui.view">
+            <field name="name">reemplazo.cuenta.bancaria</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='identification_id']" position="attributes" >
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="style">color:Green</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
