@@ -160,7 +160,7 @@
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
                 <xpath expr="//group/group/field[@name='equipment_id']" position="after">
-                    <field name="cliente" required="1"/>
+                    <field name="cliente" required="1" options="{'no_create_edit': True, 'no_create': True}"/>
                     <field name="tipo_unidad" required="1"/>
                     <label for="codigo" required="1"/>
                     <div>
@@ -182,10 +182,12 @@
             <field name="arch" type="xml">
                 <xpath expr="//group/group/field[@name='maintenance_team_id']" position="after">
                     <field name="codificador" invisible="1"/>
-                    <field name="solicito" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
+                    <field name="solicito" attrs="{'required': [('codificador', '!=', 'p1')]}"
+                           options="{'no_create_edit': True, 'no_create': True}"/>
                     <field name="fecha_inicio" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="fecha_fin" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
-                    <field name="fecha_h_liberacion" string="fecha de liberacion" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
+                    <field name="fecha_h_liberacion" string="fecha de liberacion"
+                           attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                     <field name="priority" widget="priority" attrs="{'required': [('codificador', '!=', 'p1')]}"/>
                 </xpath>
             </field>
@@ -211,8 +213,20 @@
                                     <field name="stage_id" style="pointer-events:none;"/>
                                     <field name="location_id" style="pointer-events:none;"/>
                                     <field name="person_id" style="pointer-events:none;"/>
+                                    <button
+                                            name="action_view_fsm_maintenance"
+                                            string="Validar FSM"
+                                            type="object"
+                                            class="project_column"
+                                    />
                                 </tree>
                             </field>
+                        </page>
+                        <page string="Formulario incocluso">
+
+                        </page>
+                        <page string="Formulario de cierre">
+
                         </page>
                     </notebook>
                 </xpath>

@@ -173,3 +173,12 @@ class conection_fsm(models.Model):
     _inherit = 'fsm.order'
 
     mantenimientos = fields.Many2one('maintenance.request')
+
+    def action_view_fsm_maintenance(self):
+        action = self.env.ref("fieldservice.action_fsm_operation_order").read()[0]
+        order = self.env["fsm.order"].search([("id", "=", self.id)])
+        action["views"] = [
+            (self.env.ref("fieldservice." + "fsm_order_form").id, "form")
+        ]
+        action["res_id"] = order.id
+        return action
