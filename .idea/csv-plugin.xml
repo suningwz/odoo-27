@@ -220,6 +220,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/addons/l10n_it/data/account.account.template.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/addons/l10n_it/data/account.tax.group.csv">
           <value>
             <Attribute>
@@ -424,6 +431,13 @@
           </value>
         </entry>
         <entry key="/odoo_14.0.latest/src/custom/fieldservice_isp_account/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/odoo_14.0.latest/src/custom/gastos_mod/security/ir.model.access.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

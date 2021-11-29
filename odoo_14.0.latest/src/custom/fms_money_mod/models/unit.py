@@ -10,24 +10,25 @@ class bolsa_tecnicos(models.Model):
     bolsa_total = fields.Integer(string='Total', readonly=1, forcesave=1)
 
     def ingresar_dinero(self):
-       valor = self.bolsa_dineros
-       valor2 = self.bolsa_total
-       valor = valor2 + valor
-       if valor == 150000:
-           self.bolsa_dineros = 0
-           self.bolsa_total = valor
-       elif valor < 150000:
-           self.bolsa_dineros = 0
-           raise ValidationError(f'El valor minimo para ingresar es de  150000'
-                                 f'Actualmente se esta ingresando {valor}')
-       elif valor > 150000:
-           if valor <= 300000:
-               self.bolsa_dineros = 0
-               self.bolsa_total = valor
-           elif valor > 300000:
-               self.bolsa_dineros = 0
-               raise ValidationError(f'El valor maximo que se puede es de 300000 '
-                                     f'Actualmente se esta ingresando {valor}')
+        valor = self.bolsa_dineros
+        valor2 = self.bolsa_total
+        valor = valor2 + valor
+        if valor == 150000:
+            self.bolsa_dineros = 0
+            self.bolsa_total = valor
+        elif valor < 150000:
+            self.bolsa_dineros = 0
+            raise ValidationError(f'El valor minimo para ingresar es de  150000'
+                                  f'Actualmente se esta ingresando {valor}')
+        elif valor > 150000:
+            if valor <= 300000:
+                self.bolsa_dineros = 0
+                self.bolsa_total = valor
+            elif valor > 300000:
+                self.bolsa_dineros = 0
+                raise ValidationError(f'El valor maximo que se puede es de 300000 '
+                                      f'Actualmente se esta ingresando {valor}')
+
 
 class informes_gastos(models.Model):
     _inherit = 'hr.expense.sheet'
@@ -35,6 +36,7 @@ class informes_gastos(models.Model):
     def approve_expenses(self):
         self.employee_id.bolsa_total = (self.employee_id.bolsa_total - self.total_amount)
         self.approve_expense_sheets()
+
 
 class vista_bolsa(models.Model):
     _inherit = 'fsm.order'
@@ -50,12 +52,33 @@ class vista_bolsa(models.Model):
         )
         self.bolsa_total_tecnico = persona.bolsa_total
 
+    def crear_reporte(self):
+        action = self.env.ref("hr_expense.action_hr_expense_sheet_all_all")
+        result = action.read()[0]
+        empleado = self.env["hr.employee"].search(
+            [("name", "=", self.person_id.name)], limit=1).id
+        tabla = []
+        for x in self.gastos_tecnico:
+            tabla.append(x.id)
+        # parametros que se le pasan por contexto
+        result["context"] = {
+            "default_name": f'Orden de servicio numero: {self.name}',
+            "default_employee_id": empleado,
+            "default_expense_line_ids": [(6,0,tabla)],
+        }
+
+        res = self.env.ref("hr_expense.view_hr_expense_sheet_form", False)
+        result["views"] = [(res and res.id or False, "form")]
+        return result
+
+
 class gastos(models.Model):
     _inherit = 'hr.expense'
 
     gastos_opuesto = fields.Many2one('fsm.order', string="", invisible="True")
     seleccion_proyecto = fields.Many2one('fsm.order', string='Relacione la orden de servicio')
     current_user = fields.Char('nombre', default=lambda self: self.env.user.name)
+
 
 class bolsa_error(models.Model):
     _inherit = 'hr.employee.public'

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-       <record id="gastos_view" model="ir.ui.view">
+        <record id="gastos_view" model="ir.ui.view">
             <field name="name">expenses.view</field>
             <field name="model">fsm.order</field>
-            <field name="inherit_id" ref="fieldservice.fsm_order_form" />
+            <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page[@name='execution_page']" name="bag" position="inside">
-                    <group string="Dineros utilizados" name="dinners_bag" attrs="{'invisible': [('ejecucion_tecnica', '!=', 'r1')]}">
+                <xpath expr="//notebook/page[@name='execution_page']/group" name="bag" position="before">
+                    <group string="Dineros utilizados">
+                        <button name="crear_reporte" string="Crear reporte de gastos" type="object"
+                                class="oe_highlight mb-3"/>
+                    </group>
+                    <group name="dinners_bag">
                         <field name="gastos_tecnico" widget="many2many" nolabel="1">
                             <tree editable="bottom">
-                                <field name="date" />
-                                <field name="name" />
-                                <field name="employee_id" />
+                                <field name="date"/>
+                                <field name="name"/>
+                                <field name="employee_id"/>
                                 <field name="total_amount"/>
                                 <field name="state"/>
                                 <field name="company_id"/>
@@ -22,6 +26,6 @@
                     </group>
                 </xpath>
             </field>
-       </record>
+        </record>
     </data>
 </odoo>
