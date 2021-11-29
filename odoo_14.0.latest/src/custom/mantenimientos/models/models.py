@@ -155,6 +155,8 @@ class mantenimientos(models.Model):
             creacion_tarea = self.env['mail.activity'].create(data)
 
     def crear_fsm(self):
+        if self.stage_id != 1:
+            self.stage_id = 2
         action = self.env.ref("fieldservice.action_fsm_operation_order")
         result = action.read()[0]
         # parametros que se le pasan por contexto
