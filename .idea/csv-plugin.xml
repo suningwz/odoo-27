@@ -430,6 +430,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/odoo_14.0.latest/src/custom/mantenimientos/security/ir.model.access.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/odoo_14.0.latest/src/custom/odoo_android_sync/security/ir.model.access.csv">
           <value>
             <Attribute>

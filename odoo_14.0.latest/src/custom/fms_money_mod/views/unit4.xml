@@ -77,5 +77,11 @@
                 parent="hr_expense.menu_hr_expense_root"
                 name="Bolsas"
                 sequence="1"/>
+        <menuitem
+                action="bag_action"
+                id="action_menu2"
+                parent="action_menu1"
+                name="Bolsas Extraordinarias"
+                sequence="0"/>
     </data>
 </odoo>
