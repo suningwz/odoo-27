@@ -9,7 +9,6 @@ from calendar import day_name
 
 class mantenimientos(models.Model):
     _inherit = 'maintenance.request'
-
     fecha_inicio = fields.Date('Fecha de Inicio')
     fecha_fin = fields.Date('Fecha fin')
     solicito = fields.Many2one('res.partner', domain="[('category_id', '=', 'Solicitante')]")
@@ -33,27 +32,6 @@ class mantenimientos(models.Model):
             dato = self.id
         return dato
 
-    @api.constrains('num_identificado')
-    def asignacion_formato(self):
-        if self.num_identificado == 'Nuevo':
-            fecha = datetime.now()
-            dato = f"MTTO-{fecha.year}{self.id}"
-            print(dato)
-            self.num_identificado = dato
-            if self.name == 'Nuevo':
-                self.name = dato
-            else:
-                numero = self.name
-                if numero:
-                    contact = self.env["maintenance.request"].search(
-                        [("name", "=", self.name)]
-                    )
-                    if contact:
-                        for c in contact:
-                            if c.id != self.id:
-                                raise Warning('El numero de solicitud ya existe, favor validar')
-            self.user_id = self.maintenance_team_id.lider
-
     num_identificado = fields.Char('Identificacion interna', default=formato_identificador)
 
     @api.onchange('name')
@@ -65,6 +43,7 @@ class mantenimientos(models.Model):
     def asignarfechas(self):
         self.schedule_date = self.fecha_inicio
 
+    @api.constrains('name')
     def buscar_cajeros(self):
         cajero = self.env["res.partner"].search(
             [("parent_id", "=", self.cliente.name), ("codigo", "=", self.codigo),
@@ -155,6 +134,7 @@ class mantenimientos(models.Model):
             creacion_tarea = self.env['mail.activity'].create(data)
 
     def crear_fsm(self):
+
         if self.stage_id != 1:
             self.stage_id = 2
         action = self.env.ref("fieldservice.action_fsm_operation_order")
@@ -169,6 +149,27 @@ class mantenimientos(models.Model):
         res = self.env.ref("fieldservice.fsm_order_form", False)
         result["views"] = [(res and res.id or False, "form")]
         return result
+
+    @api.constrains('num_identificado')
+    def asignacion_formato(self):
+        if self.num_identificado == 'Nuevo':
+            fecha = datetime.now()
+            dato = f"MTTO-{fecha.year}{self.id}"
+            print(dato)
+            self.num_identificado = dato
+            if self.name == 'Nuevo':
+                self.name = dato
+            else:
+                numero = self.name
+                if numero:
+                    contact = self.env["maintenance.request"].search(
+                        [("name", "=", self.name)]
+                    )
+                    if contact:
+                        for c in contact:
+                            if c.id != self.id:
+                                raise Warning('El numero de solicitud ya existe, favor validar')
+            self.user_id = self.maintenance_team_id.lider
 
 
 class conection_fsm(models.Model):

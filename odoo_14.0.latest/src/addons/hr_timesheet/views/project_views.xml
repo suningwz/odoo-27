@@ -198,7 +198,7 @@
                 </xpath>
             </field>
         </record>
-<!-- 
+<!--
         <record id="view_task_tree2_inherited" model="ir.ui.view">
             <field name="name">project.task.tree.inherited</field>
             <field name="model">project.task</field>
