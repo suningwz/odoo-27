@@ -131,7 +131,8 @@ class mantenimientos(models.Model):
                 'activity_type_id': 4,
                 'date_deadline': tomorrow
             }
-            creacion_tarea = self.env['mail.activity'].create(data)
+            if self.name == 'Nuevo':
+                creacion_tarea = self.env['mail.activity'].create(data)
 
     def crear_fsm(self):
 
