@@ -106,7 +106,7 @@ class mantenimientos(models.Model):
                     if contact:
                         for c in contact:
                             if c.id != self.id:
-                                self.search([('num_identificado', '=', dato)]).unlink()
+                                raise ValueError('El numero de solicitud ya existe')
             self.user_id = self.maintenance_team_id.lider
             if not self.request_date:
                 print("No se puede")
