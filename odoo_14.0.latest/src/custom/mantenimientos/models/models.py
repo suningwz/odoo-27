@@ -6,6 +6,8 @@ from datetime import datetime
 from datetime import timedelta
 from calendar import day_name
 
+from stdnum.exceptions import ValidationError
+
 
 class mantenimientos(models.Model):
     _inherit = 'maintenance.request'
@@ -20,23 +22,29 @@ class mantenimientos(models.Model):
     codificador = fields.Selection([('p1', 'p1'), ('p2', 'p1')], 'codificador', default='p1')
     ordenes_fsm = fields.One2many('fsm.order', 'mantenimientos')
     fecha_h_liberacion = fields.Datetime('F/H de liberacion')
+
     @api.onchange('fecha_h_liberacion')
     def hora_liberacion_campos(self):
         self.request_date = self.fecha_h_liberacion
+
     def formato_identificador(self):
         if not self.id:
             dato = "Nuevo"
         else:
             dato = self.id
         return dato
+
     num_identificado = fields.Char('Identificacion interna', default=formato_identificador)
+
     @api.onchange('name')
     def asignar_name(self):
         if not self.name:
             self.name = self.num_identificado
+
     @api.onchange('fecha_inicio')
     def asignarfechas(self):
         self.schedule_date = self.fecha_inicio
+
     def buscar_cajeros(self):
         cajero = self.env["res.partner"].search(
             [("parent_id", "=", self.cliente.name), ("codigo", "=", self.codigo),
@@ -64,6 +72,7 @@ class mantenimientos(models.Model):
             self.ciudad_cajero = cajero.city
 
         self.codificador = 'p2'
+
     def crear_fsm(self):
         if self.stage_id != 1:
             self.stage_id = 2
@@ -78,6 +87,7 @@ class mantenimientos(models.Model):
         res = self.env.ref("fieldservice.fsm_order_form", False)
         result["views"] = [(res and res.id or False, "form")]
         return result
+
     @api.constrains('num_identificado')
     def asignacion_formato(self):
         if self.num_identificado == 'Nuevo':
@@ -96,7 +106,7 @@ class mantenimientos(models.Model):
                     if contact:
                         for c in contact:
                             if c.id != self.id:
-                                raise Warning('El numero de solicitud ya existe, favor validar')
+                                self.search([('num_identificado', '=', dato)]).unlink()
             self.user_id = self.maintenance_team_id.lider
             if not self.request_date:
                 print("No se puede")
@@ -159,6 +169,7 @@ class mantenimientos(models.Model):
                     'date_deadline': tomorrow
                 }
                 creacion_tarea = self.env['mail.activity'].create(data)
+
 
 class conection_fsm(models.Model):
     _inherit = 'fsm.order'
