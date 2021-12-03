@@ -29,15 +29,17 @@
                         </div>
                         <group>
                             <group>
-                                <field name="tiempo" string="Tiempo" />
-                                <field name="formato_tiempo" string="Formato" />
-                                <field name="num_preguntas" string="Numero de preguntas a responder" />
-                                <field name="recomendaciones" string="Recomendaciones"/>
-                                <field name="nota_aprovatoria" string="Nota aprovatoria"/>
+                                <field name="tiempo" string="Tiempo"/>
+                                <field name="formato_tiempo" string="Formato"/>
+                                <field name="num_preguntas" string="Numero de preguntas a responder"/>
                             </group>
                             <group>
-
+                                <field name="nota_aprovatoria" string="Nota aprovatoria"/>
+                                <field name="recomendaciones" string="Recomendaciones"/>
                             </group>
+                        </group>
+                        <group string="Preguntas">
+                            <field name="lista_preguntas"/>
                         </group>
                     </sheet>
                 </form>

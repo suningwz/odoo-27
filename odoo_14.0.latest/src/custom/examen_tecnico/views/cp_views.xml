@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="creacion_preguntas_action_window">
+            <field name="name">Formulario de preguntas</field>
+            <field name="res_model">preguntas_examen.preguntas_examen</field>
+            <field name="view_mode">form</field>
+        </record>
+        <record id="preguntas_formulario_generales" model="ir.ui.view">
+            <field name="name">Preguntas</field>
+            <field name="model">preguntas_examen.preguntas_examen</field>
+            <field name="arch" type="xml">
+                <form string="Examenes a realizar">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Pregunta"/>
+                            <h1>
+                                <field name="name" placeholder="Eje: ¿indique que es CRUD?"/>
+                            </h1>
+                        </div>
+                        <group string="Respuestas">
+                            <group>
+                                <field name="respuesta" string="1"/>
+                                <field name="respuesta1" string="2"/>
+                                <field name="respuesta2" string="3"/>
+                            </group>
+                            <group>
+                                <field name="respuesta3" string="4"/>
+                                <field name="respuesta4" string="5"/>
+                                <field name="respuesta5" string="6"/>
+                            </group>
+                        </group>
+                        <label for="respuesta_correcta" string="Indique cual es la respuesta correcta"/>
+                        <field name="respuesta_correcta"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
