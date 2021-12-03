@@ -16,27 +16,10 @@
 
         <!-- actions opening views on models -->
         <record model="ir.actions.act_window" id="examen_tecnico.action_window">
-            <field name="name">examen_tecnico window</field>
+            <field name="name">Examenes tecnicos</field>
             <field name="res_model">examen_tecnico.examen_tecnico</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-
-        <!-- server action to the one above -->
-
-        <record model="ir.actions.server" id="examen_tecnico.action_server">
-            <field name="name">examen_tecnico server</field>
-            <field name="model_id" ref="model_examen_tecnico_examen_tecnico"/>
-            <field name="state">code</field>
-            <field name="code">
-                action = {
-                "type": "ir.actions.act_window",
-                "view_mode": "tree,form",
-                "res_model": model._name,
-                }
-            </field>
-        </record>
-
 
         <!-- Top menu item -->
         <!--    <menuitem name="examen" id="examen_base_menu" web_icon="examen_name,static/description/icon.png"/>-->
@@ -45,15 +28,12 @@
 
         <!--    &lt;!&ndash; menu categories &ndash;&gt;-->
 
-        <menuitem name="Menu 1" id="examen_tecnico.menu_1" parent="examen_tecnico.menu_root"/>
-        <menuitem name="Menu 2" id="examen_tecnico.menu_2" parent="examen_tecnico.menu_root"/>
+        <menuitem name="Examenes" sequence="1"  id="examen_tecnico.menu_1" parent="examen_tecnico.menu_root"/>
 
         <!--    &lt;!&ndash; actions &ndash;&gt;-->
 
-        <menuitem name="List" id="examen_tecnico.menu_1_list" parent="examen_tecnico.menu_1"
+        <menuitem name="Lista de examenes" id="examen_tecnico.menu_1_list" parent="examen_tecnico.menu_1"
                   action="examen_tecnico.action_window"/>
-        <menuitem name="Server to list" id="examen_tecnico" parent="examen_tecnico.menu_2"
-                  action="examen_tecnico.action_server"/>
 
     </data>
 </odoo>
