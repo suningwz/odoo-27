@@ -11,6 +11,8 @@ class examen_tecnico(models.Model):
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
 
+    examen = fields.Many2one('creacion_examenes.creacion_examenes')
+
     @api.depends('value')
     def _value_pc(self):
         for record in self:

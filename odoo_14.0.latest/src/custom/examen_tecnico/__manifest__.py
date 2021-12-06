@@ -29,6 +29,7 @@
         'views/templates.xml',
         'views/ce_views.xml',
         'views/cp_views.xml',
+        'views/fe_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
