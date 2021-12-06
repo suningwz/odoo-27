@@ -6,11 +6,19 @@
             <field name="arch" type="xml">
                 <form string="Examen">
                     <sheet>
-                        <div class="oe_title">
+                        <field name="invisible" invisible="1"/>
+                        <field name="hora_ini" invisible="1"/>
+                        <field name="hora_max" invisible="1"/>
+                        <div class="oe_title" attrs="{'invisible': [('invisible', '=', True)]}">
                             <label for="examen" class="oe_edit_only" string="Selecione el examen a realizar"/>
                             <h1>
-                                <field name="examen" options="{'no_create_edit': True, 'no_create': True}"
-                                       attrs="{'invisible': [('oldest_cache_time', '=', False)]}"/>
+                                <field name="examen" options="{'no_create_edit': True, 'no_create': True}"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title" attrs="{'invisible': [('invisible', '=', False)]}">
+                            <label for="name" class="oe_edit_only" string="Examen"/>
+                            <h1>
+                                <field name="name" readonly="1" force_save="1"/>
                             </h1>
                         </div>
                     </sheet>

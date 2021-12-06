@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+import pytz
 from odoo import models, fields, api
+import datetime as DT
+from datetime import datetime
+from datetime import timedelta
+from calendar import day_name
 
 
 class examen_tecnico(models.Model):
@@ -10,8 +15,51 @@ class examen_tecnico(models.Model):
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
-
+    invisible = fields.Boolean(default=False)
     examen = fields.Many2one('creacion_examenes.creacion_examenes')
+    hora_ini = fields.Datetime()
+    hora_fin = fields.Datetime()
+    hora_max = fields.Datetime()
+
+    @api.onchange('hora_ini')
+    def inicio_examen(self):
+        if not self.hora_ini:
+            naive = DT.datetime.now()
+            utc = pytz.utc
+            gmt5 = pytz.timezone('Etc/GMT+5')
+            hora = str(utc.localize(naive).astimezone(gmt5))
+            hora = hora.split('.')
+            hora = hora[0]
+            hora2 = str(utc.localize(naive).astimezone(gmt5) + timedelta(hours=1))
+            hora2 = hora2.split('.')
+            hora2 = hora2[0]
+            self.hora_ini = hora
+            self.hora_max = hora2
+            print(self.hora_ini)
+            print(self.hora_max)
+
+    @api.onchange('examen')
+    def presentacion_examen(self):
+        print('ingreso')
+        if self.examen:
+            self.invisible = True
+            self.name = self.examen.name
+            naive = self.examen.hora
+            utc = pytz.utc
+            gmt5 = pytz.timezone('Etc/GMT+5')
+            hora1 = utc.localize(naive).astimezone(gmt5).strftime('%H:%M')
+            naive = self.examen.hora2
+            utc = pytz.utc
+            gmt5 = pytz.timezone('Etc/GMT+5')
+            hora2 = utc.localize(naive).astimezone(gmt5).strftime('%H:%M')
+            horai = self.hora_ini.strftime('%H:%M')
+            if hora1 > horai:
+                print('Aun no se puede realizar el examen')
+            elif hora1 < horai:
+                if hora2 > horai:
+                    print('se puede presentar el examen')
+                elif hora2 < horai:
+                    print('no se puede presentar el examen')
 
     @api.depends('value')
     def _value_pc(self):
@@ -31,6 +79,9 @@ class creacion_examenes(models.Model):
     nota_aprovatoria = fields.Integer(required=True, size=2,
                                       help='la nota se debe tomar de 1 a 100, si se pasa de ese valor quedara la nota en 100')
     lista_preguntas = fields.One2many('preguntas_examen.preguntas_examen', 'opuesto_examenes', string='Listado')
+    hora = fields.Datetime(required=True)
+    hora2 = fields.Datetime(required=True)
+
     @api.onchange('nota_aprovatoria')
     def redonder_nota(self):
         nota = self.nota_aprovatoria

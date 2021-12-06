@@ -29,12 +29,13 @@
                         </div>
                         <group>
                             <group>
-                                <field name="tiempo" string="Tiempo"/>
-                                <field name="formato_tiempo" string="Formato"/>
+                                <field name="tiempo" string="Tiempo por pregunta"/>
                                 <field name="num_preguntas" string="Numero de preguntas a responder"/>
+                                <field name="nota_aprovatoria" string="Nota aprovatoria"/>
                             </group>
                             <group>
-                                <field name="nota_aprovatoria" string="Nota aprovatoria"/>
+                                <field name="hora" string="Fecha/Hora de apertura"/>
+                                <field name="hora2" string="Fecha/Hora de cierre"/>
                                 <field name="recomendaciones" string="Recomendaciones"/>
                             </group>
                         </group>
