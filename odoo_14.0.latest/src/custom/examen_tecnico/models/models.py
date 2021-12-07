@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import pytz
-from odoo import models, fields, api
+from geopy import Nominatim
+from odoo import models, fields, api, http
 import datetime as DT
-from datetime import datetime
 from datetime import timedelta
-from calendar import day_name
+from odoo.http import request
 
 
 class examen_tecnico(models.Model):
@@ -20,6 +20,10 @@ class examen_tecnico(models.Model):
     hora_ini = fields.Datetime()
     hora_fin = fields.Datetime()
     hora_max = fields.Datetime()
+    user_id = fields.Many2one('res.users')
+
+    def cornometro(self):
+        print('ingresa')
 
     @api.onchange('hora_ini')
     def inicio_examen(self):
@@ -57,7 +61,7 @@ class examen_tecnico(models.Model):
                 print('Aun no se puede realizar el examen')
             elif hora1 < horai:
                 if hora2 > horai:
-                    print('se puede presentar el examen')
+                    print('se puede ejecutar')
                 elif hora2 < horai:
                     print('no se puede presentar el examen')
 
@@ -113,3 +117,14 @@ class preguntas_examen(models.Model):
                                                 ('5', '5'),
                                                 ('6', '6')])
     opuesto_examenes = fields.Many2one('creacion_examenes.creacion_examenes')
+
+# esto es un controlador que se usar para recibir los paremtros
+# mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
+class odoocontroler(http.Controller):
+    @http.route(['/ajax_cronometro'], type='json', auth='public', methods=['POST'])
+    def geolocalizacion(self, **kw):
+
+        p = {
+            "Estatus": "0k"
+        }
+        return p

@@ -30,6 +30,7 @@
         'views/ce_views.xml',
         'views/cp_views.xml',
         'views/fe_views.xml',
+        'views/archivos_js.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

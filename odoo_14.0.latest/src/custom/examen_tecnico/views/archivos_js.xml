@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="scrip_cronometro" model="ir.ui.view">
+            <field name="name">js.view.cronometro</field>
+            <field name="model">examen_tecnico.examen_tecnico</field>
+            <field name="inherit_id" ref="examen_tecnico.examen_presetado_generales"/>
+            <field name="priority" eval="31"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/button[@name='cornometro']" position="inside">
+                    <script type="text/javascript"
+                            src="examen_tecnico/static/js/cronometro.js"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
