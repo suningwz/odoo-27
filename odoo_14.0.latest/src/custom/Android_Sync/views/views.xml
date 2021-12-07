@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="android__sync.list">
+      <field name="name">android_Sync list</field>
+      <field name="model">android__sync.android__sync</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="android__sync.action_window">
+      <field name="name">android_Sync window</field>
+      <field name="res_model">android__sync.android__sync</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="android__sync.action_server">
+      <field name="name">android_Sync server</field>
+      <field name="model_id" ref="model_android__sync_android__sync"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="android_Sync" id="android__sync.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="android__sync.menu_1" parent="android__sync.menu_root"/>
+    <menuitem name="Menu 2" id="android__sync.menu_2" parent="android__sync.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="android__sync.menu_1_list" parent="android__sync.menu_1"
+              action="android__sync.action_window"/>
+    <menuitem name="Server to list" id="android__sync" parent="android__sync.menu_2"
+              action="android__sync.action_server"/>
+-->
+  </data>
+</odoo>

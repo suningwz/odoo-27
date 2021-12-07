@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_android__sync_android__sync,android__sync.android__sync,model_android__sync_android__sync,base.group_user,1,1,1,1
