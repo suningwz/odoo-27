@@ -21,6 +21,11 @@
                                 <field name="name" readonly="1" force_save="1"/>
                             </h1>
                         </div>
+                        <group string="Datos generales">
+                            <button name="cornometro" id="cronometro_id" type="object"
+                                    string="Click para Empezar el examen"
+                                    class="btn btn-primary"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
