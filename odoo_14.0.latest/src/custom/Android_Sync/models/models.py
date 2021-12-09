@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class odoo_android_sync(models.Model):
-#     _name = 'odoo_android_sync.odoo_android_sync'
-#     _description = 'odoo_android_sync.odoo_android_sync'
+# class android__sync(models.Model):
+#     _name = 'android__sync.android__sync'
+#     _description = 'android__sync.android__sync'
 
 #     name = fields.Char()
 #     value = fields.Integer()

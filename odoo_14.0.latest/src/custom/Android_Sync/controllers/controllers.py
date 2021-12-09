@@ -1,9 +1,26 @@
 # -*- coding: utf-8 -*-
 from odoo import http
-from odoo.http import Response
+from odoo.http import request
 import json
+from odoo.http import Response
 
 
+class AndroidSync(http.Controller):
+    #Ruta personalizada  (' /contacto' ) 
+    #Auth: Permisos de quien puede entrar a esta ruta
+    @http.route('/contacto', auth='public', website= True)
+    #Nombre de la funcion ojala no involcarla otravez porque se sobre-escribiria
+    def contacto_redirect(self):
+        #Funcion redirect :  La url del render real
+        return request.redirect('/contactus') 
+    
+class  WebsiteDirecto(http.Controller):
+    @http.route('/productos/<model("product.template"):product>', auth='public', website=True)
+    def product(self, product):
+        return http.request.render('Android_Sync.product',{
+            "product":product
+        })
+        
 class OdooAndroidSync(http.Controller):
 
     @http.route('/api/attendance/hours/<user_id>/<day_week>', auth='user', methods=['GET'])
