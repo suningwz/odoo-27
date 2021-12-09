@@ -5,6 +5,7 @@ from odoo import models, fields, api, http
 import datetime as DT, datetime
 from datetime import timedelta
 from odoo.http import request
+import random
 
 
 class examen_tecnico(models.Model):
@@ -30,7 +31,13 @@ class examen_tecnico(models.Model):
     def cornometro_boton(self):
         self.aplicacion_examen = True
         preguntas = self.examen.lista_preguntas
-        print(preguntas)
+        lista_pregunta = []
+        lista_final = []
+        for x in preguntas:
+            lista_pregunta.append(x.id)
+        num_responder = self.examen.num_preguntas
+        lista_final = random.sample(lista_pregunta,num_responder)
+        self.lista_preguntas = lista_final
 
     @api.onchange('hora_ini')
     def inicio_examen(self):
