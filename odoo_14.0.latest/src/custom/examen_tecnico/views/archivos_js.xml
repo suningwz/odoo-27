@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="examen_tecnico.examen_presetado_generales"/>
             <field name="priority" eval="31"/>
             <field name="arch" type="xml">
-                <xpath expr="//group/button[@name='cornometro']" position="inside">
+                <xpath expr="//group/button[@name='cornometro_boton']" position="inside">
                     <script type="text/javascript"
                             src="examen_tecnico/static/js/cronometro.js"/>
                 </xpath>

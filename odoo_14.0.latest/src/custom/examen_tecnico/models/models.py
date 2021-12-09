@@ -2,7 +2,7 @@
 import pytz
 from geopy import Nominatim
 from odoo import models, fields, api, http
-import datetime as DT
+import datetime as DT, datetime
 from datetime import timedelta
 from odoo.http import request
 
@@ -20,10 +20,17 @@ class examen_tecnico(models.Model):
     hora_ini = fields.Datetime()
     hora_fin = fields.Datetime()
     hora_max = fields.Datetime()
-    user_id = fields.Many2one('res.users')
+    user_id = fields.Many2one('res.users', string='Presenta')
+    cronometro = fields.Float(string='Tiempo')
+    presenta = fields.Datetime(string='Fecha de realizacion')
+    observaciones = fields.Text()
+    lista_preguntas = fields.One2many('preguntas_examen.preguntas_examen', 'opuesto_pe', string='Preguntas')
+    aplicacion_examen = fields.Boolean(default=False)
 
-    def cornometro(self):
-        print('ingresa')
+    def cornometro_boton(self):
+        self.aplicacion_examen = True
+        preguntas = self.examen.lista_preguntas
+        print(preguntas)
 
     @api.onchange('hora_ini')
     def inicio_examen(self):
@@ -42,11 +49,8 @@ class examen_tecnico(models.Model):
             print(self.hora_ini)
             print(self.hora_max)
 
-    @api.onchange('examen')
-    def presentacion_examen(self):
-        print('ingreso')
+    def confirmar_examen(self):
         if self.examen:
-            self.invisible = True
             self.name = self.examen.name
             naive = self.examen.hora
             utc = pytz.utc
@@ -58,12 +62,48 @@ class examen_tecnico(models.Model):
             hora2 = utc.localize(naive).astimezone(gmt5).strftime('%H:%M')
             horai = self.hora_ini.strftime('%H:%M')
             if hora1 > horai:
-                print('Aun no se puede realizar el examen')
+                view = self.env.ref('sh_message.sh_message_wizard')
+                view_id = view and view.id or False
+                context = dict(self._context or {})
+                context[
+                    'message'] = "Aun no se puede presentar el examen"
+                return {
+                    'name': 'ADVERTENCIA',
+                    'type': 'ir.actions.act_window',
+                    'view_type': 'form',
+                    'view_model': 'form',
+                    'res_model': 'sh.message.wizard',
+                    'views': [(view.id, 'form')],
+                    'view_id': view.id,
+                    'target': 'new',
+                    'context': context,
+                }
             elif hora1 < horai:
                 if hora2 > horai:
                     print('se puede ejecutar')
+                    self.invisible = True
+                    tiempo = float(self.examen.tiempo * self.examen.num_preguntas)
+                    self.cronometro = tiempo
+                    self.presenta = datetime.datetime.now()
+                    self.user_id = self.env.user
+                    self.observaciones = self.examen.recomendaciones
                 elif hora2 < horai:
-                    print('no se puede presentar el examen')
+                    view = self.env.ref('sh_message.sh_message_wizard')
+                    view_id = view and view.id or False
+                    context = dict(self._context or {})
+                    context[
+                        'message'] = "No se puede presentar el examen"
+                    return {
+                        'name': 'ADVERTENCIA',
+                        'type': 'ir.actions.act_window',
+                        'view_type': 'form',
+                        'view_model': 'form',
+                        'res_model': 'sh.message.wizard',
+                        'views': [(view.id, 'form')],
+                        'view_id': view.id,
+                        'target': 'new',
+                        'context': context,
+                    }
 
     @api.depends('value')
     def _value_pc(self):
@@ -97,33 +137,28 @@ class preguntas_examen(models.Model):
     _name = 'preguntas_examen.preguntas_examen'
     _description = 'preguntas_examen.preguntas_examen'
 
-    name = fields.Char()
-    respuesta = fields.Char()
-    respuesta1 = fields.Char()
-    respuesta2 = fields.Char()
-    respuesta3 = fields.Char()
-    respuesta4 = fields.Char()
-    respuesta5 = fields.Char()
-    respuesta_correcta = fields.Selection([('1', '1'),
-                                           ('2', '2'),
-                                           ('3', '3'),
-                                           ('4', '4'),
-                                           ('5', '5'),
-                                           ('6', '6')])
-    respuesta_representante = fields.Selection([('1', '1'),
-                                                ('2', '2'),
-                                                ('3', '3'),
-                                                ('4', '4'),
-                                                ('5', '5'),
-                                                ('6', '6')])
+    name = fields.Text()
+    respuesta = fields.Text()
+    respuesta1 = fields.Text()
+    respuesta2 = fields.Text()
+    respuesta3 = fields.Text()
+    respuesta_correcta = fields.Selection([('1', 'A'),
+                                           ('2', 'B'),
+                                           ('3', 'C'),
+                                           ('4', 'D')])
+    respuesta_representante = fields.Selection([('1', 'A'),
+                                                ('2', 'B'),
+                                                ('3', 'C'),
+                                                ('4', 'D')])
     opuesto_examenes = fields.Many2one('creacion_examenes.creacion_examenes')
+    opuesto_pe = fields.Many2one('examen_tecnico.examen_tecnico')
+
 
 # esto es un controlador que se usar para recibir los paremtros
 # mediante un archivo JSON del front enviado por JS para poder calcular la geolocalizacion
 class odoocontroler(http.Controller):
     @http.route(['/ajax_cronometro'], type='json', auth='public', methods=['POST'])
     def geolocalizacion(self, **kw):
-
         p = {
             "Estatus": "0k"
         }

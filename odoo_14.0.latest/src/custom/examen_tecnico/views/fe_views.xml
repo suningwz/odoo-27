@@ -9,11 +9,14 @@
                         <field name="invisible" invisible="1"/>
                         <field name="hora_ini" invisible="1"/>
                         <field name="hora_max" invisible="1"/>
+                        <field name="aplicacion_examen" invisible="1"/>
                         <div class="oe_title" attrs="{'invisible': [('invisible', '=', True)]}">
                             <label for="examen" class="oe_edit_only" string="Selecione el examen a realizar"/>
                             <h1>
                                 <field name="examen" options="{'no_create_edit': True, 'no_create': True}"/>
                             </h1>
+                            <button name="confirmar_examen" string="Confirmar" type="object"
+                                    class="btn btn-primary"/>
                         </div>
                         <div class="oe_title" attrs="{'invisible': [('invisible', '=', False)]}">
                             <label for="name" class="oe_edit_only" string="Examen"/>
@@ -21,11 +24,43 @@
                                 <field name="name" readonly="1" force_save="1"/>
                             </h1>
                         </div>
-                        <group string="Datos generales">
-                            <button name="cornometro" id="cronometro_id" type="object"
+                        <group string="Datos generales" attrs="{'invisible': [('invisible', '=', False)]}">
+                            <group string="">
+                                <field name="cronometro" id="field_cronometro_id" widget='float_time'
+                                       string="Finaliza en: " readonly="1"
+                                       force_save="1"/>
+                                <field name="presenta" string="Fecha/hora inicio" readonly="1"
+                                       force_save="1"/>
+                                <field name="user_id" string="Ejecuta" readonly="1"
+                                       force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="observaciones" string="Observaciones" readonly="1"
+                                       force_save="1"/>
+                            </group>
+                            <button name="cornometro_boton" id="cronometro_id" type="object"
                                     string="Click para Empezar el examen"
-                                    class="btn btn-primary"/>
+                                    class="btn btn-primary"
+                                    attrs="{'invisible': [('aplicacion_examen', '=', True)]}"
+                            />
                         </group>
+                        <field name="lista_preguntas" attrs="{'invisible': [('aplicacion_examen', '=', False)]}"
+                               nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" readonly="1"
+                                       force_save="1" string="Pregunta"/>
+                                <field name="respuesta" readonly="1"
+                                       force_save="1" string="A"/>
+                                <field name="respuesta1" readonly="1"
+                                       force_save="1" string="B"/>
+                                <field name="respuesta2" readonly="1"
+                                       force_save="1" string="C"/>
+                                <field name="respuesta3" readonly="1"
+                                       force_save="1" string="D"/>
+                                <field name="respuesta_representante"
+                                string="Indique su respuesta"/>
+                            </tree>
+                        </field>
                     </sheet>
                 </form>
             </field>

@@ -19,14 +19,13 @@
                         </div>
                         <group string="Respuestas">
                             <group>
-                                <field name="respuesta" string="1"/>
-                                <field name="respuesta1" string="2"/>
-                                <field name="respuesta2" string="3"/>
+                                <field name="respuesta" string="A"/>
+                                <field name="respuesta1" string="B"/>
+
                             </group>
                             <group>
-                                <field name="respuesta3" string="4"/>
-                                <field name="respuesta4" string="5"/>
-                                <field name="respuesta5" string="6"/>
+                                <field name="respuesta2" string="C"/>
+                                <field name="respuesta3" string="D"/>
                             </group>
                         </group>
                         <label for="respuesta_correcta" string="Indique cual es la respuesta correcta"/>

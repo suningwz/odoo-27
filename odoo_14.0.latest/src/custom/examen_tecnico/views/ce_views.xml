@@ -29,9 +29,15 @@
                         </div>
                         <group>
                             <group>
-                                <field name="tiempo" string="Tiempo por pregunta"/>
+                                <label for="tiempo"/>
+                                <div>
+                                    <field name="tiempo" class="oe_inline" required="1"/>
+                                    <span>
+                                        Minuto(s)
+                                    </span>
+                                </div>
                                 <field name="num_preguntas" string="Numero de preguntas a responder"/>
-                                <field name="nota_aprovatoria" string="Nota aprovatoria"/>
+                                <field name="nota_aprovatoria" string="Nota aprobatoria"/>
                             </group>
                             <group>
                                 <field name="hora" string="Fecha/Hora de apertura"/>

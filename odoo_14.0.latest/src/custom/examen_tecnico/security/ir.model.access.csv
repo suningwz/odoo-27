@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_examen_tecnico_examen_tecnico,examen_tecnico.examen_tecnico,model_examen_tecnico_examen_tecnico,base.group_user,1,1,1,1
+access_creacion_examenes_creacion_examenes,creacion_examenes.creacion_examenes,model_creacion_examenes_creacion_examenes,base.group_user,1,1,1,1
+access_preguntas_examen_preguntas_examen,preguntas_examen.preguntas_examen,model_preguntas_examen_preguntas_examen,,1,1,1,1
