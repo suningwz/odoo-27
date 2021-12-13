@@ -27,14 +27,15 @@ class WebsiteDirecto(http.Controller):
         })
 
 
-class OdooAndroidSync(http.Controller):
+class Hours_(http.Controller):
     @http.route('/api/attendance/hours/<user_id>/<day_week>', auth='user', methods=['GET'])
     def get_attendance_hours(self, user_id, day_week, **kw):
         try:
             calendar_id = http.request.env['hr.employee'].sudo().search(
                 [('user_id', '=', int(user_id))]).resource_calendar_id.id
-            hours = http.request.env['resource.calendar.attendance'].sudo().search_read([('calendar_id', '=', int(calendar_id)),
-                                                                                         ('dayofweek', '=', day_week)], ['hour_from', 'hour_to'])
+            hours = http.request.env['resource.calendar.attendance'].sudo().search_read(
+                [('calendar_id', '=', int(calendar_id)),
+                 ('dayofweek', '=', day_week)], ['hour_from', 'hour_to'])
 
             return self.build_response(hours)
         except Exception as e:
@@ -56,22 +57,20 @@ class OdooAndroidSync(http.Controller):
         return Response(response, content_type='application/json;charset=utf-8', status=200)
 
 
-@http.route('/get_reports', type="json", auth='public', csrf=False)
-def get_all_reports(self):
-     # get all  reports
-     reports_rec = request.env['fsm.order'].search([])
-     reports= []
-     for rec in reports_rec:
+class Reports(http.Controller):
+    @http.route('/get_reports', type="json", auth='user')
+    def get_all_reports(self):
+        # Get all reports
+        reports_rec = request.env['fsm.order'].search([])
+        reports = []
+        for rec in reports_rec:
             vals = {
                 'id': rec.id,
                 'name': rec.name,
-                'subject': rec.subject_id.name,
-                'phone': rec.phone_number,
+                'centro_costos': rec.centro_costos.name,
+                'person_id': rec.person_id.name,
+                'instructions': rec.todo, 
             }
             reports.append(vals)
-     data = {
-            'status': "200",
-            'message': "success",
-            'response': reports,
-        }
-     return data
+        data = {'status': 200, 'response': reports, 'message': 'Success', }
+        return data
